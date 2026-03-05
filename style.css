@@ -28,7 +28,7 @@ body {
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* ¡VITAL! Corta cualquier desborde lateral */
+    overflow-x: hidden; 
     position: relative;
 }
 
@@ -39,7 +39,7 @@ html, body {
     width: 100%;
     height: 90px;
     background: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(10px); /* Efecto cristal */
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,45 +54,15 @@ html, body {
     gap: 10px;
 }
 
-.escudo {
-    height: 90px;
-    width: auto;
-}
+.escudo { height: 90px; width: auto; }
 
-.brand-info {
-    display: flex;
-    flex-direction: column;
-}
+.brand-info { display: flex; flex-direction: column; }
+.brand-name { font-size: 0.9rem; font-weight: 600; letter-spacing: -0.5px; }
+.tagline { color: var(--verde-lima); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.brand-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.tagline {
-    color: var(--verde-lima);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.nav-menu ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.nav-menu a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.nav-menu a:hover {
-    color: var(--verde-lima);
-}
+.nav-menu ul { display: flex; list-style: none; gap: 25px; }
+.nav-menu a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.nav-menu a:hover { color: var(--verde-lima); }
 
 .btn-radio {
     background: var(--verde-lima);
@@ -105,8 +75,8 @@ html, body {
     text-transform: uppercase;
     transition: 0.4s;
     width: auto; 
-    min-width: 200px; /* esto ayuda a mantener pequeño o adjust */
-    max-width: 90%;   /* adjust to screen in the cell or preview in cell */
+    min-width: 200px;
+    max-width: 90%;
     white-space: normal;
     word-wrap: break-word;
     text-align: center;
@@ -130,38 +100,18 @@ html, body {
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--oscuro-puro));
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.hero-content {
-    text-align: center;
-    max-width: 900px;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-family: var(--fuente-titulo);
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
-.hero-content h1 span {
-    color: var(--verde-lima);
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    color: var(--gris-luz);
-    margin-bottom: 40px;
-}
+.hero-content { text-align: center; max-width: 900px; padding: 20px; }
+.hero-content h1 { font-family: var(--fuente-titulo); font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
+.hero-content h1 span { color: var(--verde-lima); }
+.hero-content p { font-size: 1.3rem; color: var(--gris-luz); margin-bottom: 40px; }
 
 .btn-explora {
     display: inline-block;
@@ -182,25 +132,15 @@ html, body {
 }
 
 /* --- 4. SECCIÓN DE TARJETAS (INFO) --- */
-.seccion-cards {
-    padding: 100px 5%;
-    background: var(--oscuro-puro);
-}
-
+.seccion-cards { padding: 100px 5%; background: var(--oscuro-puro); }
 .container-cards {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
 
 .card-premium {
-    background: var(--oscuro-suave);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    transition: 0.4s;
+    background: var(--oscuro-suave); padding: 40px;
+    border-radius: 20px; text-align: center; transition: 0.4s;
     border: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -210,177 +150,69 @@ html, body {
     box-shadow: 0 10px 40px rgba(50, 205, 50, 0.1);
 }
 
-.card-icon {
-    font-size: 3rem;
-    color: var(--verde-lima);
-    margin-bottom: 20px;
-}
+.card-icon { font-size: 3rem; color: var(--verde-lima); margin-bottom: 20px; }
+.card-premium h3 { font-family: var(--fuente-titulo); font-size: 1.8rem; margin-bottom: 15px; }
+.card-premium p { color: var(--gris-luz); font-size: 0.95rem; }
+.card-premium strong { color: var(--verde-lima); }
 
-.card-premium h3 {
-    font-family: var(--fuente-titulo);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.card-premium p {
-    color: var(--gris-luz);
-    font-size: 0.95rem;
-}
-
-.card-premium strong {
-    color: var(--verde-lima);
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.8rem; }
-    .nav-menu { display: none; } /* Oculta menú en móvil para simplificar por ahora */
-}
-
-/* --- TIMELINE HORIZONTAL --- */
-.seccion-timeline {
-    padding: 100px 0;
-    background: #0a0a0a;
-    overflow: hidden;
-}
-
-.titulo-seccion {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.titulo-seccion h2 {
-    font-family: var(--fuente-titulo);
-    font-size: 3rem;
-    color: var(--blanco);
-}
+/* --- 5. TIMELINE HORIZONTAL --- */
+.seccion-timeline { padding: 100px 0; background: #0a0a0a; overflow: hidden; }
+.titulo-seccion { text-align: center; margin-bottom: 60px; }
+.titulo-seccion h2 { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--blanco); }
 
 .timeline-container {
-    padding: 20px 5%;
-    overflow-x: auto; /* Permite scroll horizontal */
-    scrollbar-width: thin;
-    scrollbar-color: var(--verde-lima) #1a1a1a;
+    padding: 20px 5%; overflow-x: auto;
+    scrollbar-width: thin; scrollbar-color: var(--verde-lima) #1a1a1a;
 }
-
-/* Personalizar barra de scroll para Chrome/Edge */
 .timeline-container::-webkit-scrollbar { height: 8px; }
 .timeline-container::-webkit-scrollbar-thumb { background: var(--verde-lima); border-radius: 10px; }
 
 .timeline-track {
-    display: flex;
-    gap: 40px;
-    width: max-content; /* Obliga a los items a ponerse en fila */
-    padding-bottom: 30px;
-    border-top: 2px solid rgba(255,255,255,0.1); /* La línea del tiempo */
-    position: relative;
-    margin-top: 50px;
+    display: flex; gap: 40px; width: max-content;
+    padding-bottom: 30px; border-top: 2px solid rgba(255,255,255,0.1);
+    position: relative; margin-top: 50px;
 }
 
-.timeline-item {
-    width: 350px;
-    position: relative;
-}
-
-/* El puntito sobre la línea */
+.timeline-item { width: 350px; position: relative; }
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: -11px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--verde-lima);
-    border-radius: 50%;
-    box-shadow: 0 0 15px var(--verde-lima);
+    content: ''; position: absolute; top: -11px; left: 0;
+    width: 20px; height: 20px; background: var(--verde-lima);
+    border-radius: 50%; box-shadow: 0 0 15px var(--verde-lima);
 }
 
-.timeline-date {
-    margin-top: 20px;
-    color: var(--verde-lima);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+.timeline-date { margin-top: 20px; color: var(--verde-lima); font-weight: bold; font-size: 1.2rem; }
+.timeline-img { width: 100%; height: 200px; margin: 20px 0; border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.timeline-img img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.5) contrast(1.2); transition: 0.5s; }
+.timeline-item:hover img { filter: sepia(0); }
+.timeline-content h3 { font-family: var(--fuente-titulo); margin-bottom: 10px; font-size: 1.5rem; }
+.timeline-content p { font-size: 0.9rem; color: var(--gris-luz); text-align: justify; }
 
-.timeline-img {
-    width: 100%;
-    height: 200px;
-    margin: 20px 0;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.timeline-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: sepia(0.5) contrast(1.2); /* Efecto foto antigua */
-    transition: 0.5s;
-}
-
-.timeline-item:hover img {
-    filter: sepia(0);
-}
-
-.timeline-content h3 {
-    font-family: var(--fuente-titulo);
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.timeline-content p {
-    font-size: 0.9rem;
-    color: var(--gris-luz);
-    text-align: justify;
-}
-
-/* --- ESTILOS DEL BOTÓN --- */
+/* --- 6. MODAL Y BOTÓN "CONOCER MÁS" --- */
 .container-boton-modal { text-align: center; padding: 40px 0; }
 .btn-conocer-mas {
-    background: transparent;
-    color: var(--verde-lima);
-    border: 2px solid var(--verde-lima);
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.4s;
-    font-family: var(--fuente-texto);
+    background: transparent; color: var(--verde-lima);
+    border: 2px solid var(--verde-lima); padding: 15px 35px;
+    font-size: 1.1rem; font-weight: 600; border-radius: 50px;
+    cursor: pointer; transition: 0.4s; font-family: var(--fuente-texto);
+    width: auto; max-width: 90vw; display: inline-block;
 }
 .btn-conocer-mas:hover {
-    background: var(--verde-lima);
-    color: white;
+    background: var(--verde-lima); color: white;
     box-shadow: 0 0 25px rgba(50, 205, 50, 0.4);
 }
 
-/* --- ESTILOS DEL MODAL --- O el que me ayuda en el boton quieres conocer mas? */
 .modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    padding: 20px;
-    
-    /* CORRECCIÓN DE BARRA */
-    scrollbar-width: thin;
-    scrollbar-color: var(--verde-lima) #1a1a1a;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px);
+    display: none; justify-content: center; align-items: center;
+    z-index: 2000; padding: 20px;
+    scrollbar-width: thin; scrollbar-color: var(--verde-lima) #1a1a1a;
 }
 
 .modal-container {
-    background: var(--oscuro-suave);
-    width: 100%;
-    max-width: 800px;
-    max-height: 90vh;
-    border-radius: 25px;
-    overflow-y: auto;
-    position: relative;
-    animation: modalEntrada 0.5s ease forwards;
+    background: var(--oscuro-suave); width: 100%; max-width: 800px;
+    max-height: 90vh; border-radius: 25px; overflow-y: auto;
+    position: relative; animation: modalEntrada 0.5s ease forwards;
 }
 
 @keyframes modalEntrada {
@@ -389,26 +221,17 @@ html, body {
 }
 
 .btn-cerrar {
-    position: absolute;
-    top: 20px; right: 25px;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    width: 45px; height: 45px;
-    border-radius: 50%;
+    position: absolute; top: 20px; right: 25px;
+    background: rgba(0,0,0,0.5); color: white; border: none;
+    font-size: 2rem; cursor: pointer; z-index: 10;
+    width: 45px; height: 45px; border-radius: 50%;
 }
 
 .modal-header { position: relative; height: 300px; }
 .img-header-modal { width: 100%; height: 100%; object-fit: cover; }
 .modal-titulo-overlay {
-    position: absolute;
-    bottom: 0; left: 0;
-    padding: 30px;
-    background: linear-gradient(transparent, var(--oscuro-suave));
-    width: 100%;
+    position: absolute; bottom: 0; left: 0; padding: 30px;
+    background: linear-gradient(transparent, var(--oscuro-suave)); width: 100%;
 }
 
 .modal-body { padding: 40px; }
@@ -416,236 +239,132 @@ html, body {
 .modal-info-block h3 { color: var(--verde-lima); margin-bottom: 15px; font-family: var(--fuente-titulo); }
 .modal-info-block p { color: var(--gris-luz); line-height: 1.8; text-align: justify; }
 .modal-info-block ul li { color: var(--gris-luz); font-family: var(--fuente-texto); margin-bottom: 15px; }
-/* aqui termina mi quieres conocer mas?*/
 
-/* --- SECCIÓN GEOGRAFÍA --- */
-.seccion-geografia {
-    padding: 100px 5%;
-    background: #0f0f0f;
-}
-
-.geo-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
+/* --- 7. SECCIÓN GEOGRAFÍA --- */
+.seccion-geografia { padding: 100px 5%; background: #0f0f0f; }
+.geo-header { text-align: center; margin-bottom: 60px; }
 .frase-geo {
-    font-family: var(--fuente-titulo);
-    font-size: 2.5rem;
-    color: var(--verde-lima);
-    font-style: italic;
+    font-family: var(--fuente-titulo); font-size: 2.5rem;
+    color: var(--verde-lima); font-style: italic;
     text-shadow: 0 0 15px rgba(50, 205, 50, 0.2);
 }
 
 .geo-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
 }
 
-.geo-details h3 {
-    font-family: var(--fuente-titulo);
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-}
+.geo-details h3 { font-family: var(--fuente-titulo); font-size: 2.2rem; margin-bottom: 20px; }
+.geo-details p { color: var(--gris-luz); margin-bottom: 25px; font-size: 1.1rem; }
 
-.geo-details p {
-    color: var(--gris-luz);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-/* Chips de información rápida */
-.info-tags {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
+.info-tags { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
 .info-tags span {
-    background: rgba(50, 205, 50, 0.1);
-    color: var(--verde-lima);
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    border: 1px solid var(--verde-lima);
-    font-weight: 600;
+    background: rgba(50, 205, 50, 0.1); color: var(--verde-lima);
+    padding: 8px 15px; border-radius: 50px; font-size: 0.85rem;
+    border: 1px solid var(--verde-lima); font-weight: 600;
 }
 
-/* Tabla Millonaria */
 .tabla-geo {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--oscuro-suave);
-    border-radius: 15px;
-    overflow: hidden;
+    width: 100%; border-collapse: collapse;
+    background: var(--oscuro-suave); border-radius: 15px; overflow: hidden;
 }
-
 .tabla-geo th {
-    background: var(--verde-lima);
-    color: white;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+    background: var(--verde-lima); color: white; text-align: left;
+    padding: 15px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;
 }
+.tabla-geo td { padding: 15px; color: white; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.tabla-geo tr:hover { background: rgba(255, 255, 255, 0.03); }
 
-.tabla-geo td {
-    padding: 15px;
-    color: white;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.tabla-geo tr:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-/* Responsivo para el mapa */
-@media (max-width: 968px) {
-    .geo-content {
-        grid-template-columns: 1fr;
-    }
-    .frase-geo { font-size: 1.8rem; }
-}
-/* --- SECCIÓN CULTURA --- */
+/* --- 8. SECCIÓN CULTURA --- */
 .seccion-cultura {
-    padding: 100px 5%;
-    background: #0a0a0a;
-    width: 100%;
-    overflow-x: hidden; /* Esto corta cualquier cosa que se quiera salir por los lados */
+    padding: 100px 5%; background: #0a0a0a;
+    width: 100%; overflow-x: hidden;
 }
-
-
 .cultura-header { text-align: center; margin-bottom: 50px; }
 .cultura-header h2 { font-family: var(--fuente-titulo); font-size: 3.5rem; color: var(--blanco); }
 
-/* Carrusel de Fiestas */
+/* Carrusel de Fiestas (Unificado y Limpio) */
 .carrusel-fiestas {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 40px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--verde-lima) #1a1a1a;
+    display: flex; gap: 30px; overflow-x: auto;
+    padding: 20px 5% 40px 5%; scroll-behavior: smooth;
+    scrollbar-width: thin; scrollbar-color: var(--verde-lima) #1a1a1a;
 }
+.carrusel-fiestas::-webkit-scrollbar { height: 8px; }
+.carrusel-fiestas::-webkit-scrollbar-thumb { background: var(--verde-lima); border-radius: 10px; }
 
 .fiesta-card {
-    min-width: 400px;
-    height: 500px;
-    flex-shrink: 0; /* EVITA QUE SE ENCOJAN O CORTEN */
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
+    min-width: 400px; height: 500px; flex-shrink: 0;
+    position: relative; border-radius: 20px; overflow: hidden;
     transition: transform 0.4s ease;
 }
-
 .fiesta-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .fiesta-info {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
+    position: absolute; bottom: 0; width: 100%; padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white;
 }
 
 /* Platos Cards */
-.platos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-
+.platos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
 .plato-card {
-    background: var(--oscuro-suave);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s;
+    background: var(--oscuro-suave); padding: 20px; border-radius: 15px;
+    text-align: center; border-bottom: 3px solid transparent; transition: 0.3s;
 }
-
-.plato-card:hover {
-    border-color: var(--verde-lima);
-    transform: translateY(-10px);
-}
-
-.plato-img {
-    width: 100%;
-    height: 150px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-
+.plato-card:hover { border-color: var(--verde-lima); transform: translateY(-10px); }
+.plato-img { width: 100%; height: 150px; border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
 .plato-img img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Videos */
+/* Videos (Corrección de Texto Verde) */
 .videos-seccion h3 {
-    margin-top: 80px;
-    text-align: center;
-    font-family: var(--fuente-titulo);
-    font-size: 3rem;
-    color: var(--verde-lima);
-    text-transform: uppercase;
+    margin-top: 80px; text-align: center;
+    font-family: var(--fuente-titulo); font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--verde-lima); text-transform: uppercase;
 }
-.video-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-top: 80px;
-}
-
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 40px; }
 .video-item { background: #111; padding: 10px; border-radius: 10px; text-align: center; }
 
-/* Cierre */
-.cierre-cultura {
-    text-align: center;
-    padding: 100px 0;
+/* Asegurar que el texto del video sea blanco y normal */
+.video-item p {
+    color: white !important; font-family: var(--fuente-texto) !important;
+    font-size: 1rem !important; text-transform: none !important; margin-top: 10px;
 }
 
-.cierre-cultura h2 {
-    font-family: var(--fuente-titulo);
-    font-size: 3rem;
-    color: var(--verde-lima);
-    text-transform: uppercase;
+.cierre-cultura { text-align: center; padding: 100px 0; }
+.cierre-cultura h2 { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--verde-lima); text-transform: uppercase; }
+
+
+/* --- 9. AJUSTES MÓVILES (MEDIA QUERIES) --- */
+/* Todo lo relacionado a celulares va en este único bloque final */
+@media (max-width: 968px) {
+    .geo-content { grid-template-columns: 1fr; }
+    .frase-geo { font-size: 1.8rem; }
 }
 
 @media (max-width: 768px) {
-    .video-grid { grid-template-columns: 1fr; }
-    .fiesta-card { min-width: 300px; }
-}
-
-/* Ajuste para que todo toque los bordes en el cel */
-section, .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 15px !important;  /* Un mínimo para que el texto no choque el vidrio */
-    padding-right: 15px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-.carrusel-fiestas {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    padding: 20px 5% 40px 5%; /* El 5% evita el recorte al final */
-    scroll-behavior: smooth;
+    /* Ajustes generales */
+    .hero-content h1 { font-size: 2.8rem; }
+    .nav-menu { display: none; }
+    body { overflow-x: hidden; }
     
-    /* Barra de scroll estilizada */
-    scrollbar-width: thin;
-    scrollbar-color: var(--verde-lima) #1a1a1a;
-}
-
-/* Chrome/Safari Scrollbar */
-.carrusel-fiestas::-webkit-scrollbar { height: 8px; }
-.carrusel-fiestas::-webkit-scrollbar-thumb {
-    background: var(--verde-lima);
-    border-radius: 10px;
+    /* Forzar Edge to Edge sin recortes */
+    section, .container {
+        width: 100% !important; max-width: 100% !important;
+        padding-left: 15px !important; padding-right: 15px !important;
+        margin-left: 0 !important; margin-right: 0 !important;
+        box-sizing: border-box;
+    }
+    
+    /* Carrusel Edge to Edge */
+    .carrusel-fiestas {
+        width: 100vw; margin-left: -15px; padding-left: 15px !important;
+    }
+    .fiesta-card { min-width: 280px; height: 400px; }
+    
+    /* Video Grid */
+    .video-grid { grid-template-columns: 1fr; gap: 30px; }
+    
+    /* Botones flexibles */
+    .btn-conocer-mas, .btn-radio {
+        width: 100%; max-width: 320px; font-size: 0.95rem;
+        padding: 12px 15px; white-space: normal;
+    }
 }
