@@ -26,6 +26,12 @@ body {
     line-height: 1.6;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* ¡VITAL! Corta cualquier desborde lateral */
+    position: relative;
+}
+
 /* --- 2. CABECERA FIJA (NAVBAR) --- */
 .navbar {
     position: fixed;
@@ -610,4 +616,21 @@ body {
 @media (max-width: 768px) {
     .video-grid { grid-template-columns: 1fr; }
     .fiesta-card { min-width: 300px; }
+}
+
+/* Ajuste para que todo toque los bordes en el cel */
+section, .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 15px !important;  /* Un mínimo para que el texto no choque el vidrio */
+    padding-right: 15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* El Carrusel de fotos debe ignorar el padding para ser edge-to-edge */
+.carrusel-fiestas {
+    width: 100vw; 
+    margin-left: -15px; /* Compensa el padding del padre */
+    padding-left: 15px;
 }
