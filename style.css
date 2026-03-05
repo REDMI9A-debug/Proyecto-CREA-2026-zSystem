@@ -360,12 +360,14 @@ html, body {
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px); /* Desenfoque de fondo */
-    display: none; /* Se activa con JS */
+    backdrop-filter: blur(5px);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 2000;
     padding: 20px;
+    
+    /* CORRECCIÓN DE BARRA */
     scrollbar-width: thin;
     scrollbar-color: var(--verde-lima) #1a1a1a;
 }
@@ -535,9 +537,11 @@ html, body {
 .fiesta-card {
     min-width: 400px;
     height: 500px;
+    flex-shrink: 0; /* EVITA QUE SE ENCOJAN O CORTEN */
     position: relative;
     border-radius: 20px;
     overflow: hidden;
+    transition: transform 0.4s ease;
 }
 
 .fiesta-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
@@ -627,10 +631,21 @@ section, .container {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
-
-/* El Carrusel de fotos debe ignorar el padding para ser edge-to-edge */
 .carrusel-fiestas {
-    width: 100vw; 
-    margin-left: -15px; /* Compensa el padding del padre */
-    padding-left: 15px;
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 5% 40px 5%; /* El 5% evita el recorte al final */
+    scroll-behavior: smooth;
+    
+    /* Barra de scroll estilizada */
+    scrollbar-width: thin;
+    scrollbar-color: var(--verde-lima) #1a1a1a;
+}
+
+/* Chrome/Safari Scrollbar */
+.carrusel-fiestas::-webkit-scrollbar { height: 8px; }
+.carrusel-fiestas::-webkit-scrollbar-thumb {
+    background: var(--verde-lima);
+    border-radius: 10px;
 }
