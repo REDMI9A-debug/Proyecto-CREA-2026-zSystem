@@ -410,3 +410,75 @@ html, body {
     color: white;
     text-shadow: 0 0 20px rgb(0, 255, 0);
 }
+
+/* --- AJUSTE EXCLUSIVO PARA HEADER Y BIENVENIDOS EN MÓVIL --- */
+/* --- 9. AJUSTES MÓVILES (SOLO HEADER Y HERO) --- */
+@media (max-width: 768px) {
+    /* El Header se ajusta para que nada se amontone */
+    .navbar {
+        height: auto !important;
+        flex-direction: column !important;
+        padding: 10px 0 !important;
+        gap: 8px !important;
+        position: fixed !important;
+        top: 0;
+        width: 100% !important;
+        display: flex !important;
+    }
+
+    /* El Menú en una sola fila */
+    .nav-menu ul {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 0 !important;
+    }
+
+    .nav-menu a { font-size: 0.85rem !important; }
+
+    /* El Botón Verde bien centrado */
+    .btn-radio {
+        margin: 0 auto !important;
+        display: block !important;
+        width: fit-content !important;
+        padding: 8px 20px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* EL ARREGLO PARA EL BIENVENIDOS: Lo bajamos con fuerza */
+    .hero-principal {
+        /* Aumentamos a 260px para que haya aire de sobra entre el botón y el título */
+        padding-top: 260px !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+        padding: 0 20px !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+}
+
+/* --- 10. SECCIÓN TURISMO (ESTO SE QUEDA IGUAL QUE EN PC) --- */
+.seccion-turismo {
+    padding: 100px 5%;
+    background: var(--oscuro-puro);
+}
+.turismo-header { text-align: center; margin-bottom: 60px; }
+.turismo-header h2 { font-family: var(--fuente-titulo); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--verde-lima); }
+.turismo-header p { color: var(--gris-luz); font-size: 1.2rem; margin-top: 10px; }
+.turismo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.turismo-card { background: var(--oscuro-suave); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; }
+.turismo-img { width: 100%; height: 250px; position: relative; overflow: hidden; }
+.turismo-img img { width: 100%; height: 100%; object-fit: cover; }
+.turismo-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.turismo-info h3 { font-family: var(--fuente-titulo); font-size: 1.5rem; margin-bottom: 15px; color: white; }
+.turismo-info p { color: var(--gris-luz); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+.turismo-cierre { text-align: center; margin-top: 80px; }
+.turismo-cierre h3 { font-family: var(--fuente-titulo); font-size: clamp(2rem, 5vw, 4rem); color: white; text-shadow: 0 0 20px rgb(0, 255, 0); }
