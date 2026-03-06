@@ -367,10 +367,14 @@ html, body {
 
     /* 3. BOTÓN RADIO: Muy compacto */
     .btn-radio {
-        padding: 5px 15px !important;
-        font-size: 0.7rem !important;
+        display: block !important;
+        margin: 0 auto !important;
+        width: fit-content !important;
+        padding: 8px 20px !important;
+        font-size: 0.8rem !important;
         min-width: 0 !important;
         width: auto !important;
+        text-align: center !important;
     }
 
     /* 4. EL TRUCO PARA EL TÍTULO: Empujamos el Hero hacia abajo lo exacto */
@@ -463,5 +467,5 @@ html, body {
     font-family: var(--fuente-titulo);
     font-size: clamp(2rem, 5vw, 4rem); /* Fluido para compu y cel */
     color: white;
-    text-shadow: 0 0 20px rgb(0, 255, 0)1);
+    text-shadow: 0 0 20px rgb(0, 255, 0);
 }
