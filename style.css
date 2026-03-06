@@ -338,7 +338,7 @@ html, body {
 
 /* --- 9. AJUSTES MÓVILES (MEDIA QUERIES) --- */
 /* Todo lo relacionado a celulares va en este único bloque final */
-@media (max-width: 768px) {
+
     /* 1. HEADER: Lo hacemos lo más flaco posible */
     .navbar {
         height: auto !important;
@@ -398,7 +398,6 @@ html, body {
         padding: 0 15px !important;
         display: block !important;
     }
-}
 /* --- 10. SECCIÓN TURISMO (TARJETAS CON EFECTOS) --- */
 .seccion-turismo {
     padding: 100px 5%;
