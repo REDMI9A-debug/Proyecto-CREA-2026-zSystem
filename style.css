@@ -380,11 +380,11 @@ html, body {
     /* 4. EL TRUCO PARA EL TÍTULO: Empujamos el Hero hacia abajo lo exacto */
     .hero-principal {
         /* Aumentamos el espacio superior para que el texto baje y se vea completo */
-        padding-top: 180px !important; 
+        padding-top: 190px !important; 
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important; /* Alinea al inicio del espacio disponible */
-        min-height: 100vh !important;
+        min-height: 110vh !important;
     }
 
     .hero-content h1 {
