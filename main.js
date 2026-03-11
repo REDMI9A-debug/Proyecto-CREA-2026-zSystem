@@ -90,3 +90,40 @@ window.onclick = function(event) {
         cerrarModal();
     }
 }
+function abrirMapa(lugar) {
+    const modal = document.getElementById('modal-mapa');
+    const titulo = document.getElementById('modal-titulo');
+    const desc = document.getElementById('modal-descripcion');
+    const enlace = document.getElementById('modal-enlace-maps');
+    const img = document.getElementById('modal-img');
+
+    // Base de datos rápida para los 6 lugares
+    const datos = {
+        'cachari': {
+            t: 'Cerro Cacharí',
+            d: 'Ubicado a 8km de Babahoyo. Puedes llegar en taxi o bus interparroquial hacia la parroquia Barreiro.',
+            link: 'https://maps.app.goo.gl/P6GzS9vPz9A2',
+            img: 'img/cachari.jpg'
+        },
+        'catedral': {
+            t: 'Iglesia Catedral',
+            d: 'En pleno centro de la ciudad, frente al Parque Central 24 de Mayo.',
+            link: 'https://maps.app.goo.gl/your-link-here',
+            img: 'img/catedral.jpg'
+        }
+        // Agrega aquí los otros 4 siguiendo el mismo formato
+    };
+
+    const info = datos[lugar];
+    if(info) {
+        titulo.innerText = info.t;
+        desc.innerText = info.d;
+        enlace.href = info.link;
+        img.src = info.img;
+        modal.style.display = 'flex';
+    }
+}
+
+function cerrarMapa() {
+    document.getElementById('modal-mapa').style.display = 'none';
+}

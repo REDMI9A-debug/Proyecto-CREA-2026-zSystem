@@ -431,6 +431,24 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="main.js"></script>
+    <div id="modal-mapa" class="modal-overlay">
+    <div class="modal-container">
+        <button class="btn-cerrar" onclick="cerrarMapa()">×</button>
+        <div class="modal-header">
+            <img id="modal-img" src="" alt="Lugar" class="img-header-modal">
+            <div class="modal-titulo-overlay">
+                <h2 id="modal-titulo" style="font-family: var(--fuente-titulo); color: white;"></h2>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-info-block">
+                <h3>📍 Ubicación y Cómo Llegar</h3>
+                <p id="modal-descripcion"></p>
+                <a id="modal-enlace-maps" href="#" target="_blank" class="btn-conocer-mas" style="margin-top: 20px; text-decoration: none; text-align: center;"> Abrir en Google Maps</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
