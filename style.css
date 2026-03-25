@@ -482,3 +482,28 @@ html, body {
 .turismo-info p { color: var(--gris-luz); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
 .turismo-cierre { text-align: center; margin-top: 80px; }
 .turismo-cierre h3 { font-family: var(--fuente-titulo); font-size: clamp(2rem, 5vw, 4rem); color: white; text-shadow: 0 0 20px rgb(0, 255, 0); }
+
+/* --- AMBIENTE ATARDECER (SOLO SE ACTIVA CON EL BOTÓN) --- */
+body.modo-atardecer {
+    --verde-lima: #ff4500 !important; /* Naranja */
+    --oscuro-puro: #1a0a00 !important; /* Fondo café */
+    --oscuro-suave: #2d1400 !important; /* Cards café */
+}
+
+/* Esto asegura que el fondo del body cambie suavemente */
+body.modo-atardecer {
+    background-color: var(--oscuro-puro) !important;
+}
+
+/* Esto mantiene tus efectos de hover con el color que toque */
+body.modo-atardecer .turismo-card:hover, 
+body.modo-atardecer .plato-card:hover,
+body.modo-atardecer .card-premium:hover {
+    border-color: var(--verde-lima) !important;
+    box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2) !important;
+}
+
+/* Transición para que no sea un golpe de color */
+body {
+    transition: background-color 0.8s ease, color 0.8s ease !important;
+}
