@@ -60,6 +60,7 @@ function cerrarMapa() {
     const modalGeneral = document.getElementById('modal-mapa');
     if (modalGeneral) modalGeneral.style.display = 'none';
 }
+
 // Lógica para el Modo Atardecer sin tocar tus funciones actuales
 const btnAtardecer = document.getElementById('toggle-atardecer');
 
@@ -79,3 +80,28 @@ if (btnAtardecer) {
         }
     };
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const btnAtardecer = document.getElementById('toggle-atardecer');
+    const mainLogo = document.getElementById('main-logo');
+
+    if (btnAtardecer && mainLogo) {
+        btnAtardecer.onclick = function(e) {
+            e.preventDefault();
+            
+            // 1. Activa/Desactiva la clase en el body
+            document.body.classList.toggle('modo-atardecer');
+            
+            const esAtardecer = document.body.classList.contains('modo-atardecer');
+
+            // 2. Cambia el logo según el modo
+            if (esAtardecer) {
+                mainLogo.src = 'atardecerlogo.png'; // Tu logo naranja
+                btnAtardecer.innerText = '🌿'; // Cambia el emoji a hoja para volver
+            } else {
+                mainLogo.src = 'normallogo.png'; // Tu logo verde
+                btnAtardecer.innerText = '🌅'; // Vuelve al emoji de atardecer
+            }
+        };
+    }
+});
+// fin del js

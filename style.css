@@ -507,3 +507,16 @@ body.modo-atardecer .card-premium:hover {
 body {
     transition: background-color 0.8s ease, color 0.8s ease !important;
 }
+
+/* Colores normales (Verde) */
+.brand-name { color: #ffffff; }
+.tagline { color: #32CD32; } /* El verde lima de tu logo */
+
+/* Colores cuando se activa el Modo Atardecer */
+body.modo-atardecer .brand-name {
+    color: #ffffff; 
+}
+body.modo-atardecer .tagline {
+    color: #FF4500; /* El naranja que combine con tu atardecerlogo.png */
+}
+/* fin del css */
