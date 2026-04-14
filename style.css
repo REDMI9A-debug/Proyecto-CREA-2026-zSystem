@@ -1,4 +1,4 @@
-/* --- 1. VARIABLES Y CONFIGURACIÓN BASE --- */
+/* estas son mis variables para colores de titles, card, containers y neones de bordes */
 :root {
     --verde-lima: #32cd32;
     --oscuro-puro: #0f0f0f;
@@ -15,6 +15,7 @@
     box-sizing: border-box;
 }
 
+/* estilo global de la pagina para hacer el scroll suave */
 html {
     scroll-behavior: smooth;
 }
@@ -32,7 +33,7 @@ html, body {
     position: relative;
 }
 
-/* --- 2. CABECERA FIJA (NAVBAR) --- */
+/* CABECERA fija o navbar xd */
 .navbar {
     position: fixed;
     top: 0;
@@ -47,6 +48,11 @@ html, body {
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* no se confundan las variables de colores
+cambian por medio de un code que hay en mi js para que 
+estos colores se actualicen por medio de la accion del boton
+tambien cambia el logo a atardecer por ello el header-left  */
 
 .header-left {
     display: flex;
@@ -82,13 +88,14 @@ html, body {
     text-align: center;
     display: inline-block;
 }
-
+/* si pasa el mouse encima se enciende el boton en normal */
 .btn-radio:hover {
     box-shadow: 0 0 20px rgba(50, 205, 50, 0.4);
     transform: scale(1.06);
 }
 
-/* --- 3. HERO SECTION (IMPACTO) --- */
+/* esta parte es la que hay al principio de "bienvenidos a babahoyo" */
+
 .hero-principal {
     height: 100vh;
     background: url('fondoimgbabaprueba.png') no-repeat center center/cover;
@@ -113,25 +120,7 @@ html, body {
 .hero-content h1 span { color: var(--verde-lima); }
 .hero-content p { font-size: 1.3rem; color: var(--gris-luz); margin-bottom: 40px; }
 
-.btn-explora {
-    display: inline-block;
-    background: var(--verde-lima);
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.btn-explora:hover {
-    background: transparent;
-    border: 2px solid var(--verde-lima);
-    color: var(--verde-lima);
-}
-
-/* --- 4. SECCIÓN DE TARJETAS (INFO) --- */
+/* estas son las 6 cards principales de info */
 .seccion-cards { padding: 100px 5%; background: var(--oscuro-puro); }
 .container-cards {
     max-width: 1200px; margin: 0 auto;
@@ -155,7 +144,7 @@ html, body {
 .card-premium p { color: var(--gris-luz); font-size: 0.95rem; }
 .card-premium strong { color: var(--verde-lima); }
 
-/* --- 5. TIMELINE HORIZONTAL --- */
+/* esta es mi parte de linea de tiempo sobre babahoyo */
 .seccion-timeline { padding: 100px 0; background: #0a0a0a; overflow: hidden; }
 .titulo-seccion { text-align: center; margin-bottom: 60px; }
 .titulo-seccion h2 { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--blanco); }
