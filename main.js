@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // MODALES ORIGINALES
+    // MODALES ORIGINALESsss
     const btnVerde = document.getElementById('abrirModal');
     const btnX = document.getElementById('cerrarModal');
     const ventanaModal = document.getElementById('modalOlmedo');
@@ -48,12 +48,30 @@ function abrirMapa(lugar) {
 }
 
 const infoLugares = {
-    'salto': { img: 'playairresistible.png', titulo: 'Playas del Salto', desc: 'Nuestra joya de agua dulce.', maps: '...' },
-    'malecon': { img: 'malecon9octubre.png', titulo: 'Malecón 9 de Octubre', desc: 'Un paseo hermoso junto al río.', maps: '...' },
-    'olmedo': { img: 'casadeolmedo2.png', titulo: 'Casa de Olmedo', desc: 'Museo histórico.', maps: '...' },
-    'cachari': { img: 'cerrocachari.png', titulo: 'Cerro Cacharí', desc: 'Aventura y leyendas.', maps: '...' },
-    'catedral': { img: 'actualidadbabah.png', titulo: 'Iglesia Catedral', desc: 'Ícono arquitectónico.', maps: '...' },
-    'parque': { img: 'parque24mayo.png', titulo: 'Parque 24 de Mayo', desc: 'Corazón de la ciudad.', maps: '...' }
+    'salto': { img: 'playairresistible.png', 
+        titulo: 'Playas del Salto', 
+        desc: 'Nuestra joya de agua dulce.', 
+        maps: 'https://maps.app.goo.gl/ZAJLvMW7HEKCQ5uMA' },
+    'malecon': { img: 'malecon9octubre.png', 
+        titulo: 'Malecón 9 de Octubre', 
+        desc: 'Un paseo hermoso junto al río.',
+        maps: 'https://maps.app.goo.gl/HbZXgX2pe7R8TNweA' },
+    'olmedo': { img: 'casadeolmedo2.png', 
+        titulo: 'Casa de Olmedo', 
+        desc: 'Museo histórico.', 
+        maps: 'https://maps.app.goo.gl/BZhYJ78X1uEBzjsS6' },
+    'cachari': { img: 'cerrocachari.png', 
+        titulo: 'Cerro Cacharí', 
+        desc: 'Aventura y leyendas.', 
+        maps: 'https://maps.app.goo.gl/d6So5A2NRUFGqH5E9' },
+    'catedral': { img: 'actualidadbabah.png', 
+        titulo: 'Iglesia Catedral', 
+        desc: 'Ícono arquitectónico.', 
+        maps: 'https://maps.app.goo.gl/UuiECcSewRbSceFw7' },
+    'parque': { img: 'parque24mayo.png', 
+        titulo: 'Parque 24 de Mayo', 
+        desc: 'Corazón de la ciudad.', 
+        maps: 'https://maps.app.goo.gl/44AmsLvh42ECev6F9' }
 };
 
 function cerrarMapa() {
