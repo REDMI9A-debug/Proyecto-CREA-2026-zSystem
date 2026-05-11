@@ -1,7 +1,7 @@
 
 // 1. CONFIGURACIÓN (Pon tus datos aquí)
 const API_KEY = 'AIzaSyBkEO5vMaOlYXKMIQyWBvX0RSoV9zSi2lU'; 
-const CHANNEL_ID = 'UCMDxNCzbf4eS3k_mm05IsVQ'; 
+const CHANNEL_ID = 'UUMDxNCzbf4eS3k_mm05IsVQ'; 
 
 // 2. LA FUNCIÓN QUE HACE EL TRABAJO
 async function obtenerVideos() {
