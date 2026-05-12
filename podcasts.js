@@ -1,11 +1,11 @@
 
 // 1. CONFIGURACIÓN (Pon tus datos aquí)
 const API_KEY = 'AIzaSyBkEO5vMaOlYXKMIQyWBvX0RSoV9zSi2lU'; 
-const CHANNEL_ID = 'UUMDxNCzbf4eS3k_mm05IsVQ'; 
+const PLAYLIST_ID = 'PLi3kV0d_IvL6o2JO_Z3NJKojIyC6gWSCC'; 
 
 // 2. LA FUNCIÓN QUE HACE EL TRABAJO
 async function obtenerVideos() {
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${CHANNEL_ID}&key=${API_KEY}`;
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
 
     try {
         const respuesta = await fetch(url);
