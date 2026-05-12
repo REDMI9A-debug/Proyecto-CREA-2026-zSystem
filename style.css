@@ -426,14 +426,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
     .nav-menu a { font-size: 0.85rem !important; }
 
     /* El Botón Verde bien centrado */
-    .btn-radio {
-        margin: 0 auto !important;
-        display: block !important;
-        width: fit-content !important;
-        padding: 8px 20px !important;
-        font-size: 0.8rem !important;
-    }
-
     /* EL ARREGLO PARA EL BIENVENIDOS: Lo bajamos con fuerza */
     .hero-principal {
         /* Aumentamos a 260px para que haya aire de sobra entre el botón y el título */
@@ -524,11 +516,12 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-align: center;
 }
 
 /* Grupo de la derecha */
 .footer-right {
-    text-align: right;
+    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -536,7 +529,37 @@ footer {
 
 /* El botón verde (el que se ve más pro) */
 .btn-escuchar {
-    background-color: #32cd32;
+    background-color: #0e1d0e;
+    color: rgb(255, 255, 255);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+    color: var(--verde-lima)
+}
+
+.btn-escuchar:hover {
+    transform: scale(0.5);
+    filter: brightness(0.5);
+}
+
+/* Los links azules feos, cámbialos a blanco */
+.footer-right a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.5em;
+}
+
+.footer-right a:hover {
+    color: white;
+}
+.btn-footer {
+    background-color: #4c0089;
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
@@ -546,21 +569,4 @@ footer {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
-}
-
-.btn-escuchar:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
-
-/* Los links azules feos, cámbialos a blanco */
-.footer-right a {
-    color: #bbb;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 0.9em;
-}
-
-.footer-right a:hover {
-    color: white;
 }
