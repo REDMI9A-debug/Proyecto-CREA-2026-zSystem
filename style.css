@@ -527,20 +527,6 @@ footer {
     gap: 10px;
 }
 
-/* El botón verde (el que se ve más pro) */
-.btn-escuchar {
-    background-color: #0e1d0e;
-    color: rgb(255, 255, 255);
-    padding: 15px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.2s;
-    color: var(--verde-lima)
-}
 
 .btn-escuchar:hover {
     transform: scale(0.5);
@@ -555,13 +541,11 @@ footer {
     font-size: 0.5em;
 }
 
-.footer-right a:hover {
-    color: white;
-}
+
 .btn-footer {
     background-color: #4c0089;
     color: white;
-    padding: 15px 25px;
+    padding: 30px 25px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
