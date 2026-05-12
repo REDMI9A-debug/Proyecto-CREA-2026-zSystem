@@ -506,8 +506,7 @@ footer {
     justify-content: space-between; /* Empuja los grupos a los extremos */
     align-items: center; /* Centra todo verticalmente */
     padding: 30px 5%;
-    background-color: #111; /* Negro profundo */
-    color: white;
+    background-color: #02290c; /* Negro profundo */
     font-family: sans-serif;
 }
 
