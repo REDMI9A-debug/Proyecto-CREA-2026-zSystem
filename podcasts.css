@@ -39,47 +39,4 @@
 
     .video-card p { padding: 10px; font-size: 14px; text-align: center; margin: 0; }
 
-    .main-footer {
-    display: flex; /* Activa el modo flexible */
-    justify-content: space-between; /* Empuja uno a la izquierda y otro a la derecha */
-    align-items: center; /* Los centra verticalmente */
-    padding: 40px 10% ;
-    background-color: #1a1a1a; /* Un color oscuro elegante */
-    color: white;
-}
-
-.footer-left, .footer-right {
-    flex: 1; /* Hace que ambas partes ocupen el mismo espacio base */
-}
-
-.footer-right {
-    text-align: right; /* Alinea el texto de la derecha al borde */
-}
-
-/* Estilo para el link de podcast dentro del footer */
-.btn-footer {
-    color: #ff0000;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid #ff0000;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.btn-footer:hover {
-    background-color: #ff0000;
-    color: white;
-}
-
-/* Para que en celulares se ponga uno arriba del otro */
-@media (max-width: 600px) {
-    .main-footer {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-right {
-        text-align: center;
-        margin-top: 20px;
-    }
-}
+    

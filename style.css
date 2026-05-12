@@ -508,4 +508,59 @@ body.modo-atardecer .brand-name {
 body.modo-atardecer .tagline {
     color: #FF4500; /* El naranja que combine con tu atardecerlogo.png */
 }
-/* fin del css */
+
+footer {
+    display: flex;
+    justify-content: space-between; /* Empuja los grupos a los extremos */
+    align-items: center; /* Centra todo verticalmente */
+    padding: 30px 5%;
+    background-color: #111; /* Negro profundo */
+    color: white;
+    font-family: sans-serif;
+}
+
+/* Grupo de la izquierda */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Grupo de la derecha */
+.footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* El botón verde (el que se ve más pro) */
+.btn-escuchar {
+    background-color: #32cd32;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-escuchar:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Los links azules feos, cámbialos a blanco */
+.footer-right a {
+    color: #bbb;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.9em;
+}
+
+.footer-right a:hover {
+    color: white;
+}
