@@ -541,6 +541,7 @@ footer {
 }
 
 .btn-footer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
+   transition: transform 0.4s ease-in-out; /* Controla la velocidad del crecimiento */
+    box-shadow: 0 10px 20px rgb(86, 6, 84);
+   transform: scale(1.1);
+}
