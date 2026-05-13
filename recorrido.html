@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Pro | Voces de Babahoyo</title>
+    
+    <!-- Pannellum CSS & JS desde CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        #panorama {
+            width: 100%;
+            height: 90vh;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <nav class="p-4 bg-zinc-900 flex justify-between items-center">
+        <h1 class="text-xl font-mono text-green-500">zSystem_Virtual_Tour.exe</h1>
+        <a href="index.html" class="text-sm bg-red-600 px-3 py-1 rounded">SALIR</a>
+    </nav>
+
+    <div id="panorama"></div>
+
+    <script>
+       pannellum.viewer('panorama', {
+    "default": {
+        "firstScene": "exterior",
+        "author": "zSystem - Proyecto CREA",
+        "autoLoad": true
+    },
+
+    "scenes": {
+        "exterior": {
+            "title": "Hacienda La Virginia - Entrada",
+            "type": "equirectangular",
+            "panorama": "ruta/a/tu/foto_exterior.jpg", // Aquí pondrás la de Google Maps
+            "hotSpots": [
+                {
+                    "pitch": -5,
+                    "yaw": 10,
+                    "type": "scene",
+                    "text": "Entrar a la Casa de Olmedo",
+                    "sceneId": "interior"
+                }
+            ]
+        },
+
+        "interior": {
+            "title": "Sala Principal - Casa de Olmedo",
+            "type": "equirectangular",
+            "panorama": "ruta/a/tu/foto_interior.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10,
+                    "yaw": 170,
+                    "type": "scene",
+                    "text": "Salir al jardín",
+                    "sceneId": "exterior"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 45,
+                    "type": "info",
+                    "text": "Aquí se firmó el Tratado de La Virginia en 1845."
+                }
+            ]
+        }
+    }
+});
+    </script>
+</body>
+</html>
