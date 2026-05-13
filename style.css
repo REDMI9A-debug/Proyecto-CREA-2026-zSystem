@@ -70,29 +70,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .nav-menu a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
 .nav-menu a:hover { color: var(--verde-lima); }
 
-.btn-radio {
-    background: var(--verde-lima);
-    color: var(--blanco);
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: 0.4s;
-    width: auto; 
-    min-width: 200px;
-    max-width: 90%;
-    white-space: normal;
-    word-wrap: break-word;
-    text-align: center;
-    display: inline-block;
-}
-/* si pasa el mouse encima se enciende el boton en normal */
-.btn-radio:hover {
-    box-shadow: 0 0 20px rgba(50, 205, 50, 0.4);
-    transform: scale(1.06);
-}
 
 /* emm esta parte es la que hay al principio de "bienvenidos a babahoyo" */
 
@@ -544,4 +521,24 @@ footer {
    transition: transform 0.4s ease-in-out; /* Controla la velocidad del crecimiento */
     box-shadow: 0 10px 20px rgb(95, 5, 158);
    transform: scale(1.1);
+}
+
+/* Estilo para que se vea igual al morado pero en verde */
+.btn-radio {
+    background-color: var(--verde-lima); /* Usa tu variable verde */
+    color: white !important;             /* Quita el azul de link */
+    text-decoration: none !important;    /* Quita el subrayado */
+    padding: 15px 30px;                  /* Ajuste de tamaño */
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-radio:hover {
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(50, 205, 50, 0.4);
+    transform: scale(1.1);
 }
