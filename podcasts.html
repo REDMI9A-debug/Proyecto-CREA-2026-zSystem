@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<head>
     <meta charset="UTF-8">
     <title>Voces de Babahoyo | Capital Fluvial</title>
     <link rel="stylesheet" href="podcasts.css">
-    <body>
-<div class="ng-container">
-    
-    <section class="stage">
-        <div class="video-player">
-            <iframe id="mainPlayer" src="https://www.youtube.com/embed/XxoVRjTySsM" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h2 id="videoTitle">Selecciona un video para comenzar</h2>
-    </section>
+    <!-- Opcional: FontAwesome para el ícono de flecha (si no lo tienes en podcasts.html) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="layout-principal">
 
-    <section class="video-grid" id="thumbnailGrid">
-        </section>
-</div>
-<script src="podcasts.js"></script>
-    </body>
-    </html>
+        <!-- NUEVO: Botón de regreso -->
+    <a href="index.html" class="btn-regresar">
+        <i class="fas fa-arrow-left"></i> Volver a Inicio
+    </a>
+        
+        <!-- Columna Izquierda: Lista de Videos -->
+        <aside class="columna-videos">
+            <h2 id="videoTitle">Selecciona un video</h2>
+            
+            <!-- Contenedor donde tu JS inyectará las video-cards -->
+            <section class="video-list" id="thumbnailGrid">
+                <!-- Las tarjetas generadas irán aquí -->
+            </section>
+        </aside>
+
+        <!-- Columna Derecha: Reproductor Principal -->
+        <main class="reproductor-destacado">
+            <div class="video-player">
+                <iframe id="mainPlayer" src="https://www.youtube.com/embed/XxoVRjTySsM" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </main>
+        
+    </div>
+    <script src="podcasts.js"></script>
+</body>
+</html>
