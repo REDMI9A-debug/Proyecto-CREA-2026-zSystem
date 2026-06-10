@@ -1,7 +1,7 @@
 
 // 1. CONFIGURACIÓN (Pon tus datos aquí)
 const API_KEY = 'AIzaSyBkEO5vMaOlYXKMIQyWBvX0RSoV9zSi2lU'; 
-const PLAYLIST_ID = 'PLi3kV0d_IvL6o2JO_Z3NJKojIyC6gWSCC'; 
+const PLAYLIST_ID = 'PLR6O4eFk6col1EOw6tN_qLQBx94I-FUaT'; 
 
 // 2. LA FUNCIÓN QUE HACE EL TRABAJO
 async function obtenerVideos() {
