@@ -1,4 +1,4 @@
-// 1. CONFIGURACIÓN (Pon tus datos aquí)
+// 1. CONFIGURACIÓN (Asegúrate de que esta Key esté activa en Google Cloud Console)
 const API_KEY = 'AIzaSyBkEO5vMaOlYXKMIQyWBvX0RSoV9zSi2lU'; 
 const PLAYLIST_ID = 'PLR6O4eFk6cokxXHAbVvpLc9hgO7Qhuwoo'; 
 
@@ -8,33 +8,57 @@ async function obtenerVideos() {
 
     try {
         const respuesta = await fetch(url);
+        
+        if (!respuesta.ok) {
+            const errorData = await respuesta.json();
+            console.error("Lo que Google dice que está mal:", errorData);
+            return;
+        }
+
         const datos = await respuesta.json();
         const videos = datos.items;
 
+        if (!videos || videos.length === 0) {
+            console.warn("La playlist está vacía o no se encontraron videos.");
+            return;
+        }
+
         const contenedor = document.getElementById('thumbnailGrid');
-        contenedor.innerHTML = ''; // Limpiamos por si acaso
+        contenedor.innerHTML = ''; 
+
+        let htmlContenido = '';
 
         videos.forEach(video => {
             const id = video.snippet.resourceId.videoId;
             const titulo = video.snippet.title;
-            const miniatura = video.snippet.thumbnails.medium.url;
+            
+            // --- EL SALVAVIDAS AQUÍ ---
+            // Revisamos paso a paso si existen las miniaturas para que no lance error
+            let miniatura = 'https://via.placeholder.com/320x180?text=Sin+Miniatura'; // Imagen por defecto
+            
+            if (video.snippet.thumbnails) {
+                if (video.snippet.thumbnails.medium && video.snippet.thumbnails.medium.url) {
+                    miniatura = video.snippet.thumbnails.medium.url;
+                } else if (video.snippet.thumbnails.high && video.snippet.thumbnails.high.url) {
+                    miniatura = video.snippet.thumbnails.high.url;
+                } else if (video.snippet.thumbnails.default && video.snippet.thumbnails.default.url) {
+                    miniatura = video.snippet.thumbnails.default.url;
+                }
+            }
 
-            // Aquí "dibujamos" cada cuadrito tipo Newgrounds
-            contenedor.innerHTML += `
-                <div class="video-card" onclick="cambiarVideo('${id}', '${titulo}')">
+            htmlContenido += `
+                <div class="video-card" onclick="cambiarVideo('${id}', '${titulo.replace(/'/g, "\\'")}')">
                     <img src="${miniatura}" alt="${titulo}">
                     <p>${titulo}</p>
                 </div>
             `;
         });
-    } 
-// En tu archivo podcasts.js, cambia la parte del catch por esto:
-catch (error) {
-    console.error("Error detallado:", error);
-    const res = await fetch(url);
-    const errorData = await res.json();
-    console.log("Lo que Google dice que está mal:", errorData);
- }
+
+        contenedor.innerHTML = htmlContenido;
+
+    } catch (error) {
+        console.error("Error de red o conexión:", error);
+    }
 }
 
 // 3. FUNCIÓN PARA REPRODUCIR (Cuando haces clic)
