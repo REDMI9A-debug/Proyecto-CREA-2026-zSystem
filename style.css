@@ -74,28 +74,66 @@ tambien cambia el logo a atardecer por ello el header-left  */
 /* emm esta parte es la que hay al principio de "bienvenidos a babahoyo" */
 
 .hero-principal {
-    height: 100vh;
-    background: url('fondoimgbabaprueba.png') no-repeat center center/cover;
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 85vh; /* Un poquito más alta para que luzca imponente */
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #111; /* Fondo oscuro de respaldo mientras cargan las fotos */
+}
+
+.carousel-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1.8s ease-in-out; /* Transición súper premium y elegante */
+    will-change: opacity; /* Optimización de rendimiento para GPUs */
+}
+
+/* Slide activo pasa al frente y se vuelve visible */
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
 }
 
 .hero-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--oscuro-puro));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    z-index: 3; /* Siempre por encima de los fondos */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
 }
 
-.hero-content { text-align: center; max-width: 900px; padding: 20px; }
-.hero-content h1 { font-family: var(--fuente-titulo); font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
-.hero-content h1 span { color: var(--verde-lima); }
-.hero-content p { font-size: 1.3rem; color: var(--gris-luz); margin-bottom: 40px; }
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff; /* Blanco puro para el texto base */
+    font-size: 3.5rem;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7); /* Sombra pesada para que resalte */
+}
+
+.hero-content h1 span {
+    color: #FFB300; /* Dorado cálido que simula el sol y el oro de la región */
+    text-shadow: 0px 0px 15px rgba(255, 179, 0, 0.4); /* Resplandor sutil */
+}
 
 /* estas son las 6 cards principales de info */
 .seccion-cards { padding: 100px 5%; background: var(--oscuro-puro); }

@@ -122,4 +122,76 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 });
+
+// Nuevas logicas implementadas para cada seccion
+
+/**
+ * ENGINE DEL CARRUSEL INTERACTIVO - VOCES DE BABAHOYO
+ * Controla transiciones, precarga de imágenes y pausas por interacción del usuario.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    const carouselSection = document.getElementById('heroCarouselSection');
+    const slides = document.querySelectorAll('.carousel-slide');
+    
+    // Si la sección o los slides no existen en la página actual, rompemos la ejecución para evitar errores en consola
+    if (!carouselSection || slides.length === 0) return;
+
+    let currentSlideIndex = 0;
+    let carouselTimer = null;
+    const intervalTime = 3000; // 5 segundos por imagen
+
+    // --- 1. FUNCIÓN CORE: CAMBIO DE SLIDE ---
+    function changeSlide() {
+        // Removemos la clase activa del elemento actual
+        slides[currentSlideIndex].classList.remove('active');
+        
+        // Calculamos el siguiente índice de forma cíclica (0, 1, 2 -> 0, 1, 2)
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        
+        // Añadimos la clase activa al nuevo elemento para disparar el fade-in de CSS
+        slides[currentSlideIndex].classList.add('active');
+    }
+
+    // --- 2. CONTROLES DEL TEMPORIZADOR (START / STOP) ---
+    function startCarousel() {
+        // Evitamos duplicar timers si ya hay uno corriendo
+        if (carouselTimer === null) {
+            carouselTimer = setInterval(changeSlide, intervalTime);
+        }
+    }
+
+    function stopCarousel() {
+        if (carouselTimer !== null) {
+            clearInterval(carouselTimer);
+            carouselTimer = null; // Limpiamos la referencia
+        }
+    }
+
+    // --- 3. LISTENERS DE INTERACCIÓN (UX PREMIUM) ---
+    // Si el usuario pasa el mouse por encima del Hero, pausamos el carrusel para no distraerlo
+    carouselSection.addEventListener('mouseenter', () => {
+        stopCarousel();
+    });
+
+    // Cuando el mouse sale del Hero, reactivamos el temporizador automáticamente
+    carouselSection.addEventListener('mouseleave', () => {
+        startCarousel();
+    });
+
+    // --- 4. PRECARGA DE IMÁGENES EN MEMORIA ---
+    // Extraemos las URLs de los estilos inline del HTML y las forzamos a cargar en segundo plano
+    slides.forEach(slide => {
+        const bgStyle = slide.style.backgroundImage;
+        // Filtramos la URL limpia ignorando los gradientes lineales
+        const urlMatch = bgStyle.match(/url\(['"]?([^'"]+)['"]?\)/);
+        if (urlMatch && urlMatch[1]) {
+            const img = new Image();
+            img.src = urlMatch[1]; 
+        }
+    });
+
+    // --- 5. IGNICIÓN ---
+    // Arrancamos el carrusel por primera vez
+    startCarousel();
+});
 // fin del js
