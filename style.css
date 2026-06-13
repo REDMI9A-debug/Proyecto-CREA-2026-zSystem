@@ -845,7 +845,7 @@ footer {
 
 .institucion-master-container { max-width: 1140px; margin: 0 auto; }
 .institucion-header { text-align: center; margin-bottom: 60px; }
-.institucion-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 5px 0 15px 0; }
+.institucion-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 3px 0 10px 0; }
 .grid-institucion { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
 
 /* Columna de Textos */
@@ -917,4 +917,69 @@ footer {
     position: relative;
     z-index: 1;
     padding-left: 15px;
+}
+
+/* ==========================================================================
+   AJUSTE: LOGO EN LA ESQUINA DEL TEXTO INSTITUCIONAL
+   ========================================================================== */
+
+.seccion-institucion {
+    padding: 90px 20px;
+    background-color: #0b0b0b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative; /* Obligatorio para que el logo se posicione respecto a toda la sección */
+}
+
+/* Dejamos el contenedor de texto limpio como estaba originalmente */
+.institucion-texto {
+    position: relative;
+    padding-right: 0; 
+}
+
+.logo-colegio-esquina {
+    position: absolute;
+    top: 90px;        /* Lo baja a la misma altura del inicio del contenedor del título */
+    right: 110px;      /* Separación elegante desde el borde derecho de la pantalla */
+    width: 95px;      /* Tamaño perfecto para que resalte sin romper la armonía */
+    height: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;      /* Se asegura de estar por encima de cualquier fondo */
+}
+
+.logo-colegio-esquina:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 2da parte dellogo pero esta vez izquierdo */
+
+.logo-colegio-esquina-2{
+    position: absolute;
+    top: 90px;        /* Lo baja a la misma altura del inicio del contenedor del título */
+    left: 110px;      /* Separación elegante desde el borde derecho de la pantalla */
+    width: 95px;      /* Tamaño perfecto para que resalte sin romper la armonía */
+    height: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;      /* Se asegura de estar por encima de cualquier fondo */
+}
+
+.logo-colegio-esquina-.logo-colegio-esquina-2 {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* En pantallas medianas o pequeñas lo ocultamos o reacomodamos para que no tape los reproductores */
+@media (max-width: 1024px) {
+    .logo-colegio-esquina {
+        position: relative;
+        top: 0;
+        right: 0;
+        display: block;
+        margin: 0 auto 20px auto; /* Se centra arriba de "Vinculación Cultural" en tablets/celulares */
+        width: 75px;
+    }
 }
