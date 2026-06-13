@@ -194,4 +194,41 @@ document.addEventListener("DOMContentLoaded", () => {
     // Arrancamos el carrusel por primera vez
     startCarousel();
 });
+
+// Creacion y funcion de los toggles.
+
+document.addEventListener("DOMContentLoaded", () => {
+    const btnToggle = document.getElementById('btn-toggle-simbolos');
+    const epocaHistorica = document.getElementById('epoca-historica');
+    const epocaActual = document.getElementById('epoca-actual');
+    
+    // Estado inicial: estamos viendo los históricos
+    let viendoHistoricos = true;
+
+    if (!btnToggle || !epocaHistorica || !epocaActual) return;
+
+    btnToggle.addEventListener('click', () => {
+        if (viendoHistoricos) {
+            // Ocultar históricos, mostrar actuales
+            epocaHistorica.classList.remove('activa');
+            epocaHistorica.classList.add('oculta');
+            
+            epocaActual.classList.remove('oculta');
+            epocaActual.classList.add('activa');
+            
+            btnToggle.innerHTML = 'Ver Símbolos Históricos <i class="fas fa-history"></i>';
+            viendoHistoricos = false;
+        } else {
+            // Ocultar actuales, mostrar históricos
+            epocaActual.classList.remove('activa');
+            epocaActual.classList.add('oculta');
+            
+            epocaHistorica.classList.remove('oculta');
+            epocaHistorica.classList.add('activa');
+            
+            btnToggle.innerHTML = 'Revelar Símbolos Actuales <i class="fas fa-arrow-right"></i>';
+            viendoHistoricos = true;
+        }
+    });
+});
 // fin del js

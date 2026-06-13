@@ -32,7 +32,7 @@
     <ul>
         <li><a href="#info-ciudad">Historia</a></li>
         <li><a href="#geografia">Geografía</a></li>
-        <li><a href="#turismo">Radio</a></li>
+        <li><a href="#Institucion">Sobre Nosotros</a></li>
         <li>
             <a href="#" id="toggle-atardecer" style="font-size: 1.2rem;" title="Cambiar Ambiente">🌅</a>
         </li>
@@ -206,63 +206,183 @@
         </div>
     </div>
 </div>
-<!-- Esta parte se añadira la seccion de la bandera de babahoyo y su evolucion. -->
-    <section id="geografia" class="seccion-geografia">
-        <div class="geo-header" data-aos="fade-up">
-            <h2 class="frase-geo">"La ciudad donde los ríos son la vida misma!"</h2>
-        </div>
 
-        <div class="geo-content">
-            <div class="geo-map" data-aos="zoom-in-right">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31891.95663740925!2d-79.5448348!3d-1.8016447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d380e60802777%3A0x6a05e55e00346067!2sBabahoyo!5e0!3m2!1ses!2sec!4v1700000000000!5m2!1ses!2sec"
-                    width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+<!-- ==========================================================================
+       SECCIÓN: SÍMBOLOS PATRIOS (TOGGLE DE ÉPOCAS)
+       ========================================================================== -->
+    <section id="simbolos-patrios" class="seccion-simbolos">
+        <div class="contenedor-maestro">
+            
+            <!-- Título Principal -->
+            <div class="cabecera-simbolos" data-aos="fade-down">
+                <h2>Símbolos Patrios</h2>
+                <p>Nuestra identidad forjada en el tiempo. Conoce las raíces de la capital fluvial.</p>
             </div>
 
-            <div class="geo-details" data-aos="zoom-in-left">
-                <h3>Entorno Natural</h3>
-                <p>
-                    Babahoyo se erige majestuosa en una llanura privilegiada, formada por la confluencia de los ríos
-                    <strong>San Pablo</strong> y <strong>Catarama</strong>.
-                    Sus tierras son de las más fértiles del Ecuador, gracias a un clima tropical cálido que abraza la
-                    ciudad durante todo el año.
-                </p>
-
-                <div class="info-tags">
-                    <span><i class="fas fa-cloud-sun"></i> Clima Tropical</span>
-                    <span><i class="fas fa-seedling"></i> Tierras Fértiles</span>
-                    <span><i class="fas fa-altimeter"></i> Máx. 500 msnm</span>
+            <!-- CONTENEDOR 1: ÉPOCA HISTÓRICA (Visible al inicio) -->
+            <div id="epoca-historica" class="grid-simbolos activa">
+                
+                <!-- Card Bandera Antigua -->
+                <div class="card-simbolo" data-aos="fade-up">
+                    <div class="img-wrapper">
+                        <img src="banderababahoyo1.png" alt="Primera Bandera de Babahoyo">
+                    </div>
+                    <h3>El Primer Estandarte</h3>
+                    <p class="etiqueta-epoca">El Estandarte de la Tierra y la Paz.</p>
+                    <p>Nació como el primer grito de identidad regional. Al ser Babahoyo la capital, adoptó la bandera de la provincia de Los Ríos como propia para representar la unidad de todos sus territorios bajo una sola administración.</p>
+                    <br>
+                    <p>Las franjas verdes extremas simbolizan la inmensa fertilidad de la cuenca del río y el poder agrícola del trabajador montubio. La franja blanca central es el reflejo de las aguas limpias de los ríos que atraviesan la ciudad y la paz de su gente.</p>
                 </div>
 
-                <table class="tabla-geo">
-                    <thead>
-                        <tr>
-                            <th>Parroquia Urbana</th>
-                            <th>Temp. Promedio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Clemente Baquerizo</td>
-                            <td>25°C - 31°C</td>
-                        </tr>
-                        <tr>
-                            <td>Barreiro</td>
-                            <td>24°C - 30°C</td>
-                        </tr>
-                        <tr>
-                            <td>El Salto</td>
-                            <td>25°C - 32°C</td>
-                        </tr>
-                        <tr>
-                            <td>Camilo Ponce</td>
-                            <td>25°C - 30°C</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- Card Escudo Antiguo (O la bandera de transición, lo que prefieras poner) -->
+                <div class="card-simbolo" data-aos="fade-up" data-aos-delay="150">
+                    <div class="img-wrapper">
+                        <img src="toggleescudopatrio.png" alt="Bandera de Transición / Escudo Antiguo">
+                    </div>
+                    <h3>El Símbolo de Transición</h3>
+                    <p class="etiqueta-epoca">El Legado del Río y las Estrellas de la Soberanía.</p>
+                    <p><br>
+                        El escudo nació oficialmente mediante una ordenanza municipal con el propósito de inmortalizar la gloria histórica, política y económica del cantón. Babahoyo no era una ciudad cualquiera; había sido el puerto aduanero clave del país y el escenario donde se selló la paz de la república (en la Virginia). El cantón necesitaba un blasón que le recordara al Ecuador entero su jerarquía, su autonomía y la fuerza unificada de sus parroquias rurales y urbanas.</p>
+                </div>
+
             </div>
+
+            <!-- CONTENEDOR 2: ÉPOCA ACTUAL (Oculto al inicio) -->
+            <div id="epoca-actual" class="grid-simbolos oculta">
+                
+                <!-- Card Bandera Actual -->
+                <div class="card-simbolo fade-in-animado">
+                    <div class="img-wrapper">
+                        <img src="banderababahoyo2.png" alt="Bandera Oficial Actual">
+                    </div>
+                    <h3>Bandera Oficial Definitiva</h3>
+                    <p class="etiqueta-epoca actual">El Despertar de la Identidad Cantonal.</p>
+                    <p>Se diseñó con la necesidad urgente de diferenciar al cantón Babahoyo del resto de la provincia. Se introdujo el rombo geométrico como una estrategia heráldica para crear un "centro de atención" que preparara el terreno para un emblema mayor.</p>
+                    <br>
+                    <p>El lienzo totalmente verde reafirma a Babahoyo como el corazón agrícola innegable del país. El rombo blanco en el centro representa el núcleo urbano (la ciudad) rodeado de naturaleza, simbolizando el punto exacto donde convergen el comercio, el río y la historia.</p>
+                </div>
+
+                <!-- Card Escudo Actual -->
+                <div class="card-simbolo fade-in-animado" style="animation-delay: 0.15s;">
+                    <div class="img-wrapper">
+                        <img src="toggleescudopatrio.png" alt="Escudo de Armas Actual">
+                    </div>
+                    <h3>Escudo de Armas</h3>
+                    <p class="etiqueta-epoca actual">¿Que Simboliza?</p>
+                    <p class="lista-simbolos-detalles" style="text-align: center; color: #ccc; margin-top: 15px; font-size: 0.9rem; line-height: 1.6;">
+        <strong>Seis Estrellas:</strong><br> Las parroquias históricas que fundaron el cantón.
+        <strong>Buque a Vapor:</strong><br> Homenaje al glorioso pasado comercial de "Bodegas".
+        <strong>Sol Naciente:</strong><br> El progreso constante y la resiliencia de nuestra gente.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- BOTÓN DE ACCIÓN -->
+            <div class="acciones-simbolos" data-aos="fade-up" data-aos-delay="300">
+                <button id="btn-toggle-simbolos" class="btn-premium">Revelar Símbolos Actuales <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+        </div>
+    </section>
+<!-- Esta parte se añadira la seccion de la bandera de babahoyo y su evolucion. -->
+    <!-- ==========================================================================
+       SECCIÓN REFORMULADA: GEOGRAFÍA, CLIMA Y TERRITORIO INTEGRAL
+       ========================================================================== -->
+    <section id="geografia" class="seccion-geografia-integral" data-aos="fade-up>
+        <div class="geo-master-container">
+            
+            <!-- Cabecera Principal -->
+            <div class="geo-main-header">
+                <span class="subtitulo-premium">Análisis Territorial</span>
+                <h2>Geografía, Clima y Parroquias</h2>
+                <p>La radiografía completa de la Capital Fluvial: desde su imponente red de ríos hasta la división política de su gente.</p>
+            </div>
+
+            <!-- BLOQUE 1: DATOS METEOROLÓGICOS E HIDROGRAFÍA -->
+            <div class="Grid-Metereologico">
+                <div class="card-clima-hidro">
+                    <div class="icono-geo-inf"><i class="fas fa-cloud-sun-rain"></i></div>
+                    <div class="info-geo-inf">
+                        <h3>Clima Tropical Monzónico</h3>
+                        <p>Babahoyo registra una temperatura promedio de **26°C a 28°C** a lo largo del año. Su entorno natural está marcado por dos estaciones climáticas dominantes: un invierno intensamente lluvioso y cálido, y un verano seco con sutiles descensos de temperatura, ideal para los ciclos de siembra de la región.</p>
+                    </div>
+                </div>
+                
+                <div class="card-clima-hidro">
+                    <div class="icono-geo-inf"><i class="fas fa-water"></i></div>
+                    <div class="info-geo-inf">
+                        <h3>La Red Hidrográfica Vital</h3>
+                        <p>El territorio se asienta sobre una vasta y compleja cuenca hídrica. Los icónicos ríos <strong>San Pablo</strong> y <strong>Caracol</strong> fluyen con fuerza hasta unirse frente a la ciudad, dando origen al majestuoso <strong>Río Babahoyo</strong>, el cual sirve como arteria de transporte, comercio histórico y sustento natural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUE 2: PARROQUIAS URBANAS (El Corazón de la Ciudad) -->
+            <div class="bloque-parroquias-urbanas">
+                <div class="titulo-zona-geo">
+                    <span class="barra-acento"></span>
+                    <h3>Distritos y Parroquias Urbanas</h3>
+                </div>
+                <div class="grid-urbanas">
+                    <div class="mini-card-urbana">
+                        <h4>Babahoyo (Centro)</h4>
+                        <p>El núcleo político, administrativo y el motor comercial principal del cantón.</p>
+                    </div>
+                    <div class="mini-card-urbana">
+                        <h4>Barreiro</h4>
+                        <p>Cuna histórica del asentamiento original, conectada por la mística de sus puentes.</p>
+                    </div>
+                    <div class="mini-card-urbana">
+                        <h4>El Salto</h4>
+                        <p>Zona de expansión residencial y comercial con una alta proyección de desarrollo.</p>
+                    </div>
+                    <div class="mini-card-urbana">
+                        <h4>Camilo Ponce</h4>
+                        <p>Sector urbano dinámico que consolida la vida comunitaria y el crecimiento civil.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUE 3: PARROQUIAS RURALES (La Fuerza Agrícola) -->
+            <div class="bloque-parroquias-rurales">
+                <div class="titulo-zona-geo">
+                    <span class="barra-acento verde"></span>
+                    <h3>Parroquias Rurales y Ancestralidad</h3>
+                </div>
+                
+                <div class="grid-parroquias-rurales">
+                    <!-- Pimocha -->
+                    <div class="card-rural">
+                        <span class="badge-rural">Fluvial</span>
+                        <h4>Pimocha</h4>
+                        <p class="lema-rural">Cuna de tradiciones y humedales</p>
+                        <p>La parroquia más extensa. Famosa por custodiar la identidad montubia, sus rodeos auténticos y una red de humedales rica en pesca artesanal.</p>
+                    </div>
+                    <!-- Caracol -->
+                    <div class="card-rural">
+                        <span class="badge-rural">Histórica</span>
+                        <h4>Caracol</h4>
+                        <p class="lema-rural">Raíces ancestrales del cantón</p>
+                        <p>Asentamiento de origen colonial y precolonial localizado a orillas del río Caracol. Eje histórico de la agricultura local.</p>
+                    </div>
+                    <!-- Febres Cordero -->
+                    <div class="card-rural">
+                        <span class="badge-rural">Productiva</span>
+                        <h4>Febres Cordero</h4>
+                        <p class="lema-rural">El motor de Las Juntas</p>
+                        <p>Potencia agrícola indomable. Su suelo es un pilar nacional en la producción masiva de arroz, banano y cacao de exportación.</p>
+                    </div>
+                    <!-- La Unión -->
+                    <div class="card-rural">
+                        <span class="badge-rural">Desarrollo</span>
+                        <h4>La Unión</h4>
+                        <p class="lema-rural">Conectividad comercial</p>
+                        <p>La parroquia más joven del cantón, destacada por su acelerado crecimiento comercial y su ubicación estratégica terrestre.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section> 
     <!-- Aqui ira la nueva seccion de parroquias rurales y urbanas -->
@@ -375,7 +495,7 @@
         </div>
 
         <div class="cierre-cultura">
-            <h2 data-aos="zoom-out">“¡Aquí late el verdadero corazón riosense!”</h2>
+            <h2 data-aos="zoom-out">¡Aquí late el verdadero corazón riosense!</h2>
         </div>
     </section>
     <section id="turismo" class="seccion-turismo">
@@ -457,6 +577,7 @@
         <h3>¡Ven a sentir el flujo de Babahoyo!</h3>
     </div>
 </section>
+
 <!-- Modulo de movilidad y transporte xd -->
 
 <div id="modal-mapa" class="modal-overlay">
@@ -475,6 +596,108 @@
             </div>
         </div>
     </div>
+
+    </div>
+    </div> 
+    <!-- Nuevo! Unidad Educativa Babahoyo -->
+    <section id="institucion" class="seccion-institucion">
+        <div class="institucion-master-container">
+            
+            <!-- Encabezado de la Sección -->
+            <div class="institucion-header">
+                <span class="subtitulo-premium">Vinculación Cultural</span>
+                <h2>Unidad Educativa Babahoyo</h2>
+                <p>El puente donde el conocimiento de nuestra juventud se une con la memoria histórica del cantón.</p>
+            </div>
+
+            <div class="grid-institucion">
+                
+                <!-- Columna 1: El Enfoque Humanístico -->
+                <div class="institucion-texto">
+                    <h3>Guardianes del Legado</h3>
+                    <p class="enfoque-destacado">
+                        Nuestra institución no es solo un centro de aprendizaje académico; es un espacio vivo de investigación donde los estudiantes se convierten en los cronistas de su propia tierra.
+                    </p>
+                    <p class="texto-secundario">
+                        A través de proyectos de vinculación, exploramos los relatos de nuestros mayores, los archivos olvidados y la riqueza de las parroquias para asegurar que la identidad de la capital fluvial no se extinga, sino que se potencie en las manos de las nuevas generaciones.
+                    </p>
+                    
+                    <!-- Frase de cierre obligatoria -->
+                    <div class="frase-cierre-maestra">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Babahoyo no es solo una capital fluminense, es un cofre de memorias que espera ser abierto por las manos de su juventud, quienes al conocer sus raíces podrán navegar con mayor seguridad hacia el futuro.</p>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Hub de Medios Dual (Radio + Podcast) -->
+                <div class="institucion-media" data-aos="fade-left">
+                    <div class="hub-medios-dual">
+                        
+                        <!-- REPRODUCTOR 1: RADIO EN VIVO -->
+                        <div class="reproductor-podcast-mock tarjeta-radio">
+                            <div class="reproductor-header">
+                                <span class="live-badge"><span class="dot"></span> EN VIVO</span>
+                                <h4>Señal Fluvial</h4>
+                            </div>
+                            
+                            <div class="reproductor-body">
+                                <div class="disco-audio-animado-mini">
+                                    <i class="fas fa-radio"></i>
+                                </div>
+                                <div class="audio-info">
+                                    <h5>Voces de Babahoyo Radio</h5>
+                                    <p>Transmisión continua con la identidad y música de nuestra región.</p>
+                                </div>
+                            </div>
+
+                            <div class="visualizador-ondas-mini">
+                                <span class="onda"></span>
+                                <span class="onda"></span>
+                                <span class="onda"></span>
+                                <span class="onda"></span>
+                                <span class="onda"></span>
+                            </div>
+
+                            <div class="reproductor-controles-mini">
+                                <a href="URL_DE_TUS_PODCASTS.html" class="btn-audio-control play-main-mini" title="Reproducir Último Podcast">
+        <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+
+                        <!-- REPRODUCTOR 2: ARCHIVO DE PODCASTS -->
+                        <div class="reproductor-podcast-mock tarjeta-podcast">
+                            <div class="reproductor-header">
+                                <span class="podcast-badge"><i class="fas fa-microphone"></i> EPISODIOS</span>
+                                <h4>Deterioro e Historia</h4>
+                            </div>
+                            
+                            <div class="reproductor-body">
+                                <div class="disco-audio-animado-mini podcast-color">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="audio-info">
+                                    <h5>Entrevistas de Identidad</h5>
+                                    <p>Diálogos humanísticos grabados con historiadores y personajes del cantón.</p>
+                                </div>
+                            </div>
+
+                            <div class="visualizador-ondas-mini">
+                                <span class="onda-p"></span>
+                                <span class="onda-p"></span>
+                                <span class="onda-p"></span>
+                                <span class="onda-p"></span>
+                                <span class="onda-p"></span>
+                            </div>
+
+                            <div class="reproductor-controles-mini">
+                                <a href="podcasts.html" class="btn-audio-control play-main-mini" title="Reproducir Radio">
+        <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+
+                    </div> <!-- Fin de hub-medios-dual -->
+                </div>
+    </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="main.js"></script>
@@ -500,10 +723,6 @@
          </div>
         <p>© 2026 - Proyecto CREA</p>
     </div>
-        <div class="social-links">
-             <a href="https://a10.asurahosting.com/public/voces_de_babahoyo" target="_blank" class="btn-radio">
-        🎧 Escuchar Radio
-    </a>
 </footer>
     
 </body>

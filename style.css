@@ -580,3 +580,387 @@ footer {
     box-shadow: 0 10px 20px rgba(50, 205, 50, 0.4);
     transform: scale(1.1);
 }
+
+/* ==========================================================================
+   ESTILOS: SECCIÓN SÍMBOLOS PATRIOS (TOGGLE)
+   ========================================================================== */
+.seccion-simbolos {
+    padding: 80px 20px;
+    background-color: #0b0b0b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contenedor-maestro {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cabecera-simbolos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.cabecera-simbolos p {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Sistema de Grid para las Cards */
+.grid-simbolos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .grid-simbolos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Clases de Control de Estado */
+.grid-simbolos.activa {
+    display: grid;
+}
+
+.grid-simbolos.oculta {
+    display: none;
+}
+
+/* Diseño de las Cards */
+.card-simbolo {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.card-simbolo:hover {
+    transform: translateY(-5px);
+    border-color: #FFB300;
+}
+
+.img-wrapper {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.card-simbolo h3 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.etiqueta-epoca {
+    color: #aaa;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.etiqueta-epoca.actual {
+    color: #00E676; /* Verde chillón para el actual */
+}
+
+.card-simbolo p:last-child {
+    color: #ccc;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* El Botón Premium */
+.btn-premium {
+    background-color: #FFB300;
+    color: #000;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 179, 0, 0.2);
+}
+
+.btn-premium:hover {
+    background-color: #e6a200;
+    transform: scale(1.05);
+}
+
+/* Animación Nativa para cuando aparecen las cards ocultas */
+@keyframes aparecerSuave {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-animado {
+    animation: aparecerSuave 0.6s ease forwards;
+    opacity: 0; /* Empieza invisible hasta que arranca la animación */
+}
+
+/* ==========================================================================
+   ESTILOS: SECCIÓN GEOGRAFÍA INTEGRAL
+   ========================================================================== */
+.seccion-geografia-integral {
+    padding: 90px 20px;
+    background-color: #070707;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.geo-master-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.geo-main-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.geo-main-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #fff;
+    margin: 5px 0 15px 0;
+}
+
+.geo-main-header p {
+    color: #aaa;
+    font-size: 1.05rem;
+}
+
+/* BLOQUE 1: CLIMA E HIDROGRAFÍA */
+.Grid-Metereologico {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.card-clima-hidro {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.icono-geo-inf {
+    color: #FFB300;
+    font-size: 1.8rem;
+    margin-top: 3px;
+}
+
+.info-geo-inf h3 {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+}
+
+.info-geo-inf p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* TÍTULOS DE SUBZONAS */
+.titulo-zona-geo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.barra-acento {
+    width: 4px;
+    height: 25px;
+    background-color: #FFB300;
+    border-radius: 2px;
+}
+
+.barra-acento.verde {
+    background-color: #00E676;
+}
+
+.titulo-zona-geo h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* BLOQUE 2: PARROQUIAS URBANAS */
+.bloque-parroquias-urbanas {
+    margin-bottom: 60px;
+}
+
+.grid-urbanas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.mini-card-urbana {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 3px solid #FFB300;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.mini-card-urbana h4 {
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.mini-card-urbana p {
+    color: #999;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* BLOQUE 3: PARROQUIAS RURALES */
+.grid-parroquias-rurales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-rural {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card-rural:hover {
+    transform: translateY(-4px);
+    border-color: #00E676;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.badge-rural {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 0.72rem;
+    background: rgba(0, 230, 118, 0.1);
+    color: #00E676;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.card-rural h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    margin: 0 0 3px 0;
+}
+
+.lema-rural {
+    color: #FFB300;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.card-rural p:last-child {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .grid-urbanas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .Grid-Metereologico, .grid-parroquias-rurales { grid-template-columns: 1fr; }
+    .grid-urbanas { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   ESTILOS: SECCIÓN UNIDAD EDUCATIVA - HUB DUAL (RADIO + PODCAST)
+   ========================================================================== */
+.seccion-institucion {
+    padding: 90px 20px;
+    background-color: #0b0b0b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.institucion-master-container { max-width: 1140px; margin: 0 auto; }
+.institucion-header { text-align: center; margin-bottom: 60px; }
+.institucion-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 5px 0 15px 0; }
+.grid-institucion { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+
+/* Columna de Textos */
+.institucion-texto h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #FFB300; margin: 0 0 20px 0; }
+.enfoque-destacado { color: #fff; font-size: 1.15rem; line-height: 1.6; margin-bottom: 15px; }
+
+/* Contenedor Dual de Medios */
+.hub-medios-dual { display: flex; flex-direction: column; gap: 20px; }
+
+.reproductor-podcast-mock {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px 25px;
+    transition: all 0.3s ease;
+}
+
+.reproductor-podcast-mock:hover { border-color: #FFB300; transform: translateY(-3px); }
+.tarjeta-podcast:hover { border-color: #00E676; }
+
+.reproductor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.live-badge, .podcast-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 12px; }
+.live-badge { background: rgba(255, 179, 0, 0.1); color: #FFB300; }
+.podcast-badge { background: rgba(0, 230, 118, 0.1); color: #00E676; }
+
+.reproductor-body { display: flex; align-items: center; gap: 15px; }
+.disco-audio-animado-mini { width: 50px; height: 50px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.audio-info h5 { color: #fff; margin: 0; font-size: 1rem; }
+.audio-info p { color: #888; font-size: 0.8rem; margin: 0; }
+
+.visualizador-ondas-mini { display: flex; gap: 3px; height: 20px; align-items: center; margin-top: 10px; }
+.onda, .onda-p { width: 3px; height: 10px; background: #FFB300; animation: rebote 1s infinite alternate; }
+.onda-p { background: #00E676; }
+
+.reproductor-controles-mini { display: flex; justify-content: flex-end; margin-top: -30px; }
+.play-main-mini { width: 40px; height: 40px; border-radius: 50%; border: none; background: #222; color: #fff; cursor: pointer; }
+.play-main-mini:hover { background: #fff; color: #000; }
+
+@keyframes rebote { from { height: 5px; } to { height: 20px; } }
+
+@media (max-width: 900px) { .grid-institucion { grid-template-columns: 1fr; } }
