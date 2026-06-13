@@ -439,28 +439,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
     }
 
     .nav-menu a { font-size: 0.85rem !important; }
-
-    /* El Botón Verde bien centrado */
-    /* EL ARREGLO PARA EL BIENVENIDOS: Lo bajamos con fuerza */
-    .hero-principal {
-        /* Aumentamos a 260px para que haya aire de sobra entre el botón y el título */
-        padding-top: 210px !important; 
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        height: auto !important;
-        min-height: 130vh !important;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem !important;
-        line-height: 1.2 !important;
-        padding: 0 20px !important;
-        margin: 0 !important;
-        display: block !important;
-    }
 }
-
 /* --- 10. SECCIÓN TURISMO (ESTO SE QUEDA IGUAL QUE EN PC) --- */
 .seccion-turismo {
     padding: 100px 5%;
@@ -521,68 +500,12 @@ footer {
     justify-content: space-between; /* Empuja los grupos a los extremos */
     align-items: center; /* Centra todo verticalmente */
     padding: 30px 5%;
-    background-color: #02290c; /* Negro profundo */
+    background-color: #010702; /* Negro profundo */
     font-family: sans-serif;
 }
 
-/* Grupo de la izquierda */
-.footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-}
-
-/* Grupo de la derecha */
-.footer-right {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-.btn-footer {
-    background-color: #4c0089;
-    color: white;
-    padding: 30px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.btn-footer:hover {
-   transition: transform 0.4s ease-in-out; /* Controla la velocidad del crecimiento */
-    box-shadow: 0 10px 20px rgb(95, 5, 158);
-   transform: scale(1.1);
-}
-
-/* Estilo para que se vea igual al morado pero en verde */
-.btn-radio {
-    background-color: var(--verde-lima); /* Usa tu variable verde */
-    color: white !important;             /* Quita el azul de link */
-    text-decoration: none !important;    /* Quita el subrayado */
-    padding: 15px 30px;                  /* Ajuste de tamaño */
-    border-radius: 10px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.btn-radio:hover {
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 10px 20px rgba(50, 205, 50, 0.4);
-    transform: scale(1.1);
-}
-
 /* ==========================================================================
-   ESTILOS: SECCIÓN SÍMBOLOS PATRIOS (TOGGLE)
+   ESTILOS: SECCIÓN SÍMBOLOS PATRIOS (TOGGLE) esto es por ejemplo solo img
    ========================================================================== */
 .seccion-simbolos {
     padding: 80px 20px;
@@ -718,7 +641,7 @@ footer {
 }
 
 /* ==========================================================================
-   ESTILOS: SECCIÓN GEOGRAFÍA INTEGRAL
+   ESTILOS: SECCIÓN GEOGRAFÍA INTEGRAL esto es ps solo geo y datos de parroquias
    ========================================================================== */
 .seccion-geografia-integral {
     padding: 90px 20px;
@@ -786,7 +709,7 @@ footer {
     margin: 0;
 }
 
-/* TÍTULOS DE SUBZONAS */
+/* TÍTULOS DE SUBZONAS parroquias*/
 .titulo-zona-geo {
     display: flex;
     align-items: center;
@@ -964,3 +887,34 @@ footer {
 @keyframes rebote { from { height: 5px; } to { height: 20px; } }
 
 @media (max-width: 900px) { .grid-institucion { grid-template-columns: 1fr; } }
+
+/* parte del final consejo. */
+
+.frase-cierre-maestra {
+    background: rgba(255, 179, 0, 0.02);
+    border-left: 3px solid #FFB300;
+    padding: 25px;
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    box-shadow: inset 10px 0 30px rgba(255, 179, 0, 0.01);
+}
+
+.frase-cierre-maestra i {
+    color: rgba(255, 179, 0, 0.1);
+    font-size: 3rem;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.frase-cierre-maestra p {
+    color: #e0e0e0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    padding-left: 15px;
+}
