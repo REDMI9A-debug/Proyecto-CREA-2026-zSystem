@@ -1,4 +1,3 @@
-/* estas son mis variables para colores de titles, card, containers y neones de bordes */
 :root {
     --verde-lima: #32cd32;
     --oscuro-puro: #0f0f0f;
@@ -15,7 +14,6 @@
     box-sizing: border-box;
 }
 
-/* estilo global de la pagina para hacer el scroll suave */
 html {
     scroll-behavior: smooth;
 }
@@ -25,6 +23,7 @@ body {
     color: var(--blanco);
     font-family: var(--fuente-texto);
     line-height: 1.6;
+    transition: background-color 0.8s ease, color 0.8s ease !important; /* Transición general */
 }
 
 html, body {
@@ -33,7 +32,12 @@ html, body {
     position: relative;
 }
 
-/* CABECERA fija o navbar xd */
+/* Transiciones suaves para los componentes */
+.card-premium, .card-rural, .mini-card-urbana, .card-simbolo, .navbar, .reproductor-podcast-mock {
+    transition: background-color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* CABECERA fija o navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -49,11 +53,6 @@ html, body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* no se confundan las variables de colores
-cambian por medio de un code que hay en mi js para que 
-estos colores se actualicen por medio de la accion del boton
-tambien cambia el logo a atardecer por ello el header-left  */
-
 .header-left {
     display: flex;
     align-items: center;
@@ -63,25 +62,23 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .escudo { height: 90px; width: auto; }
 
 .brand-info { display: flex; flex-direction: column; }
-.brand-name { font-size: 0.9rem; font-weight: 600; letter-spacing: -0.5px; }
+.brand-name { font-size: 0.9rem; font-weight: 600; letter-spacing: -0.5px; color: #ffffff; }
 .tagline { color: var(--verde-lima); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
 
 .nav-menu ul { display: flex; list-style: none; gap: 25px; }
 .nav-menu a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
 .nav-menu a:hover { color: var(--verde-lima); }
 
-
-/* emm esta parte es la que hay al principio de "bienvenidos a babahoyo" */
-
+/* HERO BABAHOYO */
 .hero-principal {
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 85vh; /* Un poquito más alta para que luzca imponente */
+    min-height: 85vh; 
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111; /* Fondo oscuro de respaldo mientras cargan las fotos */
+    background-color: #111; 
 }
 
 .carousel-bg-container {
@@ -104,11 +101,10 @@ tambien cambia el logo a atardecer por ello el header-left  */
     background-repeat: no-repeat;
     opacity: 0;
     z-index: 1;
-    transition: opacity 1.8s ease-in-out; /* Transición súper premium y elegante */
-    will-change: opacity; /* Optimización de rendimiento para GPUs */
+    transition: opacity 1.8s ease-in-out; 
+    will-change: opacity; 
 }
 
-/* Slide activo pasa al frente y se vuelve visible */
 .carousel-slide.active {
     opacity: 1;
     z-index: 2;
@@ -116,7 +112,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 
 .hero-overlay {
     position: relative;
-    z-index: 3; /* Siempre por encima de los fondos */
+    z-index: 3; 
     width: 100%;
     height: 100%;
     text-align: center;
@@ -125,17 +121,17 @@ tambien cambia el logo a atardecer por ello el header-left  */
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    color: #ffffff; /* Blanco puro para el texto base */
+    color: #ffffff; 
     font-size: 3.5rem;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7); /* Sombra pesada para que resalte */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7); 
 }
 
 .hero-content h1 span {
-    color: #FFB300; /* Dorado cálido que simula el sol y el oro de la región */
-    text-shadow: 0px 0px 15px rgba(255, 179, 0, 0.4); /* Resplandor sutil */
+    color: #FFB300; 
+    text-shadow: 0px 0px 15px rgba(255, 179, 0, 0.4); 
 }
 
-/* estas son las 6 cards principales de info */
+/* CARDS INFO */
 .seccion-cards { padding: 100px 5%; background: var(--oscuro-puro); }
 .container-cards {
     max-width: 1200px; margin: 0 auto;
@@ -144,7 +140,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 
 .card-premium {
     background: var(--oscuro-suave); padding: 40px;
-    border-radius: 20px; text-align: center; transition: 0.4s;
+    border-radius: 20px; text-align: center;
     border: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -159,7 +155,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .card-premium p { color: var(--gris-luz); font-size: 0.95rem; }
 .card-premium strong { color: var(--verde-lima); }
 
-/* esta es mi parte de linea de tiempo sobre babahoyo */
+/* LINEA DE TIEMPO */
 .seccion-timeline { padding: 100px 0; background: #0a0a0a; overflow: hidden; }
 .titulo-seccion { text-align: center; margin-bottom: 60px; }
 .titulo-seccion h2 { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--blanco); }
@@ -191,7 +187,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .timeline-content h3 { font-family: var(--fuente-titulo); margin-bottom: 10px; font-size: 1.5rem; }
 .timeline-content p { font-size: 0.9rem; color: var(--gris-luz); text-align: justify; }
 
-/* --- 6. MODAL Y BOTÓN "CONOCER MÁS" --- */
+/* MODAL Y BOTÓN */
 .container-boton-modal { text-align: center; padding: 40px 0; }
 .btn-conocer-mas {
     background: transparent; color: var(--verde-lima);
@@ -244,7 +240,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .modal-info-block p { color: var(--gris-luz); line-height: 1.8; text-align: justify; }
 .modal-info-block ul li { color: var(--gris-luz); font-family: var(--fuente-texto); margin-bottom: 15px; }
 
-/* --- 7. SECCIÓN GEOGRAFÍA --- */
+/* SECCIÓN GEOGRAFÍA */
 .seccion-geografia { padding: 100px 5%; background: #0f0f0f; }
 .geo-header { text-align: center; margin-bottom: 60px; }
 .frase-geo {
@@ -279,7 +275,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .tabla-geo td { padding: 15px; color: white; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .tabla-geo tr:hover { background: rgba(255, 255, 255, 0.03); }
 
-/* --- 8. SECCIÓN CULTURA --- */
+/* SECCIÓN CULTURA */
 .seccion-cultura {
     padding: 100px 5%; background: #0a0a0a;
     width: 100%; overflow-x: hidden;
@@ -287,7 +283,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .cultura-header { text-align: center; margin-bottom: 50px; }
 .cultura-header h2 { font-family: var(--fuente-titulo); font-size: 3.5rem; color: var(--blanco); }
 
-/* Carrusel de Fiestas (Unificado y Limpio) */
+/* Carrusel de Fiestas */
 .carrusel-fiestas {
     display: flex; gap: 30px; overflow-x: auto;
     padding: 20px 5% 40px 5%; scroll-behavior: smooth;
@@ -307,13 +303,12 @@ tambien cambia el logo a atardecer por ello el header-left  */
     background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white;
 }
 
-/* titulo para sabores de nuestra tierra */
+/* Gastronomia */
 .gastronomia-container h3 {
     font-family: var(--fuente-texto); font-size: 2.5rem;
     color: var(--blanco); text-align: center; margin-top: 80px;
 }
 
-/* Platos Cards */
 .platos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
 .plato-card {
     background: var(--oscuro-suave); padding: 20px; border-radius: 15px;
@@ -323,7 +318,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .plato-img { width: 100%; height: 150px; border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
 .plato-img img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Videos (Corrección de Texto Verde) */
+/* Videos */
 .videos-seccion h3 {
     margin-top: 80px; text-align: center;
     font-family: var(--fuente-titulo); font-size: clamp(2rem, 5vw, 3rem);
@@ -331,8 +326,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
 }
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 40px; }
 .video-item { background: #111; padding: 10px; border-radius: 10px; text-align: center; }
-
-/* Asegurar que el texto del video sea blanco y normal */
 .video-item p {
     color: white !important; font-family: var(--fuente-texto) !important;
     font-size: 1rem !important; text-transform: none !important; margin-top: 10px;
@@ -341,7 +334,7 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .cierre-cultura { text-align: center; padding: 100px 0; }
 .cierre-cultura h2 { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--verde-lima); text-transform: uppercase; }
 
-/* --- 9. SECCIÓN TURISMO (TARJETAS CON EFECTOS) --- */
+/* SECCIÓN TURISMO (ESTRUCTURA ÚNICA Y LIMPIA) */
 .seccion-turismo {
     padding: 100px 5%;
     background: var(--oscuro-puro);
@@ -355,7 +348,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
 }
 .turismo-header p { color: var(--gris-luz); font-size: 1.2rem; margin-top: 10px; }
 
-/* EL GRID MÁGICO */
 .turismo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -369,7 +361,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
 }
@@ -384,7 +375,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
 .turismo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .turismo-card:hover .turismo-img img { transform: scale(1.1); } 
 
-/* Etiqueta para "La Estrella" */
 .badge-estrella {
     position: absolute; top: 15px; right: 15px;
     background: #ffd700; color: #000;
@@ -406,7 +396,6 @@ tambien cambia el logo a atardecer por ello el header-left  */
 }
 .btn-leer-mas:hover { background: var(--verde-lima); color: var(--oscuro-puro); }
 
-/* EL TEXTO FINAL */
 .turismo-cierre { text-align: center; margin-top: 80px; }
 .turismo-cierre h3 {
     font-family: var(--fuente-titulo);
@@ -415,10 +404,8 @@ tambien cambia el logo a atardecer por ello el header-left  */
     text-shadow: 0 0 20px rgb(0, 255, 0);
 }
 
-/* --- AJUSTE EXCLUSIVO PARA HEADER Y BIENVENIDOS EN MÓVIL --- */
-/* --- 9. AJUSTES MÓVILES (SOLO HEADER Y HERO) --- */
+/* RESPONSIVO MÓVILES */
 @media (max-width: 768px) {
-    /* El Header se ajusta para que nada se amontone */
     .navbar {
         height: auto !important;
         flex-direction: column !important;
@@ -429,48 +416,25 @@ tambien cambia el logo a atardecer por ello el header-left  */
         width: 100% !important;
         display: flex !important;
     }
-
-    /* El Menú en una sola fila */
     .nav-menu ul {
         display: flex !important;
         justify-content: center !important;
         gap: 15px !important;
         padding: 0 !important;
     }
-
     .nav-menu a { font-size: 0.85rem !important; }
 }
-/* --- 10. SECCIÓN TURISMO (ESTO SE QUEDA IGUAL QUE EN PC) --- */
-.seccion-turismo {
-    padding: 100px 5%;
-    background: var(--oscuro-puro);
-}
-.turismo-header { text-align: center; margin-bottom: 60px; }
-.turismo-header h2 { font-family: var(--fuente-titulo); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--verde-lima); }
-.turismo-header p { color: var(--gris-luz); font-size: 1.2rem; margin-top: 10px; }
-.turismo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-.turismo-card { background: var(--oscuro-suave); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; }
-.turismo-img { width: 100%; height: 250px; position: relative; overflow: hidden; }
-.turismo-img img { width: 100%; height: 100%; object-fit: cover; }
-.turismo-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-.turismo-info h3 { font-family: var(--fuente-titulo); font-size: 1.5rem; margin-bottom: 15px; color: white; }
-.turismo-info p { color: var(--gris-luz); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
-.turismo-cierre { text-align: center; margin-top: 80px; }
-.turismo-cierre h3 { font-family: var(--fuente-titulo); font-size: clamp(2rem, 5vw, 4rem); color: white; text-shadow: 0 0 20px rgb(0, 255, 0); }
 
-/* --- AMBIENTE ATARDECER (SOLO SE ACTIVA CON EL BOTÓN) --- */
+/* ==========================================================================
+   AMBIENTE ATARDECER (UNIFICADO)
+   ========================================================================== */
 body.modo-atardecer {
-    --verde-lima: #ff4500 !important; /* Naranja */
-    --oscuro-puro: #1a0a00 !important; /* Fondo café */
-    --oscuro-suave: #2d1400 !important; /* Cards café */
-}
-
-/* Esto asegura que el fondo del body cambie suavemente */
-body.modo-atardecer {
+    --verde-lima: #ff4500 !important; 
+    --oscuro-puro: #1a0a00 !important; 
+    --oscuro-suave: #2d1400 !important; 
     background-color: var(--oscuro-puro) !important;
 }
 
-/* Esto mantiene tus efectos de hover con el color que toque */
 body.modo-atardecer .turismo-card:hover, 
 body.modo-atardecer .plato-card:hover,
 body.modo-atardecer .card-premium:hover {
@@ -478,391 +442,137 @@ body.modo-atardecer .card-premium:hover {
     box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2) !important;
 }
 
-/* Transición para que no sea un golpe de color */
-body {
-    transition: background-color 0.8s ease, color 0.8s ease !important;
-}
+body.modo-atardecer .brand-name { color: #ffffff; }
+body.modo-atardecer .tagline { color: #FF4500; }
 
-/* Colores normales (Verde) */
-.brand-name { color: #ffffff; }
-.tagline { color: #32CD32; } /* El verde lima de tu logo */
-
-/* Colores cuando se activa el Modo Atardecer */
-body.modo-atardecer .brand-name {
-    color: #ffffff; 
-}
-body.modo-atardecer .tagline {
-    color: #FF4500; /* El naranja que combine con tu atardecerlogo.png */
-}
-
+/* FOOTER */
 footer {
     display: flex;
-    justify-content: space-between; /* Empuja los grupos a los extremos */
-    align-items: center; /* Centra todo verticalmente */
+    justify-content: space-between; 
+    align-items: center; 
     padding: 30px 5%;
-    background-color: #010702; /* Negro profundo */
+    background-color: #010702; 
     font-family: sans-serif;
 }
 
-/* ==========================================================================
-   ESTILOS: SECCIÓN SÍMBOLOS PATRIOS (TOGGLE) esto es por ejemplo solo img
-   ========================================================================== */
+/* SECCIÓN SÍMBOLOS PATRIOS */
 .seccion-simbolos {
     padding: 80px 20px;
     background-color: #0b0b0b;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.contenedor-maestro {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
+.contenedor-maestro { max-width: 1000px; margin: 0 auto; text-align: center; }
+.cabecera-simbolos h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #ffffff; margin-bottom: 10px; }
+.cabecera-simbolos p { color: #aaa; font-size: 1.1rem; margin-bottom: 40px; }
 
-.cabecera-simbolos h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
+.grid-simbolos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 40px; }
+@media (max-width: 768px) { .grid-simbolos { grid-template-columns: 1fr; } }
 
-.cabecera-simbolos p {
-    color: #aaa;
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-}
+.grid-simbolos.activa { display: grid; }
+.grid-simbolos.oculta { display: none; }
 
-/* Sistema de Grid para las Cards */
-.grid-simbolos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-    .grid-simbolos {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Clases de Control de Estado */
-.grid-simbolos.activa {
-    display: grid;
-}
-
-.grid-simbolos.oculta {
-    display: none;
-}
-
-/* Diseño de las Cards */
 .card-simbolo {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    padding: 30px;
-    transition: transform 0.3s ease;
+    border-radius: 15px; padding: 30px; 
 }
+.card-simbolo:hover { transform: translateY(-5px); border-color: #FFB300; }
 
-.card-simbolo:hover {
-    transform: translateY(-5px);
-    border-color: #FFB300;
-}
+.img-wrapper { height: 200px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
+.img-wrapper img { max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-.img-wrapper {
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
+.card-simbolo h3 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 5px; }
+.etiqueta-epoca { color: #aaa; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+.etiqueta-epoca.actual { color: #00E676; }
+.card-simbolo p:last-child { color: #ccc; line-height: 1.5; font-size: 0.95rem; }
 
-.img-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-
-.card-simbolo h3 {
-    color: #fff;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.etiqueta-epoca {
-    color: #aaa;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.etiqueta-epoca.actual {
-    color: #00E676; /* Verde chillón para el actual */
-}
-
-.card-simbolo p:last-child {
-    color: #ccc;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-/* El Botón Premium */
 .btn-premium {
-    background-color: #FFB300;
-    color: #000;
-    border: none;
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 179, 0, 0.2);
+    background-color: #FFB300; color: #000; border: none; padding: 15px 35px;
+    font-size: 1.1rem; font-family: 'Poppins', sans-serif; font-weight: 600;
+    border-radius: 30px; cursor: pointer; box-shadow: 0 5px 15px rgba(255, 179, 0, 0.2);
 }
+.btn-premium:hover { background-color: #e6a200; transform: scale(1.05); }
 
-.btn-premium:hover {
-    background-color: #e6a200;
-    transform: scale(1.05);
-}
-
-/* Animación Nativa para cuando aparecen las cards ocultas */
 @keyframes aparecerSuave {
     0% { opacity: 0; transform: translateY(30px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+.fade-in-animado { animation: aparecerSuave 0.6s ease forwards; opacity: 0; }
 
-.fade-in-animado {
-    animation: aparecerSuave 0.6s ease forwards;
-    opacity: 0; /* Empieza invisible hasta que arranca la animación */
-}
-
-/* ==========================================================================
-   ESTILOS: SECCIÓN GEOGRAFÍA INTEGRAL esto es ps solo geo y datos de parroquias
-   ========================================================================== */
+/* SECCIÓN GEOGRAFÍA INTEGRAL */
 .seccion-geografia-integral {
-    padding: 90px 20px;
-    background-color: #070707;
+    padding: 90px 20px; background-color: #070707;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.geo-master-container {
-    max-width: 1140px;
-    margin: 0 auto;
-}
+.geo-master-container { max-width: 1140px; margin: 0 auto; }
+.geo-main-header { text-align: center; margin-bottom: 50px; }
+.geo-main-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 5px 0 15px 0; }
+.geo-main-header p { color: #aaa; font-size: 1.05rem; }
 
-.geo-main-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.geo-main-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #fff;
-    margin: 5px 0 15px 0;
-}
-
-.geo-main-header p {
-    color: #aaa;
-    font-size: 1.05rem;
-}
-
-/* BLOQUE 1: CLIMA E HIDROGRAFÍA */
-.Grid-Metereologico {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
+.Grid-Metereologico { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 60px; }
 .card-clima-hidro {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 30px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px; padding: 30px; display: flex; gap: 20px; align-items: flex-start;
 }
+.icono-geo-inf { color: #FFB300; font-size: 1.8rem; margin-top: 3px; }
+.info-geo-inf h3 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.4rem; margin: 0 0 10px 0; }
+.info-geo-inf p { color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-.icono-geo-inf {
-    color: #FFB300;
-    font-size: 1.8rem;
-    margin-top: 3px;
-}
+.titulo-zona-geo { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+.barra-acento { width: 4px; height: 25px; background-color: #FFB300; border-radius: 2px; }
+.barra-acento.verde { background-color: #00E676; }
+.titulo-zona-geo h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin: 0; }
 
-.info-geo-inf h3 {
-    font-family: 'Playfair Display', serif;
-    color: #fff;
-    font-size: 1.4rem;
-    margin: 0 0 10px 0;
-}
-
-.info-geo-inf p {
-    color: #bbb;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* TÍTULOS DE SUBZONAS parroquias*/
-.titulo-zona-geo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.barra-acento {
-    width: 4px;
-    height: 25px;
-    background-color: #FFB300;
-    border-radius: 2px;
-}
-
-.barra-acento.verde {
-    background-color: #00E676;
-}
-
-.titulo-zona-geo h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #fff;
-    margin: 0;
-}
-
-/* BLOQUE 2: PARROQUIAS URBANAS */
-.bloque-parroquias-urbanas {
-    margin-bottom: 60px;
-}
-
-.grid-urbanas {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
+.bloque-parroquias-urbanas { margin-bottom: 60px; }
+.grid-urbanas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .mini-card-urbana {
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 3px solid #FFB300;
-    padding: 20px;
-    border-radius: 0 0 8px 8px;
+    background: rgba(255, 255, 255, 0.02); border-top: 3px solid #FFB300;
+    padding: 20px; border-radius: 0 0 8px 8px;
 }
+.mini-card-urbana h4 { color: #fff; margin: 0 0 10px 0; font-size: 1.1rem; }
+.mini-card-urbana p { color: #999; font-size: 0.88rem; line-height: 1.5; margin: 0; }
 
-.mini-card-urbana h4 {
-    color: #fff;
-    margin: 0 0 10px 0;
-    font-size: 1.1rem;
-}
-
-.mini-card-urbana p {
-    color: #999;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* BLOQUE 3: PARROQUIAS RURALES */
-.grid-parroquias-rurales {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
+.grid-parroquias-rurales { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
 .card-rural {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 14px;
-    padding: 30px;
-    position: relative;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px; padding: 30px; position: relative;
 }
-
-.card-rural:hover {
-    transform: translateY(-4px);
-    border-color: #00E676;
-    background: rgba(255, 255, 255, 0.03);
-}
-
 .badge-rural {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    font-size: 0.72rem;
-    background: rgba(0, 230, 118, 0.1);
-    color: #00E676;
-    padding: 3px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    font-weight: 600;
+    position: absolute; top: 25px; right: 25px; font-size: 0.72rem;
+    background: rgba(0, 230, 118, 0.1); color: #00E676; padding: 3px 10px;
+    border-radius: 20px; text-transform: uppercase; font-weight: 600;
 }
+.card-rural h4 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin: 0 0 3px 0; }
+.lema-rural { color: #FFB300; font-size: 0.85rem; text-transform: uppercase; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 15px; }
+.card-rural p:last-child { color: #ccc; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-.card-rural h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: #fff;
-    margin: 0 0 3px 0;
-}
-
-.lema-rural {
-    color: #FFB300;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
-}
-
-.card-rural p:last-child {
-    color: #ccc;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* RESPONSIVO */
-@media (max-width: 900px) {
-    .grid-urbanas { grid-template-columns: repeat(2, 1fr); }
-}
-
+@media (max-width: 900px) { .grid-urbanas { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
-    .Grid-Metereologico, .grid-parroquias-rurales { grid-template-columns: 1fr; }
-    .grid-urbanas { grid-template-columns: 1fr; }
+    .Grid-Metereologico, .grid-parroquias-rurales, .grid-urbanas { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   ESTILOS: SECCIÓN UNIDAD EDUCATIVA - HUB DUAL (RADIO + PODCAST)
-   ========================================================================== */
+/* SECCIÓN INSTITUCIONAL Y RADIO/PODCAST */
 .seccion-institucion {
-    padding: 90px 20px;
-    background-color: #0b0b0b;
+    padding: 90px 20px; background-color: #0b0b0b;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
-
 .institucion-master-container { max-width: 1140px; margin: 0 auto; }
 .institucion-header { text-align: center; margin-bottom: 60px; }
 .institucion-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 3px 0 10px 0; }
 .grid-institucion { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
 
-/* Columna de Textos */
+.institucion-texto { position: relative; padding-right: 0; }
 .institucion-texto h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #FFB300; margin: 0 0 20px 0; }
 .enfoque-destacado { color: #fff; font-size: 1.15rem; line-height: 1.6; margin-bottom: 15px; }
 
-/* Contenedor Dual de Medios */
 .hub-medios-dual { display: flex; flex-direction: column; gap: 20px; }
-
 .reproductor-podcast-mock {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 20px 25px;
-    transition: all 0.3s ease;
+    background: #111111; border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px; padding: 20px 25px;
 }
-
 .reproductor-podcast-mock:hover { border-color: #FFB300; transform: translateY(-3px); }
 .tarjeta-podcast:hover { border-color: #00E676; }
 
@@ -885,526 +595,141 @@ footer {
 .play-main-mini:hover { background: #fff; color: #000; }
 
 @keyframes rebote { from { height: 5px; } to { height: 20px; } }
-
 @media (max-width: 900px) { .grid-institucion { grid-template-columns: 1fr; } }
 
-/* parte del final consejo. */
-
 .frase-cierre-maestra {
-    background: rgba(255, 179, 0, 0.02);
-    border-left: 3px solid #FFB300;
-    padding: 25px;
-    border-radius: 0 12px 12px 0;
-    position: relative;
+    background: rgba(255, 179, 0, 0.02); border-left: 3px solid #FFB300;
+    padding: 25px; border-radius: 0 12px 12px 0; position: relative;
     box-shadow: inset 10px 0 30px rgba(255, 179, 0, 0.01);
 }
+.frase-cierre-maestra i { color: rgba(255, 179, 0, 0.1); font-size: 3rem; position: absolute; top: 15px; left: 20px; }
+.frase-cierre-maestra p { color: #e0e0e0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; margin: 0; position: relative; z-index: 1; padding-left: 15px; }
 
-.frase-cierre-maestra i {
-    color: rgba(255, 179, 0, 0.1);
-    font-size: 3rem;
-    position: absolute;
-    top: 15px;
-    left: 20px;
-}
-
-.frase-cierre-maestra p {
-    color: #e0e0e0;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    padding-left: 15px;
-}
-
-/* ==========================================================================
-   AJUSTE: LOGO EN LA ESQUINA DEL TEXTO INSTITUCIONAL
-   ========================================================================== */
-
-.seccion-institucion {
-    padding: 90px 20px;
-    background-color: #0b0b0b;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative; /* Obligatorio para que el logo se posicione respecto a toda la sección */
-}
-
-/* Dejamos el contenedor de texto limpio como estaba originalmente */
-.institucion-texto {
-    position: relative;
-    padding-right: 0; 
-}
-
+/* LOGOS EN ESQUINAS */
 .logo-colegio-esquina {
-    position: absolute;
-    top: 90px;        /* Lo baja a la misma altura del inicio del contenedor del título */
-    right: 110px;      /* Separación elegante desde el borde derecho de la pantalla */
-    width: 95px;      /* Tamaño perfecto para que resalte sin romper la armonía */
-    height: auto;
-    object-fit: contain;
-    opacity: 0.85;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 10;      /* Se asegura de estar por encima de cualquier fondo */
+    position: absolute; top: 90px; right: 110px; width: 95px; height: auto;
+    object-fit: contain; opacity: 0.85; z-index: 10;
 }
+.logo-colegio-esquina:hover { opacity: 1; transform: scale(1.05); }
 
-.logo-colegio-esquina:hover {
-    opacity: 1;
-    transform: scale(1.05);
+.logo-colegio-esquina-2 {
+    position: absolute; top: 90px; left: 110px; width: 95px; height: auto;
+    object-fit: contain; opacity: 0.85; z-index: 10;
 }
+/* ¡AQUÍ ESTABA EL SELECTOR ROTO! CORREGIDO: */
+.logo-colegio-esquina-2:hover { opacity: 1; transform: scale(1.05); }
 
-/* 2da parte dellogo pero esta vez izquierdo */
-
-.logo-colegio-esquina-2{
-    position: absolute;
-    top: 90px;        /* Lo baja a la misma altura del inicio del contenedor del título */
-    left: 110px;      /* Separación elegante desde el borde derecho de la pantalla */
-    width: 95px;      /* Tamaño perfecto para que resalte sin romper la armonía */
-    height: auto;
-    object-fit: contain;
-    opacity: 0.85;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 10;      /* Se asegura de estar por encima de cualquier fondo */
-}
-
-.logo-colegio-esquina-.logo-colegio-esquina-2 {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* En pantallas medianas o pequeñas lo ocultamos o reacomodamos para que no tape los reproductores */
 @media (max-width: 1024px) {
-    .logo-colegio-esquina {
-        position: relative;
-        top: 0;
-        right: 0;
-        display: block;
-        margin: 0 auto 20px auto; /* Se centra arriba de "Vinculación Cultural" en tablets/celulares */
-        width: 75px;
+    .logo-colegio-esquina, .logo-colegio-esquina-2 {
+        position: relative; top: 0; right: 0; left: 0; display: block;
+        margin: 0 auto 20px auto; width: 75px;
     }
 }
 
-/* ==========================================================================
-   ESTILOS: SECCIÓN AGRICULTURA (BENTO GRID)
-   ========================================================================== */
-.seccion-agricultura {
-    padding: 90px 20px;
-    background-color: #050505; /* Un negro bien profundo */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+/* AGRICULTURA (BENTO GRID) */
+.seccion-agricultura { padding: 90px 20px; background-color: #050505; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.agri-master-container { max-width: 1140px; margin: 0 auto; }
+.agri-header { text-align: center; max-width: 800px; margin: 0 auto 50px auto; }
+.agri-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 5px 0 15px 0; }
+.agri-header p { color: #aaa; font-size: 1.1rem; line-height: 1.6; }
 
-.agri-master-container {
-    max-width: 1140px;
-    margin: 0 auto;
-}
+.bento-grid-agri { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+.agri-card { position: relative; border-radius: 20px; overflow: hidden; height: 380px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); cursor: default; }
+.agri-card.card-large { grid-column: span 2; height: 420px; }
 
-.agri-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-}
-
-.agri-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #fff;
-    margin: 5px 0 15px 0;
-}
-
-.agri-header p {
-    color: #aaa;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* El Bento Grid */
-.bento-grid-agri {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-/* Tarjetas Base */
-.agri-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    height: 380px; /* Altura fija para que todas cuadren perfecto */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    cursor: default;
-}
-
-/* La tarjeta grande que ocupa 2 columnas */
-.agri-card.card-large {
-    grid-column: span 2;
-    height: 420px;
-}
-
-/* Imagen de fondo de la tarjeta */
-.agri-bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-    z-index: 1;
-}
-
-/* Oscurecimiento elegante sobre la imagen */
+.agri-bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .agri-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
-    z-index: 2;
-    transition: background 0.4s ease;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); z-index: 2;
 }
 
-/* Contenido de los textos (Z-index 3 para estar arriba de todo) */
-.agri-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
+.agri-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; }
 .agri-badge {
-    background: rgba(0, 230, 118, 0.15);
-    color: #00E676;
-    border: 1px solid rgba(0, 230, 118, 0.3);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+    background: rgba(0, 230, 118, 0.15); color: #00E676; border: 1px solid rgba(0, 230, 118, 0.3);
+    padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;
 }
+.agri-content h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin: 0 0 10px 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+.agri-content p { color: #ddd; font-size: 1rem; line-height: 1.6; margin: 0; max-width: 800px; }
 
-.agri-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: #fff;
-    margin: 0 0 10px 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
+.agri-card:hover .agri-bg-img { transform: scale(1.08); }
+.agri-card:hover .agri-overlay { background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%); }
 
-.agri-content p {
-    color: #ddd;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 800px;
-}
-
-/* Efectos Hover (Al pasar el mouse) */
-.agri-card:hover .agri-bg-img {
-    transform: scale(1.08); /* La foto hace un zoom suave */
-}
-
-.agri-card:hover .agri-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%);
-}
-
-/* Responsividad para móviles */
 @media (max-width: 900px) {
-    .bento-grid-agri {
-        grid-template-columns: 1fr; /* Todo a una columna en teléfonos */
-    }
-    
-    .agri-card.card-large {
-        grid-column: span 1;
-    }
-    
-    .agri-content {
-        padding: 25px;
-    }
-    
-    .agri-content h3 {
-        font-size: 1.8rem;
-    }
+    .bento-grid-agri { grid-template-columns: 1fr; }
+    .agri-card.card-large { grid-column: span 1; }
+    .agri-content { padding: 25px; }
+    .agri-content h3 { font-size: 1.8rem; }
 }
 
-/* ==========================================================================
-   ESTILOS: SECCIÓN TRANSPORTE Y TURISMO
-   ========================================================================== */
-.seccion-transporte {
-    padding: 90px 20px;
-    background-color: #080808;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+/* TRANSPORTE Y TURISMO */
+.seccion-transporte { padding: 90px 20px; background-color: #080808; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.transporte-master-container { max-width: 1140px; margin: 0 auto; }
+.transporte-header { text-align: center; max-width: 800px; margin: 0 auto 60px auto; }
+.transporte-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin: 5px 0 15px 0; }
+.transporte-header p { color: #aaa; font-size: 1.1rem; line-height: 1.6; }
+.grid-transporte-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 
-.transporte-master-container {
-    max-width: 1140px;
-    margin: 0 auto;
-}
-
-.transporte-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-}
-
-.transporte-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #fff;
-    margin: 5px 0 15px 0;
-}
-
-.transporte-header p {
-    color: #aaa;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.grid-transporte-dual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-/* ================= COLUMNA URBANA (TIPO METRO) ================= */
-.ruta-timeline {
-    position: relative;
-    padding-left: 30px;
-    margin-top: 20px;
-}
-
-/* La línea vertical que une todas las rutas */
+.ruta-timeline { position: relative; padding-left: 30px; margin-top: 20px; }
 .ruta-timeline::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 48px; /* Centrado con los badges */
-    width: 3px;
-    height: 90%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    content: ''; position: absolute; top: 10px; left: 48px; width: 3px; height: 90%;
+    background: rgba(255, 255, 255, 0.1); border-radius: 5px;
 }
-
-.ruta-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
-    margin-bottom: 35px;
-    position: relative;
-    z-index: 2;
-}
-
+.ruta-item { display: flex; align-items: flex-start; gap: 25px; margin-bottom: 35px; position: relative; z-index: 2; }
 .ruta-badge {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: #fff;
-    flex-shrink: 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    border: 2px solid #111;
+    width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    font-weight: 800; font-size: 0.9rem; color: #fff; flex-shrink: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 2px solid #111;
 }
 
-/* Colores únicos para cada línea de bus */
-.linea-1 { background-color: #E53935; } /* Rojo */
-.linea-2 { background-color: #1E88E5; } /* Azul */
-.linea-3 { background-color: #43A047; } /* Verde */
-.linea-4 { background-color: #FB8C00; } /* Naranja */
-.linea-5 { background-color: #8E24AA; } /* Morado */
+.linea-1 { background-color: #E53935; } 
+.linea-2 { background-color: #1E88E5; } 
+.linea-3 { background-color: #43A047; } 
+.linea-4 { background-color: #FB8C00; } 
+.linea-5 { background-color: #8E24AA; } 
 
-.ruta-info h4 {
-    color: #fff;
-    font-size: 1.2rem;
-    margin: 0 0 5px 0;
-}
+.ruta-info h4 { color: #fff; font-size: 1.2rem; margin: 0 0 5px 0; }
+.ruta-info p { color: #999; font-size: 0.95rem; line-height: 1.5; margin: 0; }
 
-.ruta-info p {
-    color: #999;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0;
-}
+.grid-flotas { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
+.card-flota { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 25px; }
+.card-flota:hover { transform: translateX(10px); background: rgba(255, 255, 255, 0.04); border-color: #FFB300; }
+.card-flota.fbi-card { background: linear-gradient(135deg, rgba(67, 160, 71, 0.1), rgba(0,0,0,0)); border-color: rgba(67, 160, 71, 0.4); border-left: 4px solid #43A047; }
 
-/* ================= COLUMNA INTERPROVINCIAL ================= */
-.grid-flotas {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.card-flota {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 25px;
-    transition: all 0.3s ease;
-}
-
-.card-flota:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.04);
-    border-color: #FFB300;
-}
-
-/* Tarjeta Destacada de la F.B.I. */
-.card-flota.fbi-card {
-    background: linear-gradient(135deg, rgba(67, 160, 71, 0.1), rgba(0,0,0,0));
-    border-color: rgba(67, 160, 71, 0.4);
-    border-left: 4px solid #43A047; /* El color verde de la flota */
-}
-
-.flota-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.flota-tag {
-    background: rgba(255, 255, 255, 0.05);
-    color: #bbb;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-weight: 600;
-}
-
-.fbi-card .flota-tag {
-    background: rgba(67, 160, 71, 0.2);
-    color: #43A047;
-}
-
-.flota-header i {
-    color: #FFB300;
-    font-size: 1.2rem;
-}
-
+.flota-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.flota-tag { background: rgba(255, 255, 255, 0.05); color: #bbb; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+.fbi-card .flota-tag { background: rgba(67, 160, 71, 0.2); color: #43A047; }
+.flota-header i { color: #FFB300; font-size: 1.2rem; }
 .fbi-card .flota-header i { color: #43A047; }
+.card-flota h3 { color: #fff; font-size: 1.5rem; margin: 0 0 2px 0; font-family: 'Playfair Display', serif; }
+.card-flota h5 { color: #aaa; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0; }
+.card-flota p { color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-.card-flota h3 {
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0 0 2px 0;
-    font-family: 'Playfair Display', serif;
-}
-
-.card-flota h5 {
-    color: #aaa;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 10px 0;
-}
-
-.card-flota p {
-    color: #bbb;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Responsividad */
 @media (max-width: 900px) {
     .grid-transporte-dual { grid-template-columns: 1fr; gap: 50px; }
-    .ruta-timeline::before { left: 19px; } /* Ajuste de la línea para pantallas pequeñas */
+    .ruta-timeline::before { left: 19px; } 
 }
 
-/* ==========================================================================
-   NUEVO ENCABEZADO: BANNER DEL TERMINAL TERRESTRE
-   ========================================================================== */
+/* BANNER TERMINAL */
 .transporte-hero-header {
-    position: relative;
-    width: 100%;
-    min-height: 280px; /* Altura perfecta para un banner de sección */
-    border-radius: 20px; /* Estilo Bento Box */
-    overflow: hidden;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    position: relative; width: 100%; min-height: 280px; border-radius: 20px; overflow: hidden;
+    margin-bottom: 60px; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 40px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
-
-.bg-terminal-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    transition: transform 0.8s ease;
-}
-
-/* Efecto suave al pasar el mouse por el banner */
-.transporte-hero-header:hover .bg-terminal-img {
-    transform: scale(1.05);
-}
-
-/* Degradado oscuro para que el texto sea 100% legible */
+.bg-terminal-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.8s ease; }
+.transporte-hero-header:hover .bg-terminal-img { transform: scale(1.05); }
 .overlay-terminal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.9) 100%);
-    z-index: 2;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.9) 100%); z-index: 2;
 }
-
-/* Contenido del texto por encima del overlay */
-.contenido-terminal {
-    position: relative;
-    z-index: 3;
-    max-width: 800px;
-}
-
+.contenido-terminal { position: relative; z-index: 3; max-width: 800px; }
 .badge-terminal {
-    display: inline-block;
-    background: rgba(255, 179, 0, 0.15);
-    color: #FFB300;
-    border: 1px solid rgba(255, 179, 0, 0.3);
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    backdrop-filter: blur(4px); /* Efecto cristal elegante */
+    display: inline-block; background: rgba(255, 179, 0, 0.15); color: #FFB300;
+    border: 1px solid rgba(255, 179, 0, 0.3); padding: 6px 15px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 15px; backdrop-filter: blur(4px); 
 }
+.contenido-terminal h2 { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: #fff; margin: 0 0 15px 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+.contenido-terminal p { color: #ddd; font-size: 1.1rem; line-height: 1.6; margin: 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
 
-.contenido-terminal h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    color: #fff;
-    margin: 0 0 15px 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
-
-.contenido-terminal p {
-    color: #ddd;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-}
-
-/* Responsividad para móviles */
 @media (max-width: 768px) {
     .contenido-terminal h2 { font-size: 2.2rem; }
     .transporte-hero-header { min-height: 240px; padding: 30px 15px; }
