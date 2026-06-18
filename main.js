@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // UNIFICACIÓN: MODO ATARDECER LÓGICA LIMPIA
+    // Modo atardecer 
     // ==========================================
     const btnAtardecer = document.getElementById('toggle-atardecer');
     const mainLogo = document.getElementById('main-logo');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// FUNCIÓN DE MAPAS
+// Mi funcion de mapas
 // ==========================================
 function abrirMapa(lugar) {
     const modalGeneral = document.getElementById('modal-mapa');
@@ -80,55 +80,48 @@ function cerrarMapa() {
     if (modalGeneral) modalGeneral.style.display = 'none';
 }
 
-// ==========================================
-// ENGINE DEL CARRUSEL INTERACTIVO
-// ==========================================
+// ==========================================================================
+// 🎠 MOTOR DEL CARRUSEL 1: HERO PRINCIPAL (INDEPENDIENTE)
+// ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    const carouselSection = document.getElementById('heroCarouselSection');
-    const slides = document.querySelectorAll('.carousel-slide');
+    const sectionHero = document.getElementById('heroCarouselSection');
+    const slidesHero = document.querySelectorAll('#heroCarouselSection .carousel-slide');
     
-    if (!carouselSection || slides.length === 0) return;
+    // Si no existe este carrusel en la página, frena este bloque
+    if (!sectionHero || slidesHero.length === 0) return;
 
-    let currentSlideIndex = 0;
-    let carouselTimer = null;
-    const intervalTime = 3000;
+    let indexHero = 0;
+    let timerHero = null;
 
-    function changeSlide() {
-        slides[currentSlideIndex].classList.remove('active');
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-        slides[currentSlideIndex].classList.add('active');
+    function cambiarSlideHero() {
+        slidesHero[indexHero].classList.remove('active');
+        indexHero = (indexHero + 1) % slidesHero.length;
+        slidesHero[indexHero].classList.add('active');
     }
 
-    function startCarousel() {
-        if (carouselTimer === null) {
-            carouselTimer = setInterval(changeSlide, intervalTime);
+    function activarTimerHero() {
+        if (timerHero === null) {
+            timerHero = setInterval(cambiarSlideHero, 3000);
         }
     }
 
-    function stopCarousel() {
-        if (carouselTimer !== null) {
-            clearInterval(carouselTimer);
-            carouselTimer = null; 
+    function desactivarTimerHero() {
+        if (timerHero !== null) {
+            clearInterval(timerHero);
+            timerHero = null;
         }
     }
 
-    carouselSection.addEventListener('mouseenter', () => stopCarousel());
-    carouselSection.addEventListener('mouseleave', () => startCarousel());
+    // Eventos de pausa independientes para el Hero
+    sectionHero.addEventListener('mouseenter', desactivarTimerHero);
+    sectionHero.addEventListener('mouseleave', activarTimerHero);
 
-    slides.forEach(slide => {
-        const bgStyle = slide.style.backgroundImage;
-        const urlMatch = bgStyle.match(/url\(['"]?([^'"]+)['"]?\)/);
-        if (urlMatch && urlMatch[1]) {
-            const img = new Image();
-            img.src = urlMatch[1]; 
-        }
-    });
-
-    startCarousel();
+    // Arrancar el primer carrusel
+    activarTimerHero();
 });
 
 // ==========================================
-// TOGGLES SÍMBOLOS PATRIOS
+// Los toggles de mis simbolos patrios
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     const btnToggle = document.getElementById('btn-toggle-simbolos');
@@ -160,4 +153,44 @@ document.addEventListener("DOMContentLoaded", () => {
             viendoHistoricos = true;
         }
     });
+});
+
+// ==========================================================================
+// 🎓 MOTOR DEL CARRUSEL 2: HOMENAJE DE DESPEDIDA (INDEPENDIENTE)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const sectionUltimate = document.getElementById('heroCarouselSection-ultimate');
+    const slidesUltimate = document.querySelectorAll('#heroCarouselSection-ultimate .carousel-slide-n');
+    
+    // Si no existe este carrusel en la página, frena este bloque
+    if (!sectionUltimate || slidesUltimate.length === 0) return;
+
+    let indexUltimate = 0;
+    let timerUltimate = null;
+
+    function cambiarSlideUltimate() {
+        slidesUltimate[indexUltimate].classList.remove('active');
+        indexUltimate = (indexUltimate + 1) % slidesUltimate.length;
+        slidesUltimate[indexUltimate].classList.add('active');
+    }
+
+    function activarTimerUltimate() {
+        if (timerUltimate === null) {
+            timerUltimate = setInterval(cambiarSlideUltimate, 1000);
+        }
+    }
+
+    function desactivarTimerUltimate() {
+        if (timerUltimate !== null) {
+            clearInterval(timerUltimate);
+            timerUltimate = null;
+        }
+    }
+
+    // Eventos de pausa independientes para la Despedida
+    sectionUltimate.addEventListener('mouseenter', desactivarTimerUltimate);
+    sectionUltimate.addEventListener('mouseleave', activarTimerUltimate);
+
+    // Arrancar el segundo carrusel
+    activarTimerUltimate();
 });
