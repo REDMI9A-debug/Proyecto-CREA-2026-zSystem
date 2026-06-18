@@ -935,3 +935,159 @@ footer {
     margin: 20px auto 0 auto;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
 }
+
+/* ==========================================================================
+   🛣️ TERMINAL INTERPROVINCIAL - EFECTO ACORDEÓN (FLEX-GROW)
+   ========================================================================== */
+.seccion-interprovincial-premium {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.titulo-zona-geo.centrado {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.subtitulo-inter {
+    text-align: center;
+    color: var(--gris-luz);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+/* El Contenedor Padre */
+.contenedor-acordeon-buses {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    gap: 15px;
+}
+
+/* Las Columnas (Paneles) */
+.panel-bus {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    flex: 1; /* Todos miden lo mismo al inicio */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Suavidad extrema */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Capa oscura para leer el texto y dar misterio */
+.panel-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 100%);
+    transition: opacity 0.5s ease;
+}
+
+.panel-contenido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.icono-flota {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--verde-lima);
+    border: 1px solid rgba(50, 205, 50, 0.3);
+    transition: all 0.5s ease;
+}
+
+.flota-tag-premium {
+    background: var(--verde-lima);
+    color: var(--oscuro-puro);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0; /* Oculto hasta que se expanda */
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+/* El texto que se esconde */
+.panel-info-oculta {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0s;
+    max-width: 500px;
+}
+
+.panel-info-oculta h3 {
+    font-family: var(--fuente-titulo);
+    font-size: 2.2rem;
+    margin: 0;
+}
+.panel-info-oculta h5 {
+    color: var(--verde-lima);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 5px 0 15px 0;
+    font-size: 0.9rem;
+}
+.panel-info-oculta p {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* =========================================
+   EFECTO MAGIA: CUANDO EL PANEL ESTÁ ACTIVO
+   ========================================= */
+.panel-bus.activa {
+    flex: 5; /* Se come todo el espacio de la pantalla */
+    border-color: var(--verde-lima);
+    box-shadow: 0 15px 40px rgba(50, 205, 50, 0.2);
+}
+
+.panel-bus.activa .panel-overlay { background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%); }
+.panel-bus.activa .flota-tag-premium { opacity: 1; transform: translateX(0); transition-delay: 0.3s; }
+.panel-bus.activa .icono-flota { background: var(--verde-lima); color: var(--oscuro-puro); transform: rotate(360deg); }
+
+.panel-bus.activa .panel-info-oculta {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s; /* Aparece después de expandirse */
+}
+
+/* Ajustes para Móviles (Se vuelve vertical en vez de horizontal) */
+@media (max-width: 850px) {
+    .contenedor-acordeon-buses {
+        flex-direction: column;
+        height: 700px; /* Más alto en móviles para que quepan apilados */
+    }
+    .panel-info-oculta h3 { font-size: 1.5rem; }
+    .panel-info-oculta p { font-size: 0.9rem; display: none; /* Ocultamos el párrafo largo en móviles para ahorrar espacio */ }
+    .panel-bus.activa .panel-info-oculta p { display: block; }
+}

@@ -253,3 +253,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// ==========================================================================
+// 🚌 ENGINE ACORDEÓN BUSES INTERPROVINCIALES (INDEPENDIENTE)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const panelesBuses = document.querySelectorAll('.panel-bus');
+    
+    if (panelesBuses.length === 0) return;
+
+    panelesBuses.forEach(panel => {
+        panel.addEventListener('click', () => {
+            // Primero le quitamos la clase 'activa' a TODOS los paneles
+            borrarClasesActivas();
+            // Luego se la ponemos SOLO al panel que acabamos de hacer click
+            panel.classList.add('activa');
+        });
+    });
+
+    function borrarClasesActivas() {
+        panelesBuses.forEach(panel => {
+            panel.classList.remove('activa');
+        });
+    }
+});
