@@ -194,3 +194,62 @@ document.addEventListener("DOMContentLoaded", () => {
     // Arrancar el segundo carrusel
     activarTimerUltimate();
 });
+
+// ==========================================================================
+// 🚍 ENGINE DEL SLIDER HORIZONTAL DE BUSES URBANOS (INDEPENDIENTE - 5 LÍNEAS)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const riel = document.getElementById('rielBusesUrbano');
+    const btnPrev = document.getElementById('btnBusPrev');
+    const btnNext = document.getElementById('btnBusNext');
+    const puntos = document.querySelectorAll('.punto-bus');
+    
+    if (!riel || !btnPrev || !btnNext) return;
+
+    let posicionActual = 0;
+    const totalCards = 5; // Tus 5 líneas fijas
+
+    // La matemática del movimiento en base 20%
+    function moverSlider() {
+        riel.style.transform = `translateX(-${posicionActual * 20}%)`; 
+        actualizarPuntos();
+    }
+
+    function actualizarPuntos() {
+        puntos.forEach((punto, i) => {
+            if (i === posicionActual) {
+                punto.classList.add('activo');
+            } else {
+                punto.classList.remove('activo');
+            }
+        });
+    }
+
+    // Botón Siguiente
+    btnNext.addEventListener('click', () => {
+        if (posicionActual < totalCards - 1) {
+            posicionActual++;
+        } else {
+            posicionActual = 0; // Bucle al inicio
+        }
+        moverSlider();
+    });
+
+    // Botón Atrás
+    btnPrev.addEventListener('click', () => {
+        if (posicionActual > 0) {
+            posicionActual--;
+        } else {
+            posicionActual = totalCards - 1; // Salta al último
+        }
+        moverSlider();
+    });
+
+    // Evento para los 5 puntos interactivos
+    puntos.forEach(punto => {
+        punto.addEventListener('click', (e) => {
+            posicionActual = parseInt(e.target.getAttribute('data-index'));
+            moverSlider();
+        });
+    });
+});
