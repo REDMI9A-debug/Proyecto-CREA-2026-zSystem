@@ -786,7 +786,7 @@ footer {
     height: 100%;
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(to top, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(15, 15, 15, 0.8) 100%);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(15, 15, 15, 0) 100%);
 }
 
 .footer-content h1 {
