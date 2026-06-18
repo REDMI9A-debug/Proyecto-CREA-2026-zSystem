@@ -615,7 +615,7 @@ footer {
 .frase-cierre-maestra i { color: rgba(255, 179, 0, 0.1); font-size: 3rem; position: absolute; top: 15px; left: 20px; }
 .frase-cierre-maestra p { color: #e0e0e0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; margin: 0; position: relative; z-index: 1; padding-left: 15px; }
 
-/* LOGOS EN ESQUINAS */
+/* logos en las esquinas */
 .logo-colegio-esquina {
     position: absolute; top: 90px; right: 110px; width: 95px; height: auto;
     object-fit: contain; opacity: 0.85; z-index: 10;
@@ -626,7 +626,7 @@ footer {
     position: absolute; top: 90px; left: 110px; width: 95px; height: auto;
     object-fit: contain; opacity: 0.85; z-index: 10;
 }
-/* ¡AQUÍ ESTABA EL SELECTOR ROTO! CORREGIDO: */
+/* logo no duplicado para cada position superior */
 .logo-colegio-esquina-2:hover { opacity: 1; transform: scale(1.05); }
 
 @media (max-width: 1024px) {
@@ -636,7 +636,7 @@ footer {
     }
 }
 
-/* AGRICULTURA (BENTO GRID) */
+/* el bento grid creado en la parte casi inferior de la pag web */
 .seccion-agricultura { padding: 90px 20px; background-color: #050505; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 .agri-master-container { max-width: 1140px; margin: 0 auto; }
 .agri-header { text-align: center; max-width: 800px; margin: 0 auto 50px auto; }
@@ -672,16 +672,14 @@ footer {
 }
 
 /* TRANSPORTE Y TURISMO */
-/* ==========================================================================
-   🚏 SECCIÓN TRANSPORTE URBANO - SLIDER HORIZONTAL DE RIEL
-   ========================================================================== */
+
 .seccion-transporte-premium {
     padding: 80px 5%;
     background-color: var(--oscuro-puro);
     width: 100%;
 }
 
-/* Títulos con tu estilo */
+/* con el var siguen mi estilo de titulos */
 .titulo-seccion-contenedor {
     text-align: center;
     margin-bottom: 40px;
@@ -700,18 +698,18 @@ footer {
     margin-top: 10px;
 }
 
-/* La Ventana Mágica: Corta lo sobrante */
+/* cortar lo que sobre, osea que las demas esten ocultas a menos que se los indique aparecer */
 .slider-ventana-container {
     position: relative;
     max-width: 1000px; /* Tamaño ideal de lectura horizontal */
     margin: 0 auto;
     border-radius: 24px;
-    overflow: hidden; /* ¡CLAVE! Esconde las otras 3 imágenes */
+    overflow: hidden; /* solo esconde las otras imagenes */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* El Riel Estirado */
+/* solo para diseñar el riel estirado */
 .slider-riel-buses {
     display: flex;
     width: 700%; /* 5 cards, cada una ocupa 100% del contenedor padre */
