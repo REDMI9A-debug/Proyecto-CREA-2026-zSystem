@@ -1091,3 +1091,33 @@ footer {
     .panel-info-oculta p { font-size: 0.9rem; display: none; /* Ocultamos el párrafo largo en móviles para ahorrar espacio */ }
     .panel-bus.activa .panel-info-oculta p { display: block; }
 }
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA SECCIÓN HORIZONTAL (Corregido para ancho completo)
+   ========================================================================== */
+
+/* 1. Forzamos a que el grid use una sola columna completa (elimina el vacío de la derecha) */
+#bloque-reproductores-horizontal .grid-institucion {
+    grid-template-columns: 1fr; 
+}
+
+/* 2. Cambiamos el flex de vertical a horizontal */
+#bloque-reproductores-horizontal .hub-medios-dual {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: 150%; /* Asegura que use todo el ancho */
+    position: relative; left: -25%; /* Centra el contenido horizontalmente */
+}
+
+/* 3. Forzamos a que los dos reproductores se estiren 50/50 equitativamente */
+#bloque-reproductores-horizontal .reproductor-podcast-mock {
+    flex: 2;
+}
+
+/* Responsivo: En celulares se vuelven a poner uno abajo del otro */
+@media (max-width: 900px) {
+    #bloque-reproductores-horizontal .hub-medios-dual {
+        flex-direction: column;
+    }
+}
