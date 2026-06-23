@@ -1100,7 +1100,8 @@ footer {
 .hub-medios-horizontal {
     display: flex;
     flex-direction: row;
-    gap: 30px; /* Espacio elegante entre las dos tarjetas */
+    gap: 50px; /* Espacio elegante entre las dos tarjetas */
+    margin-top: 40px;
     width: 100%;
 }
 
