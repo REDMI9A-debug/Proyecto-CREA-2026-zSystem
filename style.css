@@ -1093,31 +1093,26 @@ footer {
 }
 
 /* ==========================================================================
-   ESTILOS EXCLUSIVOS PARA LA SECCIÓN HORIZONTAL (Corregido para ancho completo)
+   ESTILOS EXCLUSIVOS PARA LOS REPRODUCTORES LADO A LADO
    ========================================================================== */
 
-/* 1. Forzamos a que el grid use una sola columna completa (elimina el vacío de la derecha) */
-#bloque-reproductores-horizontal .grid-institucion {
-    grid-template-columns: 1fr; 
-}
-
-/* 2. Cambiamos el flex de vertical a horizontal */
-#bloque-reproductores-horizontal .hub-medios-dual {
+/* En computadoras: se alinean horizontalmente ocupando el 100% del contenedor */
+.hub-medios-horizontal {
     display: flex;
     flex-direction: row;
-    gap: 50px;
-    width: 100%; /* Asegura que use todo el ancho */
-    position: relative; left: -25%; /* Centra el contenido horizontalmente */
+    gap: 30px; /* Espacio elegante entre las dos tarjetas */
+    width: 100%;
 }
 
-/* 3. Forzamos a que los dos reproductores se estiren 50/50 equitativamente */
-#bloque-reproductores-horizontal .reproductor-podcast-mock {
-    flex: 2;
+/* Hace que ambos reproductores crezcan por igual (50% de ancho cada uno) */
+.hub-medios-horizontal .reproductor-podcast-mock {
+    flex: 1;
 }
 
-/* Responsivo: En celulares se vuelven a poner uno abajo del otro */
+/* En celulares (pantallas de 900px o menos): se apilan uno abajo del otro */
 @media (max-width: 900px) {
-    #bloque-reproductores-horizontal .hub-medios-dual {
+    .hub-medios-horizontal {
         flex-direction: column;
+        gap: 20px;
     }
 }
