@@ -1106,7 +1106,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    width: 150%; /* Asegura que use todo el ancho */
+    width: 100%; /* Asegura que use todo el ancho */
     position: relative; left: -25%; /* Centra el contenido horizontalmente */
 }
 
