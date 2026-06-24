@@ -406,10 +406,10 @@ html, body {
 }
 .btn-leer-mas:hover { background: var(--verde-lima); color: var(--oscuro-puro); }
 
-.turismo-cierre { text-align: center; margin-top: 80px; }
+.turismo-cierre { text-align: center; margin-top: 80px;}
 .turismo-cierre h3 {
     font-family: var(--fuente-titulo);
-    font-size: clamp(2rem, 5vw, 4rem); 
+    font-size: clamp(2rem, 5vw, 4rem);
     color: white;
     text-shadow: 0 0 20px rgb(0, 255, 0);
 }
