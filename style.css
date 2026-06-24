@@ -1117,3 +1117,20 @@ footer {
         gap: 20px;
     }
 }
+
+/* Altura específica para el banner del nuevo rector */
+#heroCarouselSection-ultimate {
+    /* Puedes usar 'vh' (porcentaje de la pantalla) o 'px' (píxeles fijos). 
+       Ve subiendo o bajando este número hasta que quede como te gusta */
+    min-height: 100vh; 
+    
+    /* Opcional: Si sientes que el texto sigue muy pegado arriba o abajo, 
+       puedes darle más respiro interno con padding */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Asegurarnos de que el contenedor de las fotos de fondo crezca junto con la sección */
+#heroCarouselSection-ultimate .carousel-bg-container-ultimate {
+    height: 110%;
+}
