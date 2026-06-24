@@ -1122,7 +1122,7 @@ footer {
 #heroCarouselSection-ultimate {
     /* Puedes usar 'vh' (porcentaje de la pantalla) o 'px' (píxeles fijos). 
        Ve subiendo o bajando este número hasta que quede como te gusta */
-    min-height: 120vh; 
+    min-height: 110vh; 
     
     /* Opcional: Si sientes que el texto sigue muy pegado arriba o abajo, 
        puedes darle más respiro interno con padding */
