@@ -26,15 +26,19 @@ async function obtenerVideos() {
         const contenedor = document.getElementById('thumbnailGrid');
         contenedor.innerHTML = ''; 
 
-        let htmlContenido = '';
+let htmlContenido = '';
 
         videos.forEach(video => {
-            const id = video.snippet.resourceId.videoId;
             const titulo = video.snippet.title;
             
-            // --- EL SALVAVIDAS AQUÍ ---
-            // Revisamos paso a paso si existen las miniaturas para que no lance error
-            let miniatura = 'https://via.placeholder.com/320x180?text=Sin+Miniatura'; // Imagen por defecto
+            if (titulo === 'Deleted video' || titulo === 'Private video') {
+                return;
+            }
+
+            const id = video.snippet.resourceId.videoId;
+            
+            
+            let miniatura = 'https://via.placeholder.com/320x180?text=Sin+Miniatura';
             
             if (video.snippet.thumbnails) {
                 if (video.snippet.thumbnails.medium && video.snippet.thumbnails.medium.url) {
@@ -55,7 +59,6 @@ async function obtenerVideos() {
         });
 
         contenedor.innerHTML = htmlContenido;
-
     } catch (error) {
         console.error("Error de red o conexión:", error);
     }
