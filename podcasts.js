@@ -37,8 +37,7 @@ let htmlContenido = '';
 
             const id = video.snippet.resourceId.videoId;
             
-            
-            let miniatura = 'https://via.placeholder.com/320x180?text=Sin+Miniatura';
+        
             
             if (video.snippet.thumbnails) {
                 if (video.snippet.thumbnails.medium && video.snippet.thumbnails.medium.url) {
