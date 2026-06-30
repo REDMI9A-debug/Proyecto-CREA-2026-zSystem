@@ -61,7 +61,7 @@ async function obtenerVideos() {
     }
 }
 
-// 3. FUNCIÓN PARA REPRODUCIR (Cuando haces clic)
+// 3. FUNCIÓN PARA REPRODUCIR (Cuando haces clic)1
 function cambiarVideo(id, titulo) {
     const reproductor = document.getElementById('mainPlayer');
     const tituloPantalla = document.getElementById('videoTitle');
