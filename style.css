@@ -2119,6 +2119,13 @@ footer {
     z-index: 1000;
     /* Transición elegante para cuando JS cambie las clases */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    width: 32vw;       /* Tomará el 32% del ancho de la pantalla, se adaptará al zoom */
+    min-width: 320px;  /* Evita que se encoja demasiado en pantallas medianas */
+    max-width: 450px;  /* Evita que se haga gigante en pantallas enormes */
+    
+    height: 65vh;      /* Tomará el 65% de la altura de la pantalla */
+    max-height: 600px;
 }
 
 /* Estados controlados por JavaScript */
