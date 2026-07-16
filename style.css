@@ -2284,35 +2284,59 @@ footer {
 }
 
 /* Responsivo para móviles */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    /* La ventana del chat toma control total de la pantalla */
     .chat-container {
         right: 0;
         bottom: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh; /* Altura total del dispositivo */
         border-radius: 0;
+        max-height: none;
     }
-}
 
-/* Ajuste para el tamaño de los iconos nuevos */
-.chatbot-btn i {
-    font-size: 26px; /* Tamaño del icono de abrir */
-}
+    /* El botón flotante un poco más grande para el dedo */
+    .chatbot-btn {
+        width: 65px;
+        height: 65px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .chatbot-btn i {
+        font-size: 32px;
+    }
 
-.bot-icon {
-    font-size: 24px; /* Tamaño del robot */
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* Ajuste táctil del header para no fallar al cerrar */
+    .chat-header {
+        padding: 18px;
+    }
+    
+    .chat-close-btn i {
+        font-size: 26px; /* X más grande y fácil de tocar */
+    }
 
-.chat-close-btn i {
-    font-size: 20px; /* Tamaño de la X de cerrar */
-}
+    /* Ajuste ergonómico en la caja de texto */
+    .chat-input-area {
+        padding: 12px 15px;
+        padding-bottom: 20px; /* Un poco de respiro abajo para los gestos de iOS/Android */
+    }
 
-.chat-send-btn i {
-    font-size: 16px; /* Tamaño del avioncito de enviar */
+    /* EL FIX DEFINITIVO: 16px en el input evita el auto-zoom en iOS */
+    .chat-input-area input {
+        height: 50px;
+        font-size: 16px; 
+        border-radius: 25px;
+    }
+
+    /* El botón de enviar más gordo para no fallar el tap */
+    .chat-send-btn {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+    
+    .chat-send-btn i {
+        font-size: 18px;
+    }
 }
