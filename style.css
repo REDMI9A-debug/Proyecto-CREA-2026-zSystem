@@ -2290,3 +2290,84 @@ footer {
     background-color: var(--primary-hover);
 }
 
+/* ========================================================
+   RESPONSIVE DEFINITIVO: DOMANDO A LOS GIGANTES
+   ======================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. EL ESCUDO Y LA BARRA DE NAVEGACIÓN (Adiós logo mutante) */
+  .navbar {
+    height: 65px !important; /* Reducimos la altura de toda la barra superior */
+    padding: 0 15px !important;
+  }
+  
+  .escudo {
+    height: 40px !important; /* El logo pasa de 90px a 40px: sutil, decente y normal */
+    width: auto !important;
+  }
+  
+  .brand-name {
+    font-size: 0.85rem !important; /* Nombre de marca un poco más compacto */
+  }
+  
+  .tagline {
+    display: none !important; /* En celular, ocultamos el eslogan para que el logo y el menú respiren */
+  }
+  
+  /* 2. LOS TEXTOS EXAGERADOS (De satélite a legibles) */
+  .hero-content h1 {
+    font-size: 2.2rem !important; /* Bajamos de 3.5rem */
+  }
+  
+  .titulo-seccion h2,
+  .cultura-header h2,
+  .turismo-header h2,
+  .gastronomia-container h3,
+  .frase-geo {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* 3. LOS ESPACIOS EN BLANCO KILOMÉTRICOS (Paddings) */
+  .seccion-cards,
+  .seccion-timeline,
+  .seccion-geografia,
+  .seccion-cultura,
+  .seccion-turismo {
+    padding: 40px 5% !important; /* Pasamos de 100px a 40px para que el usuario no haga tanto scroll */
+  }
+
+  /* 4. COLUMNAS APLASTADAS Y TARJETAS DESBORDADAS */
+  .geo-content,
+  .video-grid {
+    grid-template-columns: 1fr !important; /* Forzamos a que todo vaya en 1 sola columna vertical */
+    gap: 30px !important;
+  }
+  
+  /* El infame ancho de 400px arreglado */
+  .fiesta-card {
+    min-width: 260px !important; /* Ahora sí caben dentro del teléfono */
+    height: 380px !important;
+  }
+  
+  /* 5. EL CHATBOT (BICAR-EDU) FLOTANTE Y NORMALITO */
+  .chat-container {
+    right: 5vw !important;
+    bottom: 80px !important;
+    width: 90vw !important;
+    height: 65vh !important;
+    max-height: none !important;
+    border-radius: 15px !important;
+  }
+  
+  .chatbot-btn {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+  
+  .chatbot-btn i {
+    font-size: 24px !important;
+  }
+}
