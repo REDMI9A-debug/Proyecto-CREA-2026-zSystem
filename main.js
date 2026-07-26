@@ -325,11 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ========================================================
 // 1. CONFIGURACIÓN DE LA API DE GROQ Y ARCHIVO PDF
 // ========================================================
-const API_KEY = "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"; 
+const API_KEY = "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"; 
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Ruta de tu archivo PDF en la carpeta raíz de tu proyecto
-const PDF_RUTA = "Documents/babahoyoinfo.docx"; 
+const PDF_RUTA = "Documents/Copia de Investigación Profunda de Babahoyo.pdf"; 
 
 // Variable global donde se guardará el texto extraído del PDF
 let documentoPdfContexto = "";
@@ -387,7 +387,14 @@ function appendMessage(text, sender) {
     messageDiv.classList.add('message', `${sender}-message`);
 
     const p = document.createElement('p');
-    p.textContent = text;
+
+    // SI ES DEL BOT: Parseamos el Markdown (negritas, cursivas, listas) a HTML usando marked.js
+    // SI ES DEL USUARIO: Mantenemos textContent para evitar inyección de código
+    if (sender === 'bot') {
+        p.innerHTML = marked.parse(text);
+    } else {
+        p.textContent = text;
+    }
 
     const timeSpan = document.createElement('span');
     timeSpan.classList.add('message-time');
@@ -400,7 +407,6 @@ function appendMessage(text, sender) {
     // Auto-scroll
     chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
 }
-
 // ========================================================
 // 4. CONEXIÓN CON LA IA (Pasando el texto extraído del PDF)
 // ========================================================
@@ -413,6 +419,10 @@ async function askGroq(userMessage) {
     chatMessagesArea.appendChild(loadingDiv);
     chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
 
+    // LA MAGIA TEÓRICA: Recortamos el monstruo de 97k caracteres a solo 12k
+    // para evitar el Error 413 Payload Too Large.
+    const contextoSeguro = documentoPdfContexto.slice(0, 12000);
+
     const payload = {
         model: "llama-3.3-70b-versatile", 
         messages: [
@@ -420,22 +430,19 @@ async function askGroq(userMessage) {
                 role: "system",
                 content: `Eres BICAR-EDU, un asistente virtual hiper-especializado y cerrado exclusivamente al Cantón Babahoyo, provincia de Los Ríos, Ecuador.
 
-[REGLAS CRÍTICAS DE COMPORTAMIENTO Y COMPETENCIA]
-1. AMBITO GEOGRÁFICO Y TEMÁTICO ABSOLUTO: Tu único universo de conocimiento y respuesta es Babahoyo (su historia, geografía, cultura, tradiciones, parroquias como Barreiro, El Salto, La Virginia, Caracol, Pimocha, su patrimonio, etc.). 
-2. FILTRO ESTRICTO DE RESPUESTAS: Si el usuario te pregunta sobre cualquier tema ajeno a Babahoyo (código de programación, matemáticas, recetas de otros países, historia general del mundo, tareas escolares de otras materias, o cualquier otra ciudad que no sea Babahoyo), debes negarte a responder de forma amable pero sumamente firme.
-3. EJEMPLO DE DESVÍO: Si te preguntan algo fuera de Babahoyo, responde textualmente: "Solo estoy programado para brindar información y responder preguntas relacionadas exclusivamente con el cantón Babahoyo y su patrimonio. ¿En qué te puedo ayudar sobre nuestra ciudad?".
-4. PROHIBICIÓN DE MARCAS O PROYECTOS: No menciones marcas, nombres de proyectos de desarrollo ni la frase "Voces de Babahoyo". Preséntate simplemente como BICAR-EDU, el asistente dedicado a la historia y cultura de Babahoyo.
+[REGLAS CRÍTICAS DE COMPORTAMIENTO]
+1. ÁMBITO GEOGRÁFICO ABSOLUTO: Tu único universo de conocimiento es Babahoyo. Si te preguntan algo ajeno, niégate amablemente diciendo: "Solo respondo sobre el cantón Babahoyo y su patrimonio. ¿En qué te puedo ayudar sobre nuestra ciudad?".
+2. PROHIBICION DE MARCAS: No menciones proyectos ni la frase "Voces de Babahoyo". Eres simplemente BICAR-EDU.
 
-[REGLA DE ORO DE REDACCIÓN]
-- Tu tono debe ser amigable, educativo, natural y directo.
-- Está estrictamente PROHIBIDO usar lenguaje robótico de plantilla como: "De acuerdo al documento proporcionado", "Según el PDF adjunto" o "Como inteligencia artificial". Habla como un guía local experto que conoce cada rincón de la ciudad.
+[REGLAS ESTRICTAS DE FORMATO Y CONCISIÓN]
+1. BREVEDAD OBLIGATORIA: Respuestas de MÁXIMO 2 a 3 oraciones cortas (menos de 50 palabras en total).
+2. SIN RODEOS NI INTROS REPETITIVAS: PROHIBIDO decir "¡Bienvenido! Estoy aquí para ayudarte...", "Babahoyo es una ciudad con una rica historia...", o frases cliché de relleno. Responde directo a la pregunta del usuario.
+3. FORMATO MARKDOWN: Usa negritas (**texto**) para resaltar los términos clave de Babahoyo.
+4. TONO: Local, amigable, directo y educativo.
 
 [FUENTE DE INFORMACIÓN PRIORITARIA]
-Apóyate estrictamente en los datos históricos y geográficos del documento cargado para responder las dudas del usuario:
-
-                === TEXTO EXTRAÍDO DEL PDF DEL PROYECTO ===
-                ${documentoPdfContexto}
-                `
+Contexto del PDF:
+${contextoSeguro}`
             },
             {
                 role: "user",
@@ -484,6 +491,7 @@ Apóyate estrictamente en los datos históricos y geográficos del documento car
         appendMessage("Error en la petición. Revisa que estés ejecutando la página con Live Server.", 'bot');
     }
 }
+
 
 // ========================================================
 // 5. CAPTURA DEL EVENTO SUBMIT
