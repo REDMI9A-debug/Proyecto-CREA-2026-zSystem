@@ -282,3 +282,8 @@ modalOverlay.addEventListener('click', (event) => {
 
 // Variable global para controlar que no se dupliquen los sonidos
 let audioActual = null;
+
+// Asegurarnos de que Leaflet recalcule los mosaicos al girar la pantalla del celular[cite: 4]
+window.addEventListener('resize', () => {
+    map.invalidateSize();
+});

@@ -473,3 +473,53 @@ body {
     visibility: visible;
     transform: translateY(50%) scale(1);
 }
+
+@media (max-width: 850px) {
+    
+    /* 1. NAVBAR MÁS COMPACTO Y ORDENADO EN MÓVIL */
+    .navbar {
+        height: auto !important; /*[cite: 2] */
+        padding: 10px 15px !important;
+        flex-direction: row !important; /* Mantenemos logo e info lado a lado para ahorrar espacio */
+        justify-content: space-between;
+    }
+
+    .header-left {
+        gap: 8px !important; /*[cite: 2] */
+    }
+
+    .escudo {
+        height: 40px !important; /* Reducimos el logo para que no sea un bloque enorme */
+    }
+
+    .brand-name {
+        font-size: 0.8rem !important; /*[cite: 2] */
+    }
+
+    .tagline {
+        display: none !important; /* Ocultamos la frase larga solo en celulares para ganar espacio */
+    }
+
+    /* 2. EMPUJAMOS EL MAPA HACIA ABAJO PARA QUE NO QUEDE TAPADO */
+    .map-container {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 15px !important; /*[cite: 2] */
+        padding: 10px !important;
+        margin-top: 85px !important; /* Espacio suficiente para que respire debajo del navbar */
+    }
+
+    /* 3. EL MAPA Y LA LISTA CON ALTURAS AJUSTADAS */
+    .pro-map-view {
+        min-width: 100% !important; /*[cite: 2] */
+        width: 100% !important;
+        height: 40vh !important; /* Ajustamos a 40vh para que se vea completo sin hacer scroll */
+        flex: none !important; /*[cite: 2] */
+    }
+
+    .locations-sidebar {
+        width: 100% !important; /*[cite: 2] */
+        height: 38vh !important; /*[cite: 2] */
+        flex: none !important;
+    }
+}
