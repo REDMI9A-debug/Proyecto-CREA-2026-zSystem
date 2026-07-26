@@ -2414,8 +2414,7 @@ footer {
     border-radius: 15px !important;
   }
   .chatbot-btn {
-    width: 50px !important;
-    height: 50px !important;
+    /* ELIMINADO: width: 50px y height: 50px forzados */
     bottom: 15px !important;
     right: 15px !important;
   }
@@ -2548,16 +2547,6 @@ footer {
     transform: rotate(-12deg);
 }
 
-/* Adaptación para pantallas pequeñas (Celulares) */
-@media (max-width: 576px) {
-    .btn-flotante-mapa {
-        bottom: 15px;
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 0.85rem;
-    }
-}
-
 /* ==========================================================
    💬 BOTÓN FLOTANTE - BABAHOYO HABLA (NARANJA Y AMARILLO)
    ========================================================== */
@@ -2609,10 +2598,29 @@ footer {
     transform: scale(1.15) rotate(-8deg);
 }
 
-/* Adaptación Mobile */
+
+/* Reemplaza las configuraciones móviles de tus 3 botones con este stack matemático */
 @media (max-width: 576px) {
+    
+    /* NIVEL 1: El Chatbot en la base */
+    .chatbot-btn {
+        bottom: 15px; 
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+
+    /* NIVEL 2: El Mapa interactivo (15px base + 60px distancia) */
+    .btn-flotante-mapa {
+        bottom: 75px; 
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+
+    /* NIVEL 3: Babahoyo Habla (75px base actual + 60px distancia) */
     .btn-flotante-bh {
-        bottom: 130px;
+        bottom: 135px; 
         right: 15px;
         padding: 12px 18px;
         font-size: 0.85rem;
