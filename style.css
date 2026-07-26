@@ -1965,15 +1965,6 @@ footer {
     transform: scale(1.15) rotate(-8deg);
 }
 
-/* Adaptación Mobile */
-@media (max-width: 576px) {
-    .chatbot-btn {
-        bottom: 15px;
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 0.85rem;
-    }
-}
 /* ======================================================== */
 /* 2. DISEÑO DE LA VENTANA DE CHAT Y ESTADOS DINÁMICOS      */
 /* ======================================================== */
