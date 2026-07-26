@@ -1915,32 +1915,30 @@ footer {
 /* ======================================================== */
 .chatbot-btn {
     position: fixed;
-    bottom: 24px;       /* Queda en la base de la columna */
+    bottom: 24px;
     right: 25px;
     z-index: 999;
 
-    /* Cambiamos el tamaño fijo por padding para hacer forma de cápsula */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 14px 22px;
-    width: 30%;        /* Quita el ancho fijo de 60px */
-    height: 9%;       /* Quita el alto fijo de 60px */
+    
+    /* LA MAGIA: El botón se adapta a su contenido, no a la pantalla */
+    width: max-content; 
+    height: auto;       
 
-    /* Tipografía alineada con las otras cápsulas */
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
 
-    /* Estilo visual y degradado celeste a azul medio */
     background: linear-gradient(135deg, #0d3b66 0%, #3a86ff 100%);
     border: 2px solid #3a86ff;
-    border-radius: 50px; /* Bordes redondeados tipo píldora */
+    border-radius: 50px; 
 
-    /* Sombra y resplandor neón */
     box-shadow: 0 0 15px rgba(58, 134, 255, 0.5),
                 0 4px 12px rgba(0, 0, 0, 0.4);
 
@@ -1948,7 +1946,6 @@ footer {
     cursor: pointer;
 }
 
-/* Efecto Hover */
 .chatbot-btn:hover {
     background: linear-gradient(135deg, #3a86ff 0%, #0d3b66 100%);
     transform: translateY(-4px) scale(1.05);
@@ -1964,6 +1961,7 @@ footer {
 .chatbot-btn:hover i {
     transform: scale(1.15) rotate(-8deg);
 }
+
 
 /* ======================================================== */
 /* 2. DISEÑO DE LA VENTANA DE CHAT Y ESTADOS DINÁMICOS      */
@@ -2409,9 +2407,6 @@ footer {
     bottom: 15px !important;
     right: 15px !important;
   }
-  .chatbot-btn span {
-    font-size: 24px !important;
-  }
 }
 
 /* nueva seccion de la cajetita de chatbot */
@@ -2590,30 +2585,40 @@ footer {
 }
 
 
-/* Reemplaza las configuraciones móviles de tus 3 botones con este stack matemático */
+/* Reemplaza tu media query de 576px por este */
 @media (max-width: 576px) {
     
+    /* Achicamos la "cápsula" proporcionalmente para móviles */
+    .chatbot-btn,
+    .btn-flotante-mapa,
+    .btn-flotante-bh {
+        padding: 10px 18px !important;
+        font-size: 0.75rem !important; /* Letra más pequeña y legible */
+        gap: 8px !important;
+    }
+
+    /* Si usas span adentro para el texto, forzamos también su tamaño */
+    .chatbot-btn span,
+    .btn-flotante-mapa span,
+    .btn-flotante-bh span {
+        font-size: 0.75rem !important;
+    }
+
     /* NIVEL 1: El Chatbot en la base */
     .chatbot-btn {
-        bottom: 15px; 
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 0.85rem;
+        bottom: 20px !important; 
+        right: 15px !important;
     }
 
-    /* NIVEL 2: El Mapa interactivo (15px base + 60px distancia) */
+    /* NIVEL 2: El Mapa interactivo (20px base + 55px distancia) */
     .btn-flotante-mapa {
-        bottom: 75px; 
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 0.85rem;
+        bottom: 75px !important; 
+        right: 15px !important;
     }
 
-    /* NIVEL 3: Babahoyo Habla (75px base actual + 60px distancia) */
+    /* NIVEL 3: Babahoyo Habla (75px base + 55px distancia) */
     .btn-flotante-bh {
-        bottom: 135px; 
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 0.85rem;
+        bottom: 130px !important; 
+        right: 15px !important;
     }
 }
