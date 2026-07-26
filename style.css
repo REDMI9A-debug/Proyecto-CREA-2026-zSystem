@@ -1925,8 +1925,8 @@ footer {
     justify-content: center;
     gap: 10px;
     padding: 14px 22px;
-    width: auto;        /* Quita el ancho fijo de 60px */
-    height: auto;       /* Quita el alto fijo de 60px */
+    width: 30%;        /* Quita el ancho fijo de 60px */
+    height: 9%;       /* Quita el alto fijo de 60px */
 
     /* Tipografía alineada con las otras cápsulas */
     font-family: 'Poppins', sans-serif;
@@ -2606,7 +2606,7 @@ footer {
     .chatbot-btn {
         bottom: 15px; 
         right: 15px;
-        padding: 12px 18px;
+        padding: 12px 15px;
         font-size: 0.85rem;
     }
 
