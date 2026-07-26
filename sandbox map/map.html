@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Cultural Interactivo</title>
+    <!-- Importamos los estilos de la librería Leaflet -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="map.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="header-left">
+            <img src="Images/normallogo.png" alt="" id="main-logo" class="escudo">
+            <div class="brand-info">
+                <span class="brand-name">Voces de Babahoyo.</span>
+                <small class="tagline">Donde la historia y el talento se encuentran.</small>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+           <span>Mapa Interactivo</span>
+        </nav>
+    </header>
+
+    <section class="map-container">
+        <!-- AQUÍ ESTÁ LA MAGIA: Un div vacío donde Leaflet inyectará el mapa real -->
+        <div id="map" class="pro-map-view"></div>
+
+        <!-- SIDEBAR LOCATIONS MENU (Se mantiene casi igual) -->
+        <div class="locations-sidebar">
+            <h3>Explorar Ubicaciones</h3>
+            <ul class="locations-list">
+                <li class="list-item" data-location="olmedo">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Casa de Olmedo
+                </li>
+                <li class="list-item" data-location="boardwalk">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Malecón 9 de Octubre
+                </li>
+                <li class="list-item" data-location="cathedral">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Catedral de Babahoyo
+                </li>
+                <li class="list-item" data-location="cachari">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Cerro Cacharí
+                </li>
+                <li class="list-item" data-location="iess">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Hospital General del IESS
+                </li>
+                <li class="list-item" data-location="white-raft">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    La Balsa Blanca
+                </li>
+                <li class="list-item" data-location="hospital">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Hospital Martín Icaza
+                </li>
+                <li class="list-item" data-location="shopping">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Paseo Shopping
+                </li>
+                <li class="list-item" data-location="ueb">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Unidad Educativa Babahoyo
+                </li>
+                <li class="list-item" data-location="seafood-market">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Mercado de Mariscos
+                </li>
+                <li class="list-item" data-location="prefecture">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Prefectura de Los Ríos
+                </li>
+                <li class="list-item" data-location="government">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Gobernación de Los Ríos
+                </li>
+                <li class="list-item" data-location="municipality">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Municipio
+                </li>
+                <li class="list-item" data-location="education">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Distrito de Educación
+                </li>
+                <li class="list-item" data-location="cemetery">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Cementerio General
+                </li>
+                <li class="list-item" data-location="health">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Distrito de Salud
+                </li>
+                <li class="list-item" data-location="justice">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Corte Provincial de Justicia
+                </li>
+                <li class="list-item" data-location="police">
+                    <i class="fa-solid fa-location-dot map-icon"></i>
+                    Policía Nacional
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- NUEVO MODAL DIVIDIDO (FLEXBOX) -->
+    <div id="info-modal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- Botón de cerrar con el ID exacto que llama el JS -->
+            <span class="close-modal" id="close-btn">&times;</span>
+            
+            <!-- SECCIÓN SUPERIOR: TEXTO A LA IZQUIERDA, FOTO A LA DERECHA -->
+            <div class="modal-top-section">
+                <div class="modal-left-column">
+                    <h2 id="modal-title">Título del Lugar</h2>
+                    <p id="modal-description">Descripción...</p>
+                </div>
+                
+                <div class="modal-right-column">
+                    <div class="modal-image-wrapper">
+                        <!-- El nuevo ID modal-img donde el JS inyecta la foto -->
+                        <img id="modal-img" src="" alt="Ubicación">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN INFERIOR: AUDIO Y QR -->
+            <div class="modal-multimedia">
+                <div class="audio-section">
+                    <p>🎧 Escucha la historia:</p>
+                    <audio id="modal-audio" controls></audio>
+                </div>
+                <div class="qr-section">
+                    <img id="modal-qr" src="" alt="QR">
+                    <span>Escanear</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- BOTÓN DE AYUDA FIJO A LA PANTALLA -->
+    <div class="help-btn-fixed" data-info="Selecciona cualquier punto en la lista o en el mapa para descubrir la historia, fotos y audios de los lugares más emblemáticos de Babahoyo.">
+        <i class="fa-solid fa-question"></i>
+    </div>
+
+    <!-- Importamos la lógica de Leaflet y luego nuestro archivo -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>
+    
+    <!-- Importamos la lógica de Leaflet y luego nuestro archivo -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+
+</html>
