@@ -1911,32 +1911,69 @@ footer {
 }
 
 /* ======================================================== */
-/* 1. DISEÑO DEL BOTÓN FLOTANTE                             */
+/* 1. DISEÑO DEL BOTÓN FLOTANTE (CHATBOT CÁPSULA NEÓN)      */
 /* ======================================================== */
 .chatbot-btn {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
+    bottom: 24px;       /* Queda en la base de la columna */
+    right: 25px;
+    z-index: 999;
+
+    /* Cambiamos el tamaño fijo por padding para hacer forma de cápsula */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    z-index: 999; /* Se mantiene por encima del resto de la página */
+    gap: 10px;
+    padding: 14px 22px;
+    width: auto;        /* Quita el ancho fijo de 60px */
+    height: auto;       /* Quita el alto fijo de 60px */
+
+    /* Tipografía alineada con las otras cápsulas */
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+
+    /* Estilo visual y degradado celeste a azul medio */
+    background: linear-gradient(135deg, #0d3b66 0%, #3a86ff 100%);
+    border: 2px solid #3a86ff;
+    border-radius: 50px; /* Bordes redondeados tipo píldora */
+
+    /* Sombra y resplandor neón */
+    box-shadow: 0 0 15px rgba(58, 134, 255, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
 
+/* Efecto Hover */
 .chatbot-btn:hover {
-    transform: scale(1.1);
-    background-color: var(--primary-hover);
+    background: linear-gradient(135deg, #3a86ff 0%, #0d3b66 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(58, 134, 255, 0.9),
+                0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
+.chatbot-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-btn:hover i {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+/* Adaptación Mobile */
+@media (max-width: 576px) {
+    .chatbot-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+}
 /* ======================================================== */
 /* 2. DISEÑO DE LA VENTANA DE CHAT Y ESTADOS DINÁMICOS      */
 /* ======================================================== */
@@ -2454,4 +2491,130 @@ footer {
     align-self: flex-start;
     font-style: italic;
     border-bottom-left-radius: 2px;
+}
+
+/* ==========================================
+   🗺️ BOTÓN FLOTANTE FIJO - VERDE LIMA NEÓN
+   ========================================== */
+.btn-flotante-mapa {
+    /* Fijado en la pantalla */
+    position: fixed;
+    bottom: 90px;       /* Distancia desde abajo para que no se pegue al borde */
+    right: 25px;        /* Distancia desde la derecha para que quede flotando entero */
+    z-index: 9999;      /* Asegura que siempre esté por encima de todo */
+
+    /* Diseño y Maquetado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    
+    /* Tipografía y Colores */
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0d0d0d;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    /* Fondo Neón */
+    background: linear-gradient(135deg, #ccff00 0%, #70e000 100%);
+    border: 2px solid #ccff00;
+    border-radius: 50px;
+    
+    /* Brillo Neón */
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+/* Efecto Hover */
+.btn-flotante-mapa:hover {
+    background: linear-gradient(135deg, #70e000 0%, #ccff00 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(204, 255, 0, 0.9),
+                0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación del ícono */
+.btn-flotante-mapa i {
+    font-size: 1.2rem;
+}
+
+.btn-flotante-mapa:hover i {
+    transform: rotate(-12deg);
+}
+
+/* Adaptación para pantallas pequeñas (Celulares) */
+@media (max-width: 576px) {
+    .btn-flotante-mapa {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================
+   💬 BOTÓN FLOTANTE - BABAHOYO HABLA (NARANJA Y AMARILLO)
+   ========================================================== */
+.btn-flotante-bh {
+    position: fixed;
+    bottom: 155px;      /* 👈 Queda encima del botón verde (mapa) */
+    right: 25px;        /* Misma alineación a la derecha */
+    z-index: 9999;      /* Por encima de otros elementos */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0d0d0d;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    /* Fondo Degradado Naranja / Amarillo Neón */
+    background: linear-gradient(135deg, #ff9900 0%, #ffea00 100%);
+    border: 2px solid #ffea00;
+    border-radius: 50px;
+    
+    /* Brillo Neón Naranja/Amarillo */
+    box-shadow: 0 0 15px rgba(255, 170, 0, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+/* Efecto Hover */
+.btn-flotante-bh:hover {
+    background: linear-gradient(135deg, #ffea00 0%, #ff9900 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 200, 0, 0.9),
+                0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-flotante-bh i {
+    font-size: 1.2rem;
+}
+
+.btn-flotante-bh:hover i {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+/* Adaptación Mobile */
+@media (max-width: 576px) {
+    .btn-flotante-bh {
+        bottom: 130px;
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
 }

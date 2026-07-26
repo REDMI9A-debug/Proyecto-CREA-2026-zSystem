@@ -1,0 +1,179 @@
+/* OPTIMIZACIONES DE PERFORMANCE */
+
+/* Scroll suave solo en dispositivos de escritorio */
+@media (min-width: 1024px) {
+  body {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Móviles: sin scroll suave para mejor rendimiento */
+@media (max-width: 1023px) {
+  body {
+    scroll-behavior: auto;
+  }
+}
+
+/* Transiciones personalizadas optimizadas */
+.transition-colors {
+  transition-property: background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* GPU ACCELERATION - Activa aceleración de hardware en navegadores modernos */
+header, main, aside, nav {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ARTICULOS DEL TIMELINE - content-visibility para performance */
+#timeline-posts article {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 100px;
+  /* Esto acelera el rendering de elementos fuera de viewport */
+}
+
+/* LIGHTBOX MODAL - optimización para overlay */
+#lightbox-modal {
+  /* Usar will-change solo cuando está visible */
+  will-change: opacity;
+  contain: layout style paint;
+}
+
+#lightbox-modal media {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* LISTA DE NOTIFICACIONES - similar al timeline */
+#lista-notificaciones article {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 80px;
+}
+
+/* PREVENCIÓN DE JANK EN TRANSICIONES */
+.transition {
+  /* Usar transform en lugar de width/height cuando sea posible */
+  transition-property: transform, opacity, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 150ms;
+}
+
+/* OPTIMIZACIÓN PARA INPUTS */
+input, textarea, select {
+  /* Prevenir scroll jumping en inputs */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* GPU acceleration para inputs */
+  transform: translateZ(0);
+}
+
+/* SERÁ CHANGE ESTRATÉGICO */
+button:hover {
+  /* Solo se aplica will-change en hover, no permanentemente */
+  will-change: background-color, transform;
+}
+
+button:active {
+  /* Rápido feedback en clics */
+  will-change: transform;
+  transform: scale(0.98);
+}
+
+/* ELIMINACIÓN DE JANK EN SIDEBAR STICKY */
+header.sticky {
+  will-change: position;
+  contain: layout style paint;
+}
+
+/* PREVENCIÓN DE MEMORY LEAKS */
+.comments-box.hidden {
+  /* Los elementos hidden no se renderizan */
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* OPTIMIZACIÓN DE FUENTES */
+body {
+  font-display: swap;
+  /* Mostrar fallback mientras carga la fuente */
+}
+
+/* ANIMACIONES SUAVES SIN JANK */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: auto;
+    /* Los usuarios que prefieren menos movimiento no usan scroll suave */
+  }
+}
+
+/* TEXTO ANTI-ALIASING */
+body, button, input, textarea, select {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#post-modal .rounded-2xl {
+  border-radius: 1.5rem;
+}
+
+/* Animación de entrada suave (Fade + Scale) */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Animación de salida (Fade + Slide) */
+@keyframes fadeOutSlide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Animación de pulso para overlays de carga */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Clases utilitarias */
+.animate-fade-in {
+  animation: fadeInScale 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOutSlide 0.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+/* Indicador de carga flotante u Toast (Aviso temporal) */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #1e293b;
+  color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeInScale 0.3s ease-out forwards;
+}

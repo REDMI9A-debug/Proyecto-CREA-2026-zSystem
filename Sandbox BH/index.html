@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babahoyo Habla</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { 
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.2s ease-out forwards',
+            'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'scale-in': 'scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(15px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' }
+            }
+          }
+        } 
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body
+  class="bg-white text-slate-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100 font-sans antialiased overflow-y-scroll">
+
+  <!-- CONTENEDOR MAESTRO -->
+  <div class="flex justify-center min-h-screen bg-white dark:bg-gray-950">
+    <div class="flex w-full max-w-6xl justify-center">
+
+      <!-- COLUMNA IZQUIERDA (Reducida a 170px) -->
+      <header
+        class="hidden sm:flex flex-col w-[170px] flex-shrink-0 sticky top-0 h-screen py-4 px-3 border-r border-slate-100 dark:border-gray-800">
+
+        <!-- Logo -->
+        <div class="p-2 mb-2">
+          <span class="text-3xl font-black text-sky-500 dark:text-emerald-400">B</span>
+        </div>
+
+        <nav class="flex flex-col gap-2 w-full flex-grow">
+          <!-- BOTÓN INICIO -->
+          <button id="btn-nav-inicio"
+            class="p-2.5 xl:px-3 flex items-center justify-start gap-3 bg-sky-50 dark:bg-emerald-950/40 text-sky-500 dark:text-emerald-400 font-bold rounded-full w-full transition">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span class="text-xs tracking-wide">Inicio</span>
+          </button>
+
+          <!-- BOTÓN PERFIL -->
+          <button id="btn-nav-perfil"
+            class="p-2.5 xl:px-3 flex items-center justify-start gap-3 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-gray-300 font-medium rounded-full w-full transition">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span class="text-xs tracking-wide">Perfil</span>
+          </button>
+
+          <!-- BOTÓN NOTIFICACIONES (PC) -->
+          <button id="btn-nav-notificaciones"
+            class="p-2.5 xl:px-3 flex items-center justify-start gap-3 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-gray-300 font-medium rounded-full w-full transition relative">
+            <div class="relative">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+              <span id="badge-notificaciones-pc"
+                class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-extrabold h-4 min-w-[16px] px-1 rounded-full flex items-center justify-center animate-pulse">0</span>
+            </div>
+            <span class="text-xs tracking-wide">Notificaciones</span>
+          </button>
+
+          <!-- Selector de Ubicación -->
+          <div class="mt-4 w-full">
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 px-1">Tu
+              ubicación</label>
+            <button
+              class="flex items-center justify-start gap-2 hover:bg-slate-100 dark:hover:bg-gray-900 p-2 rounded-full transition w-full text-slate-700 dark:text-gray-300">
+              <svg class="w-4 h-4 text-sky-500 dark:text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-xs font-medium">Babahoyo</span>
+            </button>
+          </div>
+
+          <!-- Botón Tema -->
+          <button id="themeToggle"
+            class="mt-3 w-full border border-slate-200 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-emerald-400 font-bold py-1.5 px-3 rounded-full transition flex justify-center items-center gap-2 text-xs">
+            <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21.75 6.75A9.75 9.75 0 0112 17.25 9.75 9.75 0 012.25 7.5 22.5 22.5 0 0016.5 21.75a22.5 22.5 0 005.25-15z" />
+            </svg>
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v2.25m0 13.5V21M4.22 4.22l1.58 1.58m12.42 12.42l1.58 1.58M3 12h2.25m13.5 0H21M5.8 18.2l1.58-1.58M18.2 5.8l1.58 1.58M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
+            </svg>
+            <span>Tema</span>
+          </button>
+
+          <!-- Botón Salir -->
+          <button id="btn-logout"
+            class="mt-3 w-full border border-red-500/30 hover:bg-red-500/10 text-red-500 dark:text-red-400 font-bold py-1.5 px-3 rounded-full transition flex justify-center items-center gap-2 text-xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Salir</span>
+          </button>
+
+      </header>
+
+      <!-- COLUMNA CENTRAL DINÁMICA (ampliada a max-w-3xl) -->
+      <div class="flex-1 min-w-0 max-w-3xl min-h-screen pb-20 sm:pb-0 border-r border-slate-100 dark:border-gray-800">
+
+        <!-- 1. PANTALLA: FEED -->
+        <div id="wrapper-feed" class="block">
+
+          <!-- Header Sticky -->
+          <div
+            class="sticky top-0 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md z-10 border-b border-slate-100 dark:border-gray-800">
+            <div class="flex items-center justify-between p-4">
+              <h1 class="text-xl font-bold">Babahoyo Habla</h1>
+              <button id="btn-moderar"
+                class="hidden ml-4 px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-full transition">
+                🛡️ Moderar
+              </button>
+            </div>
+          </div>
+
+          <!-- Filtros Geográficos -->
+          <div
+            class="flex items-center gap-2 p-3 border-b border-slate-100 dark:border-gray-800 overflow-x-auto bg-white dark:bg-gray-950">
+            <button data-sector="Todo Babahoyo"
+              class="bg-sky-500 text-white dark:bg-emerald-500 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition flex-shrink-0">Todo
+              Babahoyo</button>
+            <button data-sector="Babahoyo (Centro)"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">Babahoyo
+              (Centro)</button>
+            <button data-sector="Barreiro"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">Barreiro</button>
+            <button data-sector="El Salto"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">El
+              Salto</button>
+            <button data-sector="La Virginia"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">La
+              Virginia</button>
+            <button data-sector="Pimocha"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">Pimocha</button>
+            <button data-sector="San Jacinto"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">San
+              Jacinto</button>
+            <button data-sector="La Unión"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">La
+              Unión</button>
+            <button data-sector="Baba"
+              class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">Baba</button>
+          </div>
+
+          <!-- Input para Escribir Publicación -->
+          <div class="p-4 border-b border-slate-100 dark:border-gray-800 flex gap-4">
+            <div id="publicar-avatar"
+              class="w-10 h-10 rounded-full bg-slate-300 dark:bg-gray-800 overflow-hidden flex-shrink-0"></div>
+            <div class="flex-1 min-w-0">
+              <textarea id="post-content"
+                class="w-full bg-transparent text-xl outline-none resize-none placeholder-slate-500 mt-2" rows="2"
+                placeholder="¿Qué está pasando en el cantón?"></textarea>
+
+              <!-- Selector de sector -->
+              <div class="mb-2">
+                <label class="block text-xs font-bold text-slate-500 dark:text-gray-400 mb-1">
+                  ¿Dónde ocurre esto?
+                </label>
+                <select id="select-sector"
+                  class="w-full bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-700 rounded-xl px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500 dark:focus:ring-emerald-500 transition">
+                  <option value="Babahoyo (Centro)">Babahoyo (Centro)</option>
+                  <option value="Barreiro">Barreiro</option>
+                  <option value="El Salto">El Salto</option>
+                  <option value="La Virginia">La Virginia</option>
+                  <option value="Pimocha">Pimocha</option>
+                  <option value="San Jacinto">San Jacinto</option>
+                  <option value="La Unión">La Unión</option>
+                  <option value="Baba">Baba</option>
+                </select>
+                <p class="text-[10px] text-slate-400 dark:text-gray-500 mt-1">
+                  Elegir tu ubicación ayuda a que otros usuarios encuentren publicaciones de su sector.
+                </p>
+              </div>
+
+              <div id="container-preview"
+                class="hidden relative mt-3 w-full max-w-sm rounded-xl overflow-hidden border border-slate-200 dark:border-gray-700 shadow-sm bg-black"
+                style="min-height: 280px;">
+                <img id="img-preview" class="w-full h-auto object-cover max-h-[250px]" src="" alt="Vista previa">
+                <button id="btn-remove-preview"
+                  class="absolute top-1 right-1 bg-black/70 hover:bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold transition backdrop-blur-sm">×</button>
+              </div>
+
+              <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100 dark:border-gray-800">
+                <div class="flex gap-2 text-sky-500 dark:text-emerald-500">
+                  <label
+                    class="w-9 h-9 rounded-full hover:bg-sky-50 dark:hover:bg-gray-900 flex items-center justify-center transition cursor-pointer"
+                    title="Subir foto">
+                    <input type="file" accept="image/*" class="hidden" id="input-foto">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                  </label>
+
+                  <label
+                    class="w-9 h-9 rounded-full hover:bg-sky-50 dark:hover:bg-gray-900 flex items-center justify-center transition cursor-pointer"
+                    title="Subir video">
+                    <input type="file" accept="video/*" class="hidden" id="input-video">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                  </label>
+                </div>
+                <button id="btn-publicar"
+                  class="bg-sky-500 hover:bg-sky-600 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white font-bold py-1.5 px-4 rounded-full transition">Publicar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aviso Institucional -->
+          <div
+            class="m-4 p-4 bg-amber-50/60 border border-amber-200 rounded-2xl dark:bg-emerald-950/20 dark:border-emerald-500/30">
+            <div class="flex gap-3">
+              <div class="text-amber-600 dark:text-emerald-400 flex-shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-amber-900 dark:text-emerald-300">Nota de la Comunidad</h3>
+                <p class="mt-1 text-xs text-amber-800 dark:text-gray-300 leading-relaxed font-medium">
+                  Esta página está hecha con el fin de recordar cosas de Babahoyo o almacenar recuerdos de las personas
+                  hacia el público. Cualquier publicación que se haga aquí será revisada por nuestro equipo de
+                  moderación para su respectiva aprobación o apelación por discriminación u otros motivos de odio o daño
+                  injustificado hacia la imagen de una persona.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b border-slate-100 dark:border-gray-800 w-full"></div>
+
+          <!-- TIMELINE -->
+          <div id="timeline-posts" class="divide-y divide-slate-100 dark:divide-gray-800"></div>
+          <div id="load-more-container" class="flex justify-center py-6">
+            <button id="load-more-btn"
+              class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 dark:from-emerald-500 dark:to-emerald-600 dark:hover:from-emerald-600 dark:hover:to-emerald-700 text-white font-semibold py-2.5 px-8 rounded-full shadow-lg shadow-sky-200 dark:shadow-emerald-900/30 hover:shadow-xl transition-all duration-300 text-sm tracking-wide disabled:opacity-50 disabled:cursor-not-allowed">
+              <svg class="w-4 h-4 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+              <span>Cargar más publicaciones</span>
+            </button>
+          </div>
+
+        </div> <!-- FIN wrapper-feed -->
+
+        <!-- 2. PANTALLA: PERFIL -->
+        <div id="wrapper-perfil" class="hidden">
+          <header
+            class="sticky top-0 z-10 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-slate-200 dark:border-gray-800 p-4 flex items-center gap-6">
+            <button id="btn-perfil-volver"
+              class="hover:bg-slate-200 dark:hover:bg-gray-900 p-2 rounded-full transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+            </button>
+            <div>
+              <h1 id="header-perfil-nombre" class="text-xl font-bold">Cargando...</h1>
+              <span class="text-slate-500 dark:text-gray-500 text-xs">0 publicaciones</span>
+            </div>
+          </header>
+
+          <div id="perfil-banner"
+            class="h-40 bg-gradient-to-r from-emerald-100 to-teal-200 dark:from-gray-900 dark:to-emerald-950 bg-cover bg-center">
+          </div>
+
+          <div class="px-4 pb-4 relative flex justify-between items-end -mt-12 mb-4">
+            <div id="perfil-avatar"
+              class="w-28 h-28 rounded-full border-4 border-white bg-slate-300 dark:border-gray-950 dark:bg-gray-700 bg-cover bg-center">
+            </div>
+            <button id="btn-editar-perfil"
+              class="bg-transparent hover:bg-slate-200 dark:hover:bg-gray-900 font-bold py-2 px-4 border border-slate-300 dark:border-gray-700 rounded-full text-sm">Editar
+              perfil</button>
+          </div>
+
+          <div class="px-4 mb-6">
+            <h2 id="perfil-nombre" class="text-2xl font-extrabold tracking-tight">Cargando...</h2>
+            <span id="perfil-username"
+              class="text-emerald-600 dark:text-emerald-400 font-medium text-sm block">@usuario</span>
+            <p id="perfil-bio" class="mt-3 text-slate-700 dark:text-gray-300 text-[15px] break-words">Cargando
+              biografía...</p>
+          </div>
+        </div>
+
+        <!-- 3. PANTALLA: NOTIFICACIONES -->
+        <div id="wrapper-notificaciones" class="hidden">
+          <header
+            class="sticky top-0 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md z-10 border-b border-slate-100 dark:border-gray-800 p-4">
+            <h1 class="text-xl font-bold">Notificaciones</h1>
+          </header>
+          <div id="lista-notificaciones" class="divide-y divide-slate-100 dark:divide-gray-800 min-h-screen"></div>
+        </div>
+
+      </div> <!-- FIN columna central dinámica -->
+
+      <!-- COLUMNA DERECHA ELIMINADA -->
+
+    </div> <!-- FIN flex contenedor principal -->
+  </div> <!-- FIN contenedor maestro -->
+
+ <!-- MODAL EDITAR PERFIL -->
+  <div id="modal-editar"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
+    <div class="bg-white dark:bg-gray-950 w-full max-w-lg rounded-2xl p-6 shadow-2xl m-4 animate-scale-in">
+      <!-- El resto de tu contenido del modal queda intacto -->
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Editar perfil</h2>
+        <button id="btn-cerrar-modal"
+          class="text-slate-500 hover:text-slate-900 dark:hover:text-white font-bold">X</button>
+      </div>
+
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-slate-500 mb-1">Nombre</label>
+          <input type="text" id="input-edit-nombre" placeholder="Tu nombre"
+            class="w-full bg-slate-50 dark:bg-gray-800 p-3 rounded-lg outline-none border border-slate-200 dark:border-gray-700 text-sm">
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold text-slate-500 mb-1">Nombre de usuario (@)</label>
+          <input type="text" id="input-edit-username" placeholder="Nombre de usuario"
+            class="w-full bg-slate-50 dark:bg-gray-800 p-3 rounded-lg outline-none border border-slate-200 dark:border-gray-700 text-sm">
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold text-slate-500 mb-1">Biografía</label>
+          <textarea id="input-edit-bio"
+            class="w-full bg-slate-50 dark:bg-gray-800 p-3 rounded-lg outline-none border border-slate-200 dark:border-gray-700 text-sm"
+            rows="2" placeholder="Cuéntanos sobre ti"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 pt-2">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Nueva Foto Perfil</label>
+            <label
+              class="block text-center text-xs bg-slate-100 dark:bg-gray-800 border border-dashed border-slate-300 dark:border-gray-700 p-2 rounded-lg cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 transition">
+              <span>Seleccionar</span>
+              <input type="file" id="input-edit-avatar" accept="image/*" class="hidden">
+            </label>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Nuevo Banner</label>
+            <label
+              class="block text-center text-xs bg-slate-100 dark:bg-gray-800 border border-dashed border-slate-300 dark:border-gray-700 p-2 rounded-lg cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 transition">
+              <span>Seleccionar</span>
+              <input type="file" id="input-edit-banner" accept="image/*" class="hidden">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-guardar-perfil"
+        class="w-full mt-6 bg-sky-500 hover:bg-sky-600 dark:bg-emerald-500 text-white font-bold py-3 rounded-full transition">Guardar
+        cambios</button>
+    </div>
+  </div>
+
+  <!-- BANDEJA DE NAVEGACIÓN INFERIOR (MÓVIL) -->
+  <nav
+    class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-t border-slate-200 dark:border-gray-800 flex justify-around items-center py-2 z-50 pb-safe">
+
+    <button id="btn-nav-inicio-mobile"
+      class="flex flex-col items-center gap-1 text-slate-500 hover:text-sky-500 transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    </button>
+
+    <button id="btn-nav-notificaciones-mobile"
+      class="flex flex-col items-center gap-1 text-slate-500 hover:text-sky-500 transition relative">
+      <div class="relative">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+        <span id="badge-notificaciones-mobile"
+          class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-extrabold h-4 min-w-[16px] px-1 rounded-full flex items-center justify-center animate-pulse">0</span>
+      </div>
+    </button>
+
+    <button id="btn-nav-perfil-mobile"
+      class="flex flex-col items-center gap-1 text-slate-500 hover:text-sky-500 transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    </button>
+
+    <button id="themeToggle-mobile"
+      class="flex flex-col items-center gap-1 text-slate-500 hover:text-amber-500 transition">
+      <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21.75 6.75A9.75 9.75 0 0112 17.25 9.75 9.75 0 012.25 7.5 22.5 22.5 0 0016.5 21.75a22.5 22.5 0 005.25-15z" />
+      </svg>
+      <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 3v2.25m0 13.5V21M4.22 4.22l1.58 1.58m12.42 12.42l1.58 1.58M3 12h2.25m13.5 0H21M5.8 18.2l1.58-1.58M18.2 5.8l1.58 1.58M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
+      </svg>
+    </button>
+
+    <button id="btn-logout-mobile" class="flex flex-col items-center gap-1 text-red-500 hover:text-red-600 transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+      </svg>
+    </button>
+
+  </nav>
+
+  <!-- SCRIPTS -->
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+      (async function () {
+        const supabaseClient = supabase.createClient(
+          window.SUPABASE_URL,
+          window.SUPABASE_ANON_KEY
+        );
+
+        const { data: { session } } = await supabaseClient.auth.getSession();
+
+        if (!session) {
+          window.location.href = 'authentication.html';
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'logica-interfaz.js';
+        document.body.appendChild(script);
+      })();
+  </script>
+
+</body>
+
+</html>

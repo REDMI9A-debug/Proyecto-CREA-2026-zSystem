@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babahoyo Habla · Acceso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    /* transiciones suaves para los pasos */
+    .step-transition {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .step-hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      display: none;
+    }
+    .step-visible {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl shadow-2xl p-6 md:p-8">
+
+    <!-- ========== LOGIN ========== -->
+    <form id="login-form" class="space-y-4">
+      <h2 class="text-2xl font-extrabold text-emerald-400">Iniciar Sesión</h2>
+      <input type="email" id="login-email" placeholder="Correo electrónico" required
+        class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+      <input type="password" id="login-password" placeholder="Contraseña" required
+        class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+      <button type="submit"
+        class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition">Entrar</button>
+      <div id="login-error" class="error-message"></div>
+      <p class="text-center text-sm text-gray-400">
+        ¿No tienes cuenta? <button type="button" id="show-register-btn" class="text-emerald-400 hover:underline font-medium">Regístrate</button>
+      </p>
+    </form>
+
+    <!-- ========== REGISTRO (2 pasos) ========== -->
+    <div id="register-container" class="hidden">
+
+      <!-- PASO 1: Email y contraseña -->
+      <form id="register-step1" class="space-y-4 step-transition step-visible">
+        <h2 class="text-2xl font-extrabold text-emerald-400">Crear cuenta</h2>
+        <p class="text-sm text-gray-400">Paso 1 de 2 · Ingresa tus credenciales</p>
+        <input type="email" id="register-email" placeholder="Correo electrónico" required
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+        <input type="password" id="register-password" placeholder="Contraseña (mínimo 6 caracteres)" required
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+        <button type="submit"
+          class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition">Siguiente →</button>
+        <div id="register-step1-error" class="error-message"></div>
+        <p class="text-center text-sm text-gray-400">
+          ¿Ya tienes cuenta? <button type="button" id="show-login-btn" class="text-emerald-400 hover:underline font-medium">Inicia sesión</button>
+        </p>
+      </form>
+
+      <!-- PASO 2: Perfil (se muestra tras registro exitoso) -->
+      <form id="register-step2" class="space-y-4 step-transition step-hidden">
+        <h2 class="text-2xl font-extrabold text-emerald-400">Completa tu perfil</h2>
+        <p class="text-sm text-gray-400">Paso 2 de 2 · Cuéntanos sobre ti</p>
+
+        <input type="number" id="profile-age" placeholder="Edad" min="1" max="120"
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+
+        <input type="text" id="profile-display-name" placeholder="Nombre completo" required
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+
+        <input type="text" id="profile-username" placeholder="Nombre de usuario (ej: juan_p)" required
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition">
+
+        <textarea id="profile-bio" rows="3" placeholder="Biografía (opcional)"
+          class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition resize-none"></textarea>
+
+        <!-- Avatar y Banner (opcionales) -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-400 mb-1">Avatar</label>
+            <label class="block text-center text-xs bg-gray-800 border border-dashed border-gray-700 p-2 rounded-xl cursor-pointer hover:bg-gray-700 transition">
+              <span>Seleccionar</span>
+              <input type="file" id="profile-avatar" accept="image/*" class="hidden">
+            </label>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-400 mb-1">Banner</label>
+            <label class="block text-center text-xs bg-gray-800 border border-dashed border-gray-700 p-2 rounded-xl cursor-pointer hover:bg-gray-700 transition">
+              <span>Seleccionar</span>
+              <input type="file" id="profile-banner" accept="image/*" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition">Crear cuenta</button>
+        <div id="register-step2-error" class="error-message"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Dependencias y lógica -->
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-logic.js"></script>
+</body>
+
+</html>
