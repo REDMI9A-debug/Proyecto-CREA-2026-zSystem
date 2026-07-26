@@ -2486,7 +2486,7 @@ footer {
     position: fixed;
     bottom: 90px;       /* Distancia desde abajo para que no se pegue al borde */
     right: 25px;        /* Distancia desde la derecha para que quede flotando entero */
-    z-index: 9999;      /* Asegura que siempre esté por encima de todo */
+    z-index: 20;      /* Asegura que siempre esté por encima de todo */
 
     /* Diseño y Maquetado */
     display: flex;
@@ -2540,7 +2540,7 @@ footer {
     position: fixed;
     bottom: 155px;      /* 👈 Queda encima del botón verde (mapa) */
     right: 25px;        /* Misma alineación a la derecha */
-    z-index: 9999;      /* Por encima de otros elementos */
+    z-index: 15;      /* Por encima de otros elementos */
 
     display: flex;
     align-items: center;
