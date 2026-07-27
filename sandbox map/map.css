@@ -290,30 +290,6 @@ body {
     height: 40px; 
 }
 
-.qr-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 15px;
-    flex: 0 0 90px;
-}
-
-#modal-qr {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    background-color: #fff; 
-    padding: 5px;
-    border-radius: 6px;
-}
-
-.qr-section span {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 8px;
-    text-align: center;
-}
-
 @keyframes modalFadeIn {
     from { opacity: 0; transform: scale(0.92); }
     to { opacity: 1; transform: scale(1); }
@@ -333,9 +309,6 @@ body {
     .modal-multimedia {
         flex-direction: column;
         gap: 15px;
-    }
-    .qr-section {
-        margin-left: 0;
     }
 }
 
@@ -522,4 +495,32 @@ body {
         height: 38vh !important; /*[cite: 2] */
         flex: none !important;
     }
+}
+
+/* Estilos para el botón de regreso */
+.btn-regresar {
+    position: fixed; /* O usa 'fixed' si quieres que siga ahí al hacer scroll */
+    top: 95px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--card-bg); /* Usa el fondo de tus tarjetas */
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.btn-regresar:hover {
+    background-color: var(--accent); /* Cambia al verde insano en hover */
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateX(-5px); /* Pequeño efecto de movimiento hacia la izquierda */
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Sombra con el color de acento */
 }
