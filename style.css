@@ -2622,3 +2622,179 @@ footer {
         right: 15px !important;
     }
 }
+
+:root {
+    /* Paleta Cian Oscuro */
+    --cyan-primary: #008b99;      /* Cian oscuro base */
+    --cyan-glow: #00b4c5;         /* Cian de acento / hover */
+    --cyan-bg-badge: rgba(0, 139, 153, 0.25); /* Fondo tenue para el badge */
+    
+    /* Fondos y textos oscuros de la tarjeta */
+    --card-bg: #111111;
+    --card-border: #222222;
+    --text-main: #ffffff;
+    --text-muted: #999999;
+}
+
+/* Contenedor Principal de la Card */
+.card-radio {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 520px;
+    padding: 24px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 1. Cabecera (Badge y Subtítulo) */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-live {
+    background-color: var(--cyan-bg-badge);
+    color: var(--cyan-glow);
+    border: 1px solid var(--cyan-primary);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.card-subtitle {
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* 2. Cuerpo (Avatar e Información) */
+.card-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.avatar-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #222222;
+    flex-shrink: 0;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-title {
+    color: var(--text-main);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-description {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 3. Pie de página (Ecualizador y Botón) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 8px;
+}
+
+/* Ecualizador Cian */
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 24px;
+}
+
+.equalizer .bar {
+    width: 4px;
+    background-color: var(--cyan-primary);
+    border-radius: 2px;
+}
+
+.equalizer .bar:nth-child(1) { height: 60%; }
+.equalizer .bar:nth-child(2) { height: 100%; }
+.equalizer .bar:nth-child(3) { height: 80%; }
+.equalizer .bar:nth-child(4) { height: 50%; }
+
+/* Botón de Redirección (Play) */
+.btn-action {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #222222;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-action svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 2px; /* Alineación óptica del triángulo */
+}
+
+/* Efecto al pasar el cursor por el botón */
+.btn-action:hover {
+    background-color: var(--cyan-primary);
+    color: #ffffff;
+    border-color: var(--cyan-glow);
+    box-shadow: 0 0 15px rgba(0, 139, 153, 0.4);
+    transform: scale(1.05);
+}
+
+/* 1. EL CONTENEDOR PADRE (El Dictador que manda a las 3 tarjetas) */
+.hub-medios-horizontal {
+    display: grid;
+    /* Obliga a 3 columnas del mismo maldito ancho, sin importar el texto */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem; /* Ajusta el espacio entre ellas si lo ves muy pegado */
+    align-items: stretch; /* Obliga a que las 3 tengan la misma altura */
+    width: 100%;
+}
+
+/* 2. LAS TARJETAS (Unificando a las gemelas y a la rebelde) */
+/* Le aplicamos Flexbox a los dos tipos de clases que usaste */
+.reproductor-podcast-mock, 
+.card-radio {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Toman toda la altura que el grid les da */
+    box-sizing: border-box;
+}
+
+/* 3. EL TRUCO PARA ALINEAR ABAJO (Empujar el contenido) */
+/* Para las tarjetas 1 y 2: hacemos que el body crezca y empuje las ondas y el play abajo */
+.reproductor-podcast-mock .reproductor-body {
+    flex-grow: 1;
+}
+
+/* Para la tarjeta 3: hacemos que el body crezca y empuje el footer abajo */
+.card-radio .card-body {
+    flex-grow: 1;
+}

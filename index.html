@@ -111,11 +111,49 @@
                             class="onda-p"></span><span class="onda-p"></span>
                     </div>
                     <div class="reproductor-controles-mini">
-                        <a href="Embed-youtube/podcasts.html" class="btn-audio-control play-main-mini" title="Reproducir Podcast">
+                        <a href="Embed-youtube/podcasts.html" class="btn-audio-control play-main-mini"
+                            title="Reproducir Podcast">
                             <i class="fas fa-play"></i>
                         </a>
                     </div>
                 </div>
+
+                <div class="card-radio" data-aos="fade-right">
+                    <!-- Cabecera: Badge + Subtítulo -->
+                    <div class="card-header">
+                        <span class="badge-live">EN VIVO</span>
+                        <span class="card-subtitle">Armonía</span>
+                    </div>
+
+                    <!-- Cuerpo: Icono Avatar + Textos -->
+                    <div class="card-body">
+                        <div class="avatar-circle"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Convivencia Escolar</h3>
+                            <p class="card-description">
+                                Momentos, anecdotas y vivencias de nuestros estudiantes y compañeros.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pie: Ecualizador + Botón de redirección -->
+                    <div class="card-footer">
+                        <div class="equalizer">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+
+                        <a href="Convivencia escolar/convivencia.html" class="btn-action" aria-label="Ir a Convivencia">
+                            <!-- Icono de reproducción usando SVG puro para no depender de librerías externas -->
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
 
             </div>
         </div>
@@ -256,7 +294,8 @@
                     <p>Ubicada en la orilla opuesta al malecón, esta joya arquitectónica del siglo XIX fue el hogar de
                         <strong>José Joaquín de Olmedo</strong>. Aquí, entre el aroma del río y el campo, el prócer
                         escribió versos inmortales y planificó el destino de la nación. Es Patrimonio Cultural del
-                        Ecuador y símbolo del ingenio montubio.</p>
+                        Ecuador y símbolo del ingenio montubio.
+                    </p>
                 </section>
 
                 <section class="modal-info-block">
@@ -395,7 +434,8 @@
                         <p>El territorio se asienta sobre una vasta y compleja cuenca hídrica. Los icónicos ríos
                             <strong>San Pablo</strong> y <strong>Caracol</strong> fluyen con fuerza hasta unirse frente
                             a la ciudad, dando origen al majestuoso <strong>Río Babahoyo</strong>, el cual sirve como
-                            arteria de transporte, comercio histórico y sustento natural.</p>
+                            arteria de transporte, comercio histórico y sustento natural.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1024,50 +1064,52 @@
     </section>
 
     <button class="chatbot-btn" id="btn-abrir-chat" title="¿Tienes dudas? ¡Pregúntame!">
-    <i class="fas fa-comments"></i>
-    <span>Chatbot</span>
-</button>
+        <i class="fas fa-comments"></i>
+        <span>Chatbot</span>
+    </button>
 
-<div class="chat-container chatbot-oculto" id="popup-chatbot">
-    <div class="chat-header">
-        <div class="chat-bot-info">
-            <i class="fas fa-robot bot-icon"></i>
-            <div>
-                <h3>BICAR-EDU</h3>
-                <span class="chat-status">En línea</span>
+    <div class="chat-container chatbot-oculto" id="popup-chatbot">
+        <div class="chat-header">
+            <div class="chat-bot-info">
+                <i class="fas fa-robot bot-icon"></i>
+                <div>
+                    <h3>BICAR-EDU</h3>
+                    <span class="chat-status">En línea</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="btn-cerrar-chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-messages">
+            <div class="message bot-message">
+                <p>¡Hola! Bienvenido. Soy el asistente de Babahoyo. ¿En qué te puedo ayudar hoy sobre la página o la
+                    ciudad?</p>
+                <span class="message-time">10:15 AM</span>
             </div>
         </div>
-        <button class="chat-close-btn" id="btn-cerrar-chat">
-            <i class="fas fa-times"></i>
-        </button>
+
+        <form class="chat-input-area" id="chat-form">
+            <input type="text" id="chat-user-input" placeholder="Pregúntame sobre Babahoyo..." required
+                autocomplete="off">
+            <button type="submit" class="chat-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
     </div>
 
-    <div class="chat-messages">
-        <div class="message bot-message">
-            <p>¡Hola! Bienvenido. Soy el asistente de Babahoyo. ¿En qué te puedo ayudar hoy sobre la página o la ciudad?</p>
-            <span class="message-time">10:15 AM</span>
-        </div>
-    </div>
+    <!-- Botón Flotante Ir al Mapa -->
+    <a href="sandbox map/map.html" class="btn-flotante-mapa" title="Ver Mapa Interactivo">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Ver Mapa</span>
+    </a>
 
-    <form class="chat-input-area" id="chat-form">
-        <input type="text" id="chat-user-input" placeholder="Pregúntame sobre Babahoyo..." required autocomplete="off">
-        <button type="submit" class="chat-send-btn">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </form>
-</div>
-
-<!-- Botón Flotante Ir al Mapa -->
-<a href="sandbox map/map.html" class="btn-flotante-mapa" title="Ver Mapa Interactivo">
-    <i class="fas fa-map-marked-alt"></i>
-    <span>Ver Mapa</span>
-</a>
-
-<!-- Botón Flotante Ir a Babahoyo Habla -->
-<a href="Sandbox BH/index.html" class="btn-flotante-bh" title="Ir a Babahoyo Habla">
-    <i class="fas fa-comments"></i>
-    <span>Babahoyo Habla</span>
-</a>
+    <!-- Botón Flotante Ir a Babahoyo Habla -->
+    <a href="Sandbox BH/index.html" class="btn-flotante-bh" title="Ir a Babahoyo Habla">
+        <i class="fas fa-comments"></i>
+        <span>Babahoyo Habla</span>
+    </a>
 
     <footer class="main-footer">
         <div class="footer-right">
@@ -1077,8 +1119,8 @@
         <p>© 2026 - Proyecto CREA</p>
     </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.js"></script>
-<script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.js"></script>
+    <script src="main.js"></script>
 
 </body>
 
