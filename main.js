@@ -325,11 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ========================================================
 // 1. CONFIGURACIÓN DE LA API DE GROQ Y ARCHIVO PDF
 // ========================================================
-const API_KEY = "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"; 
+const API_KEY = "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"; 
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Ruta de tu archivo PDF en la carpeta raíz de tu proyecto
-const PDF_RUTA = "Documents/Copia de Investigación Profunda de Babahoyo.pdf"; 
+const PDF_RUTA = "Documents/Chatbotbabahoyo.pdf"; 
 
 // Variable global donde se guardará el texto extraído del PDF
 let documentoPdfContexto = "";
