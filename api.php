@@ -1,12 +1,9 @@
 <?php
-// Desactivar despliegue de errores visibles para no revelar info técnica
 header('Content-Type: application/json');
 
-// 1. TU API KEY OCULTA EN EL SERVIDOR (Nadie puede verla desde el navegador)
 const API_KEY = atob("Z3NrX2lyYWgwZHNscGlwZW5NSaFBHVUVrV0dkeWIzRllMNWRlTnJ4VVVvWmdrdjBVaGZzUXhFTVA=");
 $apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
 
-// 2. Leer los datos enviados desde JavaScript (main.js)
 $inputJSON = file_get_contents('php://input');
 $inputData = json_decode($inputJSON, true);
 
@@ -18,7 +15,6 @@ if (!isset($inputData['userMessage'])) {
 $userMessage = $inputData['userMessage'];
 $contextoSeguro = isset($inputData['contexto']) ? $inputData['contexto'] : '';
 
-// 3. Crear la estructura para enviar a Groq
 $payload = [
     'model' => 'llama-3.3-70b-versatile',
     'messages' => [
@@ -33,7 +29,6 @@ $payload = [
     ]
 ];
 
-// 4. Petición cURL hacia Groq (Servidor a Servidor)
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
@@ -47,7 +42,6 @@ $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// 5. Retornar la respuesta al JavaScript
 http_response_code($httpCode);
 echo $response;
 ?>
