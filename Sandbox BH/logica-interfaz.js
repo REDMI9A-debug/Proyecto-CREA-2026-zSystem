@@ -916,9 +916,6 @@ async function reportComment(commentId) {
   }
 }
 
-// ============================================
-// 12. EVENTOS GLOBALES DEL FEED Y DELEGACIÓN
-// ============================================
 const timelinePosts = document.getElementById('timeline-posts');
 
 if (timelinePosts) {
