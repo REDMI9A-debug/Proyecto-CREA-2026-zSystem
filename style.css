@@ -8,14 +8,13 @@
   --fuente-texto: "Poppins", sans-serif;
 }
 
-/* esta parte elimina esas scrollbars bodrias xd */
 .slider-ventana-container::-webkit-scrollbar {
   display: none;
 }
 
 .slider-ventana-container {
-  -ms-overflow-style: none; /* IE y Edge antiguo */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 * {
@@ -35,7 +34,7 @@ body {
   line-height: 1.6;
   transition:
     background-color 0.8s ease,
-    color 0.8s ease !important; /* Transición general */
+    color 0.8s ease !important;
 }
 
 html,
@@ -45,7 +44,6 @@ body {
   position: relative;
 }
 
-/* Transiciones suaves para los componentes */
 .card-premium,
 .card-rural,
 .mini-card-urbana,
@@ -58,7 +56,6 @@ body {
     box-shadow 0.6s ease;
 }
 
-/* CABECERA fija o navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -117,7 +114,6 @@ body {
   color: var(--verde-lima);
 }
 
-/* HERO BABAHOYO */
 .hero-principal {
   position: relative;
   overflow: hidden;
@@ -179,7 +175,6 @@ body {
   text-shadow: 0px 0px 15px rgba(255, 179, 0, 0.4);
 }
 
-/* CARDS INFO */
 .seccion-cards {
   padding: 100px 5%;
   background: var(--oscuro-puro);
@@ -224,7 +219,6 @@ body {
   color: var(--verde-lima);
 }
 
-/* LINEA DE TIEMPO */
 .seccion-timeline {
   padding: 100px 0;
   background: #0a0a0a;
@@ -435,8 +429,6 @@ body {
   margin-bottom: 15px;
 }
 
-
-/* SECCIÓN CULTURA */
 .seccion-cultura {
   padding: 100px 5%;
   background: #0a0a0a;
@@ -453,7 +445,6 @@ body {
   color: var(--blanco);
 }
 
-/* Carrusel de Fiestas */
 .carrusel-fiestas {
   display: flex;
   gap: 30px;
@@ -495,7 +486,6 @@ body {
   color: white;
 }
 
-/* Gastronomia */
 .gastronomia-container h3 {
   font-family: var(--fuente-texto);
   font-size: 2.5rem;
@@ -535,7 +525,6 @@ body {
   object-fit: cover;
 }
 
-/* Videos */
 .videos-seccion h3 {
   margin-top: 80px;
   text-align: center;
@@ -575,7 +564,6 @@ body {
   text-transform: uppercase;
 }
 
-/* SECCIÓN TURISMO (ESTRUCTURA ÚNICA Y LIMPIA) */
 .seccion-turismo {
   padding: 100px 5%;
   background: var(--oscuro-puro);
@@ -698,9 +686,6 @@ body {
   text-shadow: 0 0 20px rgb(0, 255, 0);
 }
 
-/* ==========================================================================
-   AMBIENTE ATARDECER (UNIFICADO)
-   ========================================================================== */
 body.modo-atardecer {
   --verde-lima: #ff4500 !important;
   --oscuro-puro: #1a0a00 !important;
@@ -722,7 +707,6 @@ body.modo-atardecer .tagline {
   color: #ff4500;
 }
 
-/* FOOTER */
 footer {
   display: flex;
   justify-content: space-between;
@@ -732,7 +716,6 @@ footer {
   font-family: sans-serif;
 }
 
-/* SECCIÓN SÍMBOLOS PATRIOS */
 .seccion-simbolos {
   padding: 80px 20px;
   background-color: #0b0b0b;
@@ -849,7 +832,6 @@ footer {
   opacity: 0;
 }
 
-/* SECCIÓN GEOGRAFÍA INTEGRAL */
 .seccion-geografia-integral {
   padding: 90px 20px;
   background-color: #070707;
@@ -1001,7 +983,6 @@ footer {
   margin: 0;
 }
 
-/* SECCIÓN INSTITUCIONAL Y RADIO/PODCAST */
 .seccion-institucion {
   padding: 90px 20px;
   background-color: #0b0b0b;
@@ -1158,7 +1139,6 @@ footer {
   }
 }
 
-
 .frase-cierre-maestra {
   background: rgba(255, 179, 0, 0.02);
   border-left: 3px solid #ffb300;
@@ -1212,13 +1192,12 @@ footer {
   opacity: 0.85;
   z-index: 10;
 }
-/* logo no duplicado para cada position superior */
+
 .logo-colegio-esquina-2:hover {
   opacity: 1;
   transform: scale(1.05);
 }
 
-/* el bento grid creado en la parte casi inferior de la pag web */
 .seccion-agricultura {
   padding: 90px 20px;
   background-color: #050505;
@@ -1337,14 +1316,12 @@ footer {
   );
 }
 
-/* TRANSPORTE Y TURISMO */
 .seccion-transporte-premium {
   padding: 80px 5%;
   background-color: var(--oscuro-puro);
   width: 100%;
 }
 
-/* con el var siguen mi estilo de titulos */
 .titulo-seccion-contenedor {
   text-align: center;
   margin-bottom: 40px;
@@ -1363,40 +1340,36 @@ footer {
   margin-top: 10px;
 }
 
-/* cortar lo que sobre, osea que las demas esten ocultas a menos que se los indique aparecer */
 .slider-ventana-container {
   position: relative;
-  max-width: 1000px; /* Tamaño ideal de lectura horizontal */
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 24px;
-  overflow: hidden; /* solo esconde las otras imagenes */
+  overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* solo para diseñar el riel estirado */
 .slider-riel-buses {
   display: flex;
-  width: 700%; /* 5 cards, cada una ocupa 100% del contenedor padre */
-  height: 600px; /* Altura ideal de la sección */
-  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Desplazamiento ultra suave */
+  width: 700%;
+  height: 600px;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
 
-/* Estilo de cada Card Individual */
 .card-bus-horizontal {
-  width: 20%; /* Equivale al 100% real de la ventana contenedora */
+  width: 20%;
   height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   display: flex;
-  align-items: flex-end; /* Texto abajo */
+  align-items: flex-end;
   padding: 50px;
 }
 
-/* Contenido de Texto Enciama de la Foto */
 .contenido-card-bus {
   position: relative;
   z-index: 5;
@@ -1434,7 +1407,6 @@ footer {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Botones de Control (Flechas) */
 .btn-slider-flecha {
   position: absolute;
   top: 50%;
@@ -1467,7 +1439,6 @@ footer {
   right: 25px;
 }
 
-/* Indicadores de Posición inferior */
 .slider-puntos-indicadores {
   position: absolute;
   bottom: 25px;
@@ -1487,18 +1458,15 @@ footer {
 }
 .punto-bus.activo {
   background: var(--verde-lima);
-  width: 28px; /* Efecto píldora expansiva al estar activa */
+  width: 28px;
   border-radius: 5px;
 }
 
-/* ==========================================================================
-   CARRUSEL DE DESPEDIDA (HONOR)
-   ========================================================================== */
 #heroCarouselSection-ultimate {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 70vh; /* Un poco más bajo que el hero principal para equilibrar */
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1525,11 +1493,10 @@ footer {
   background-repeat: no-repeat;
   opacity: 0;
   z-index: 1;
-  transition: opacity 1.2s ease-in-out; /* Transición suave de fundido */
+  transition: opacity 1.2s ease-in-out;
   will-change: opacity;
 }
 
-/* Estado activo corregido para el fade de CSS */
 .carousel-slide-n.active {
   opacity: 1;
   z-index: 2;
@@ -1573,9 +1540,6 @@ footer {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* ==========================================================================
-   🛣️ TERMINAL INTERPROVINCIAL - EFECTO ACORDEÓN (FLEX-GROW)
-   ========================================================================== */
 .seccion-interprovincial-premium {
   width: 100%;
   margin-top: 60px;
@@ -1592,7 +1556,6 @@ footer {
   font-size: 1.05rem;
 }
 
-/* El Contenedor Padre */
 .contenedor-acordeon-buses {
   display: flex;
   width: 100%;
@@ -1600,7 +1563,6 @@ footer {
   gap: 15px;
 }
 
-/* Las Columnas (Paneles) */
 .panel-bus {
   background-size: cover;
   background-position: center;
@@ -1608,15 +1570,14 @@ footer {
   border-radius: 20px;
   color: #fff;
   cursor: pointer;
-  flex: 1; /* Todos miden lo mismo al inicio */
+  flex: 1;
   position: relative;
   overflow: hidden;
-  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Suavidad extrema */
+  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Capa oscura para leer el texto y dar misterio */
 .panel-overlay {
   position: absolute;
   top: 0;
@@ -1674,12 +1635,11 @@ footer {
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  opacity: 0; /* Oculto hasta que se expanda */
+  opacity: 0;
   transform: translateX(-20px);
   transition: all 0.5s ease;
 }
 
-/* El texto que se esconde */
 .panel-info-oculta {
   opacity: 0;
   transform: translateY(30px);
@@ -1706,11 +1666,8 @@ footer {
   font-size: 1rem;
 }
 
-/* =========================================
-   EFECTO MAGIA: CUANDO EL PANEL ESTÁ ACTIVO
-   ========================================= */
 .panel-bus.activa {
-  flex: 5; /* Se come todo el espacio de la pantalla */
+  flex: 5;
   border-color: var(--verde-lima);
   box-shadow: 0 15px 40px rgba(50, 205, 50, 0.2);
 }
@@ -1736,668 +1693,592 @@ footer {
 .panel-bus.activa .panel-info-oculta {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.4s; /* Aparece después de expandirse */
+  transition-delay: 0.4s;
 }
 
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS PARA LOS REPRODUCTORES LADO A LADO
-   ========================================================================== */
-
-/* En computadoras: se alinean horizontalmente ocupando el 100% del contenedor */
 .hub-medios-horizontal {
   display: flex;
   flex-direction: row;
-  gap: 50px; /* Espacio elegante entre las dos tarjetas */
+  gap: 50px;
   margin-top: 40px;
   width: 100%;
 }
 
-/* Hace que ambos reproductores crezcan por igual (50% de ancho cada uno) */
 .hub-medios-horizontal .reproductor-podcast-mock {
   flex: 1;
 }
 
-/* Variables Globales para personalización rápida */
 :root {
-    --primary-color: #007bff;
-    --primary-hover: #0056b3;
-    --bg-light: #f8f9fa;
-    --text-dark: #333333;
-    --bot-msg-bg: #e9ecef;
-    --user-msg-bg: #007bff;
-    --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --bg-light: #f8f9fa;
+  --text-dark: #333333;
+  --bot-msg-bg: #e9ecef;
+  --user-msg-bg: #007bff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* ======================================================== */
-/* 1. DISEÑO DEL BOTÓN FLOTANTE (CHATBOT CÁPSULA NEÓN)      */
-/* ======================================================== */
 .chatbot-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 25px;
-    z-index: 999;
+  position: fixed;
+  bottom: 24px;
+  right: 25px;
+  z-index: 999;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 22px;
-    
-    /* LA MAGIA: El botón se adapta a su contenido, no a la pantalla */
-    width: max-content; 
-    height: auto;       
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
 
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
+  width: max-content;
+  height: auto;
 
-    background: linear-gradient(135deg, #0d3b66 0%, #3a86ff 100%);
-    border: 2px solid #3a86ff;
-    border-radius: 50px; 
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
 
-    box-shadow: 0 0 15px rgba(58, 134, 255, 0.5),
-                0 4px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #0d3b66 0%, #3a86ff 100%);
+  border: 2px solid #3a86ff;
+  border-radius: 50px;
 
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+  box-shadow:
+    0 0 15px rgba(58, 134, 255, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
 .chatbot-btn:hover {
-    background: linear-gradient(135deg, #3a86ff 0%, #0d3b66 100%);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 0 25px rgba(58, 134, 255, 0.9),
-                0 8px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #3a86ff 0%, #0d3b66 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 25px rgba(58, 134, 255, 0.9),
+    0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .chatbot-btn i {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
 }
 
 .chatbot-btn:hover i {
-    transform: scale(1.15) rotate(-8deg);
+  transform: scale(1.15) rotate(-8deg);
 }
 
-
-/* ======================================================== */
-/* 2. DISEÑO DE LA VENTANA DE CHAT Y ESTADOS DINÁMICOS      */
-/* ======================================================== */
 .chat-container {
-    position: fixed;
-    bottom: 96px; 
-    right: 24px;
-    width: 360px;
-    height: 500px;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 1000;
-    /* Transición elegante para cuando JS cambie las clases */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 360px;
+  height: 500px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    width: 32vw;       /* Tomará el 32% del ancho de la pantalla, se adaptará al zoom */
-    min-width: 320px;  /* Evita que se encoja demasiado en pantallas medianas */
-    max-width: 450px;  /* Evita que se haga gigante en pantallas enormes */
-    
-    height: 65vh;      /* Tomará el 65% de la altura de la pantalla */
-    max-height: 600px;
+  width: 32vw;
+  min-width: 320px;
+  max-width: 450px;
+
+  height: 65vh;
+  max-height: 600px;
 }
 
-/* Estados controlados por JavaScript */
 .chatbot-oculto {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(30px) scale(0.95);
-    pointer-events: none; /* Evita clics fantasma cuando está oculto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px) scale(0.95);
+  pointer-events: none;
 }
 
 .chatbot-visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 
-/* Cabecera */
 .chat-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .chat-bot-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .bot-icon {
-    font-size: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 6px;
-    border-radius: 50%;
+  font-size: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px;
+  border-radius: 50%;
 }
 
 .chat-bot-info h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .chat-status {
-    font-size: 11px;
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  font-size: 11px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .chat-status::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #28a745;
-    border-radius: 50%;
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #28a745;
+  border-radius: 50%;
 }
 
 .chat-close-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
 .chat-close-btn:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-/* Cuerpo del Chat */
 .chat-messages {
-    flex: 1;
-    padding: 16px;
-    background-color: var(--bg-light);
-    overflow-y: auto; 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  flex: 1;
+  padding: 16px;
+  background-color: var(--bg-light);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .message {
-    max-width: 80%;
-    padding: 10px 14px;
-    border-radius: 14px;
-    font-size: 14px;
-    line-height: 1.4;
-    display: flex;
-    flex-direction: column;
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
 }
 
 .message p {
-    margin: 0;
-    word-break: break-word;
+  margin: 0;
+  word-break: break-word;
 }
 
 .message-time {
-    font-size: 10px;
-    opacity: 0.6;
-    margin-top: 4px;
-    align-self: flex-end;
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 4px;
+  align-self: flex-end;
 }
 
 .bot-message {
-    background-color: var(--bot-msg-bg);
-    color: var(--text-dark);
-    border-top-left-radius: 0;
-    align-self: flex-start;
+  background-color: var(--bot-msg-bg);
+  color: var(--text-dark);
+  border-top-left-radius: 0;
+  align-self: flex-start;
 }
-
-
-/* Área del Input */
-.chat-input-area {
-    display: flex;
-    padding: 12px;
-    background-color: white;
-    border-top: 1px solid #dee2e6;
-    gap: 8px;
-}
-
-  /* ------------------------------------------------------------
-     10. HERO DE DESPEDIDA (CARRUSEL FINAL)
-     ------------------------------------------------------------ */
-  #heroCarouselSection-ultimate {
-    min-height: 60vh !important;       /* Más compacto */
-    padding: 30px 15px !important;
-  }
-
-  .footer-content h1 {
-    font-size: 1.8rem !important;
-  }
-  .footer-content p {
-    font-size: 0.95rem !important;
-  }
-
-  /* ------------------------------------------------------------
-     11. BOTÓN "CONOCER MÁS" (modal)
-     ------------------------------------------------------------ */
-  .btn-conocer-mas {
-    padding: 12px 25px !important;
-    font-size: 0.95rem !important;
-  }
-
-  /* ------------------------------------------------------------
-     13. MODAL (para que no se salga)
-     ------------------------------------------------------------ */
-  .modal-container {
-    max-height: 95vh !important;
-    border-radius: 16px !important;
-  }
-  .modal-header {
-    height: 200px !important;
-  }
-  .modal-body {
-    padding: 25px !important;
-  }
-
-  /* ------------------------------------------------------------
-     14. LOGOS ESQUINEROS (colegio)
-     ------------------------------------------------------------ */
-  .logo-colegio-esquina,
-  .logo-colegio-esquina-2 {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    display: block !important;
-    margin: 0 auto 20px auto !important;
-    width: 60px !important;
-    height: auto !important;
-  }
-
-  /* ------------------------------------------------------------
-     15. CHATBOT (se ajusta solo con su propio CSS, pero mejoramos)
-     ------------------------------------------------------------ */
-  .chat-container {
-    width: 90vw !important;
-    height: 65vh !important;
-    right: 5vw !important;
-    bottom: 80px !important;
-    max-height: none !important;
-    border-radius: 15px !important;
-  }
-  .chatbot-btn {
-    /* ELIMINADO: width: 50px y height: 50px forzados */
-    bottom: 15px !important;
-    right: 15px !important;
-  }
-}
-
-/* nueva seccion de la cajetita de chatbot */
-/* ==========================================================================
-   🤖 ESTILOS DINÁMICOS DEL CHATBOT BICAR-EDU (RECUPERADOS)
-   ========================================================================== */
-
-/* Contenedor general donde se acumulan los mensajes */
-.chat-messages {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 15px;
-    overflow-y: auto;
-    height: 350px; /* Ajústalo a la altura que uses */
-}
-
-/* Estilo base para todas las burbujas */
-.message {
-    max-width: 80%;
-    padding: 10px 14px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
-}
-
-/* 🟦 MENSAJE DEL USUARIO (La cajita azul recuperada) */
 .user-message {
-    background-color: #007bff !important; /* Tu color azul de marca */
-    color: #ffffff !important;
-    align-self: flex-end; /* Lo empuja a la derecha */
-    border-bottom-right-radius: 2px; /* Esquina de diálogo */
+  background-color: var(--user-msg-bg);
+  color: white;
+  border-top-right-radius: 0;
+  align-self: flex-end;
+}
+.chat-input-area {
+  display: flex;
+  padding: 12px;
+  background-color: white;
+  border-top: 1px solid #dee2e6;
+  gap: 8px;
 }
 
-/* ⬜ MENSAJE DEL BOT */
+#heroCarouselSection-ultimate {
+  min-height: 60vh !important;
+  padding: 30px 15px !important;
+}
+
+.footer-content h1 {
+  font-size: 1.8rem !important;
+}
+.footer-content p {
+  font-size: 0.95rem !important;
+}
+
+.btn-conocer-mas {
+  padding: 12px 25px !important;
+  font-size: 0.95rem !important;
+}
+
+.modal-container {
+  max-height: 95vh !important;
+  border-radius: 16px !important;
+}
+.modal-header {
+  height: 200px !important;
+}
+.modal-body {
+  padding: 25px !important;
+}
+
+.logo-colegio-esquina,
+.logo-colegio-esquina-2 {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  display: block !important;
+  margin: 0 auto 20px auto !important;
+  width: 60px !important;
+  height: auto !important;
+}
+
+.chat-container {
+  width: 90vw !important;
+  height: 65vh !important;
+  right: 5vw !important;
+  bottom: 80px !important;
+  max-height: none !important;
+  border-radius: 15px !important;
+}
+.chatbot-btn {
+  bottom: 15px !important;
+  right: 15px !important;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  overflow-y: auto;
+  height: 350px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #007bff !important;
+  color: #ffffff !important;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
 .bot-message {
-    background-color: #e9ecef !important; /* Gris claro para el robot */
-    color: #212529 !important;
-    align-self: flex-start; /* Lo empuja a la izquierda */
-    border-bottom-left-radius: 2px; /* Esquina de diálogo */
+  background-color: #e9ecef !important;
+  color: #212529 !important;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
 }
 
-/* Hora del mensaje pequeña abajo */
 .message-time {
-    font-size: 0.7rem;
-    align-self: flex-end;
-    margin-top: 5px;
-    opacity: 0.8;
+  font-size: 0.7rem;
+  align-self: flex-end;
+  margin-top: 5px;
+  opacity: 0.8;
 }
 
 .user-message .message-time {
-    color: rgba(255, 255, 255, 0.8); /* Hora en blanco semi-transparente */
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .bot-message .message-time {
-    color: #6c757d; /* Hora en gris */
+  color: #6c757d;
 }
 
-/* Indicador de carga animado de "BICAR-EDU analizando..." */
 #loading-bot {
-    background-color: #e9ecef !important;
-    color: #495057 !important;
-    align-self: flex-start;
-    font-style: italic;
-    border-bottom-left-radius: 2px;
+  background-color: #e9ecef !important;
+  color: #495057 !important;
+  align-self: flex-start;
+  font-style: italic;
+  border-bottom-left-radius: 2px;
 }
 
-/* ==========================================
-   🗺️ BOTÓN FLOTANTE FIJO - VERDE LIMA NEÓN
-   ========================================== */
 .btn-flotante-mapa {
-    /* Fijado en la pantalla */
-    position: fixed;
-    bottom: 90px;       /* Distancia desde abajo para que no se pegue al borde */
-    right: 25px;        /* Distancia desde la derecha para que quede flotando entero */
-    z-index: 20;      /* Asegura que siempre esté por encima de todo */
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0d0d0d;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ccff00 0%, #70e000 100%);
+  border: 2px solid #ccff00;
+  border-radius: 50px;
+  box-shadow:
+    0 0 15px rgba(204, 255, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4);
 
-    /* Diseño y Maquetado */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 22px;
-    
-    /* Tipografía y Colores */
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #0d0d0d;
-    text-decoration: none;
-    text-transform: uppercase;
-    
-    /* Fondo Neón */
-    background: linear-gradient(135deg, #ccff00 0%, #70e000 100%);
-    border: 2px solid #ccff00;
-    border-radius: 50px;
-    
-    /* Brillo Neón */
-    box-shadow: 0 0 15px rgba(204, 255, 0, 0.5),
-                0 4px 12px rgba(0, 0, 0, 0.4);
-    
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-/* Efecto Hover */
 .btn-flotante-mapa:hover {
-    background: linear-gradient(135deg, #70e000 0%, #ccff00 100%);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 0 25px rgba(204, 255, 0, 0.9),
-                0 8px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #70e000 0%, #ccff00 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 25px rgba(204, 255, 0, 0.9),
+    0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Animación del ícono */
 .btn-flotante-mapa i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .btn-flotante-mapa:hover i {
-    transform: rotate(-12deg);
+  transform: rotate(-12deg);
 }
 
-/* ==========================================================
-   💬 BOTÓN FLOTANTE - BABAHOYO HABLA (NARANJA Y AMARILLO)
-   ========================================================== */
 .btn-flotante-bh {
-    position: fixed;
-    bottom: 155px;      /* 👈 Queda encima del botón verde (mapa) */
-    right: 25px;        /* Misma alineación a la derecha */
-    z-index: 15;      /* Por encima de otros elementos */
+  position: fixed;
+  bottom: 155px;
+  right: 25px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0d0d0d;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff9900 0%, #ffea00 100%);
+  border: 2px solid #ffea00;
+  border-radius: 50px;
+  box-shadow:
+    0 0 15px rgba(255, 170, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.4);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 22px;
-    
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #0d0d0d;
-    text-decoration: none;
-    text-transform: uppercase;
-    
-    /* Fondo Degradado Naranja / Amarillo Neón */
-    background: linear-gradient(135deg, #ff9900 0%, #ffea00 100%);
-    border: 2px solid #ffea00;
-    border-radius: 50px;
-    
-    /* Brillo Neón Naranja/Amarillo */
-    box-shadow: 0 0 15px rgba(255, 170, 0, 0.6),
-                0 4px 12px rgba(0, 0, 0, 0.4);
-    
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-/* Efecto Hover */
 .btn-flotante-bh:hover {
-    background: linear-gradient(135deg, #ffea00 0%, #ff9900 100%);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 200, 0, 0.9),
-                0 8px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #ffea00 0%, #ff9900 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 25px rgba(255, 200, 0, 0.9),
+    0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .btn-flotante-bh i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .btn-flotante-bh:hover i {
-    transform: scale(1.15) rotate(-8deg);
+  transform: scale(1.15) rotate(-8deg);
 }
 
 :root {
-    /* Paleta Cian Oscuro */
-    --cyan-primary: #008b99;      /* Cian oscuro base */
-    --cyan-glow: #00b4c5;         /* Cian de acento / hover */
-    --cyan-bg-badge: rgba(0, 139, 153, 0.25); /* Fondo tenue para el badge */
-    
-    /* Fondos y textos oscuros de la tarjeta */
-    --card-bg: #111111;
-    --card-border: #222222;
-    --text-main: #ffffff;
-    --text-muted: #999999;
+  --cyan-primary: #008b99;
+  --cyan-glow: #00b4c5; 
+  --cyan-bg-badge: rgba(0, 139, 153, 0.25); 
+  --card-bg: #111111;
+  --card-border: #222222;
+  --text-main: #ffffff;
+  --text-muted: #999999;
 }
 
-/* Contenedor Principal de la Card */
 .card-radio {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 18px;
-    width: 100%;
-    max-width: 520px;
-    padding: 24px;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 520px;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* 1. Cabecera (Badge y Subtítulo) */
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .badge-live {
-    background-color: var(--cyan-bg-badge);
-    color: var(--cyan-glow);
-    border: 1px solid var(--cyan-primary);
-    font-size: 11px;
-    font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
+  background-color: var(--cyan-bg-badge);
+  color: var(--cyan-glow);
+  border: 1px solid var(--cyan-primary);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
 }
 
 .card-subtitle {
-    color: var(--text-main);
-    font-size: 15px;
-    font-weight: 700;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 700;
 }
 
-/* 2. Cuerpo (Avatar e Información) */
 .card-body {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .avatar-circle {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background-color: #222222;
-    flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #222222;
+  flex-shrink: 0;
 }
 
 .card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .card-title {
-    color: var(--text-main);
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0;
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
 }
 
 .card-description {
-    color: var(--text-muted);
-    font-size: 13px;
-    line-height: 1.4;
-    margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
 }
 
-/* 3. Pie de página (Ecualizador y Botón) */
 .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 8px;
 }
 
-/* Ecualizador Cian */
 .equalizer {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    height: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 24px;
 }
 
 .equalizer .bar {
-    width: 4px;
-    background-color: var(--cyan-primary);
-    border-radius: 2px;
+  width: 4px;
+  background-color: var(--cyan-primary);
+  border-radius: 2px;
 }
 
-.equalizer .bar:nth-child(1) { height: 60%; }
-.equalizer .bar:nth-child(2) { height: 100%; }
-.equalizer .bar:nth-child(3) { height: 80%; }
-.equalizer .bar:nth-child(4) { height: 50%; }
+.equalizer .bar:nth-child(1) {
+  height: 60%;
+}
+.equalizer .bar:nth-child(2) {
+  height: 100%;
+}
+.equalizer .bar:nth-child(3) {
+  height: 80%;
+}
+.equalizer .bar:nth-child(4) {
+  height: 50%;
+}
 
-/* Botón de Redirección (Play) */
 .btn-action {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #222222;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #222222;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .btn-action svg {
-    width: 20px;
-    height: 20px;
-    margin-left: 2px; /* Alineación óptica del triángulo */
+  width: 20px;
+  height: 20px;
+  margin-left: 2px; 
 }
 
-/* Efecto al pasar el cursor por el botón */
 .btn-action:hover {
-    background-color: var(--cyan-primary);
-    color: #ffffff;
-    border-color: var(--cyan-glow);
-    box-shadow: 0 0 15px rgba(0, 139, 153, 0.4);
-    transform: scale(1.05);
+  background-color: var(--cyan-primary);
+  color: #ffffff;
+  border-color: var(--cyan-glow);
+  box-shadow: 0 0 15px rgba(0, 139, 153, 0.4);
+  transform: scale(1.05);
 }
 
-/* 1. EL CONTENEDOR PADRE (El Dictador que manda a las 3 tarjetas) */
 .hub-medios-horizontal {
-    display: grid;
-    /* Obliga a 3 columnas del mismo maldito ancho, sin importar el texto */
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem; /* Ajusta el espacio entre ellas si lo ves muy pegado */
-    align-items: stretch; /* Obliga a que las 3 tengan la misma altura */
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem; 
+  align-items: stretch; 
+  width: 100%;
 }
 
-/* 2. LAS TARJETAS (Unificando a las gemelas y a la rebelde) */
-/* Le aplicamos Flexbox a los dos tipos de clases que usaste */
-.reproductor-podcast-mock, 
+.reproductor-podcast-mock,
 .card-radio {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Toman toda la altura que el grid les da */
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-/* 3. EL TRUCO PARA ALINEAR ABAJO (Empujar el contenido) */
-/* Para las tarjetas 1 y 2: hacemos que el body crezca y empuje las ondas y el play abajo */
 .reproductor-podcast-mock .reproductor-body {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
-/* Para la tarjeta 3: hacemos que el body crezca y empuje el footer abajo */
 .card-radio .card-body {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
-/* ==========================================================================
-   MEDIA QUERIES UNIFICADOS Y LIMPIOS (LA CASCADA HACE EL TRABAJO)
-   ========================================================================== */
-
-/* --- TABLETS GRANDES / LAPTOPS PEQUEÑAS (Max 1024px) --- */
 @media (max-width: 1024px) {
   .logo-colegio-esquina,
   .logo-colegio-esquina-2 {
@@ -2412,61 +2293,57 @@ footer {
   }
 }
 
-/* --- TABLETS ESTÁNDAR (Max 900px) --- */
 @media (max-width: 900px) {
   .grid-urbanas {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .grid-institucion,
   .bento-grid-agri,
   .hub-medios-horizontal {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .hub-medios-horizontal {
     flex-direction: column;
   }
-  
+
   .agri-card.card-large {
     grid-column: span 1;
   }
-  
+
   .agri-content {
     padding: 25px;
   }
-  
+
   .agri-content h3 {
     font-size: 1.8rem;
   }
 }
 
-/* --- TRANSICIÓN TABLET A MÓVIL (Max 850px) --- */
 @media (max-width: 850px) {
   .contenedor-acordeon-buses {
     flex-direction: column;
     height: 700px;
     gap: 12px;
   }
-  
+
   .panel-info-oculta h3 {
     font-size: 1.5rem;
   }
-  
+
   .panel-info-oculta p {
     font-size: 0.9rem;
     display: none;
   }
-  
+
   .panel-bus.activa .panel-info-oculta p {
     display: block;
   }
 }
 
-/* --- MÓVILES Y PANTALLAS PEQUEÑAS (Max 768px) --- */
 @media (max-width: 768px) {
-  /* Navbar */
   .navbar {
     height: auto;
     flex-direction: column;
@@ -2475,30 +2352,29 @@ footer {
     position: fixed;
     background: rgba(15, 15, 15, 0.98);
   }
-  
+
   .escudo {
     height: 44px;
   }
-  
+
   .brand-name {
     font-size: 0.9rem;
   }
-  
+
   .tagline {
     display: none;
   }
-  
+
   .nav-menu ul {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
   }
-  
+
   .nav-menu a {
     font-size: 0.8rem;
   }
 
-  /* Tipografía general */
   .hero-content h1 {
     font-size: 2rem;
     line-height: 1.2;
@@ -2523,12 +2399,11 @@ footer {
   .footer-content h1 {
     font-size: 1.8rem;
   }
-  
+
   .footer-content p {
     font-size: 0.95rem;
   }
 
-  /* Márgenes y espaciados de secciones */
   .seccion-cards,
   .seccion-timeline,
   .seccion-cultura,
@@ -2541,7 +2416,6 @@ footer {
     padding: 40px 15px;
   }
 
-  /* Grids a 1 columna */
   .container-cards,
   .geo-content,
   .video-grid,
@@ -2554,7 +2428,6 @@ footer {
     gap: 20px;
   }
 
-  /* Ajustes de Tarjetas para evitar desbordes */
   .fiesta-card {
     min-width: 260px;
     height: 350px;
@@ -2570,25 +2443,27 @@ footer {
     min-width: 0;
   }
 
-  /* Slider de Buses */
   .slider-riel-buses {
     height: 380px;
   }
-  
+
   .card-bus-horizontal {
     padding: 30px 20px;
   }
-  
+
   .btn-slider-flecha {
     width: 38px;
     height: 38px;
     font-size: 1rem;
   }
-  
-  .btn-slider-flecha.left { left: 8px; }
-  .btn-slider-flecha.right { right: 8px; }
 
-  /* Acordeón de Buses Móvil */
+  .btn-slider-flecha.left {
+    left: 8px;
+  }
+  .btn-slider-flecha.right {
+    right: 8px;
+  }
+
   .panel-bus {
     height: 160px;
     flex: none;
@@ -2600,13 +2475,11 @@ footer {
     flex: none;
   }
 
-  /* Hero Despedida */
   #heroCarouselSection-ultimate {
     min-height: 60vh;
     padding: 30px 15px;
   }
 
-  /* Botones y Modales */
   .btn-conocer-mas {
     padding: 12px 25px;
     font-size: 0.95rem;
@@ -2616,11 +2489,11 @@ footer {
     max-height: 95vh;
     border-radius: 16px;
   }
-  
+
   .modal-header {
     height: 200px;
   }
-  
+
   .modal-body {
     padding: 25px;
   }
@@ -2630,7 +2503,6 @@ footer {
     width: 60px;
   }
 
-  /* Chatbot Contenedor */
   .chat-container {
     width: 90vw;
     height: 65vh;
@@ -2639,7 +2511,7 @@ footer {
     max-height: none;
     border-radius: 15px;
   }
-  
+
   .chatbot-btn {
     bottom: 15px;
     right: 15px;

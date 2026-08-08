@@ -1,8 +1,3 @@
-/* ==========================================================================
-   🗺️ BASE DE DATOS Y FUNCIONES GLOBALES (MAPAS)
-   Nota: Se declaran fuera de los bloques de carga para poder ser llamadas 
-   directamente desde el HTML (ej. onclick="abrirMapa('salto')").
-   ========================================================================== */
 const infoLugares = {
     'salto': {
         img: 'playairresistible.png',
@@ -68,18 +63,13 @@ function cerrarMapa() {
 }
 
 
-/* ==========================================================================
-   🛠️ MÓDULO 1: MODALES ORIGINALES Y MODO ATARDECER
-   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Modales Originales ---
     const btnVerde = document.getElementById('abrirModal');
     const btnX = document.getElementById('cerrarModal');
     const ventanaModal = document.getElementById('modalOlmedo');
     const modalMapa = document.getElementById('modal-mapa');
 
-    // Reemplazamos .onclick por addEventListener para evitar choques de eventos
     if (btnVerde && ventanaModal) {
         btnVerde.addEventListener('click', (e) => {
             e.preventDefault();
@@ -93,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Cierre seguro de los modales al hacer clic afuera en el fondo oscuro
     window.addEventListener('click', (event) => {
         if (event.target === ventanaModal) {
             ventanaModal.style.display = 'none';
@@ -103,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Modo Atardecer ---
     const btnAtardecer = document.getElementById('toggle-atardecer');
     const mainLogo = document.getElementById('main-logo');
 
@@ -127,15 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-/* ==========================================================================
-   🎠 MÓDULO 2: MOTOR DEL CARRUSEL 1 (HERO PRINCIPAL)
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const sectionHero = document.getElementById('heroCarouselSection');
     const slidesHero = document.querySelectorAll('#heroCarouselSection .carousel-slide');
 
-    // Si no existe este carrusel en la página, frena este bloque
     if (!sectionHero || slidesHero.length === 0) return;
 
     let indexHero = 0;
@@ -160,18 +143,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Eventos de pausa independientes al poner el mouse encima
     sectionHero.addEventListener('mouseenter', desactivarTimerHero);
     sectionHero.addEventListener('mouseleave', activarTimerHero);
 
-    // Arrancar el carrusel
     activarTimerHero();
 });
 
 
-/* ==========================================================================
-   🏛️ MÓDULO 3: TOGGLES DE SÍMBOLOS PATRIOS
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const btnToggle = document.getElementById('btn-toggle-simbolos');
     const epocaHistorica = document.getElementById('epoca-historica');
@@ -205,9 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* ==========================================================================
-   🎓 MÓDULO 4: MOTOR DEL CARRUSEL 2 (HOMENAJE DESPEDIDA)
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const sectionUltimate = document.getElementById('heroCarouselSection-ultimate');
     const slidesUltimate = document.querySelectorAll('#heroCarouselSection-ultimate .carousel-slide-n');
@@ -243,9 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* ==========================================================================
-   🚍 MÓDULO 5: ENGINE DEL SLIDER HORIZONTAL DE BUSES URBANOS
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const riel = document.getElementById('rielBusesUrbano');
     const btnPrev = document.getElementById('btnBusPrev');
@@ -255,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!riel || !btnPrev || !btnNext) return;
 
     let posicionActual = 0;
-    const totalCards = 5; // Las 5 líneas fijas
+    const totalCards = 5;
 
     function moverSlider() {
         riel.style.transform = `translateX(-${posicionActual * 20}%)`;
@@ -276,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (posicionActual < totalCards - 1) {
             posicionActual++;
         } else {
-            posicionActual = 0; // Bucle al inicio
+            posicionActual = 0;
         }
         moverSlider();
     });
@@ -285,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (posicionActual > 0) {
             posicionActual--;
         } else {
-            posicionActual = totalCards - 1; // Salta al último
+            posicionActual = totalCards - 1;
         }
         moverSlider();
     });
@@ -298,16 +270,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-/* ==========================================================================
-   🚌 MÓDULO 6: ENGINE ACORDEÓN BUSES INTERPROVINCIALES
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const panelesBuses = document.querySelectorAll('.panel-bus');
 
     if (panelesBuses.length === 0) return;
 
-    // Función interna para resetear estados antes de abrir uno nuevo
     function borrarClasesActivas() {
         panelesBuses.forEach(panel => {
             panel.classList.remove('activa');
@@ -322,35 +289,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ========================================================
-// 1. CONFIGURACIÓN DE LA API DE GROQ Y ARCHIVO PDF
-// ========================================================
-// Dividimos la clave para que GitHub no detecte el patrón completo
 const parte1 = "gsk_irah0dslpipzsRhPG";
 const parte2 = "QekWGdyb3FYL5deNrxUUoZgkv0UhfsQxEMP";
-
 const API_KEY = parte1 + parte2;
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-
-// Ruta de tu archivo PDF en la carpeta raíz de tu proyecto
 const PDF_RUTA = "Documents/Chatbotbabahoyo.pdf";
-
-// Variable global donde se guardará el texto extraído del PDF
 let documentoPdfContexto = "";
-
-// Cargar la librería PDF.js desde un CDN de forma dinámica
 const pdfjsLib = window['pdfjs-dist/build/pdf'];
-// Especificamos el worker de PDF.js para que procese el archivo en segundo plano
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
-// ELEMENTOS DEL DOM (Lógica de chat)
 const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-user-input');
 const chatMessagesArea = document.querySelector('.chat-messages');
 
-// ========================================================
-// 2. FUNCIÓN PARA LEER EL PDF Y EXTRAER EL TEXTO
-// ========================================================
 async function extraerTextoDePDF() {
     try {
         console.log("Iniciando lectura del PDF...");
@@ -375,12 +325,8 @@ async function extraerTextoDePDF() {
     }
 }
 
-// Ejecutar la extracción del PDF apenas cargue la página
 extraerTextoDePDF();
 
-// ========================================================
-// 3. FUNCIONES DE LA INTERFAZ
-// ========================================================
 function getFormattedTime() {
     const now = new Date();
     return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -392,8 +338,6 @@ function appendMessage(text, sender) {
 
     const p = document.createElement('p');
 
-    // SI ES DEL BOT: Parseamos el Markdown (negritas, cursivas, listas) a HTML usando marked.js
-    // SI ES DEL USUARIO: Mantenemos textContent para evitar inyección de código
     if (sender === 'bot') {
         p.innerHTML = marked.parse(text);
     } else {
@@ -408,15 +352,10 @@ function appendMessage(text, sender) {
     messageDiv.appendChild(timeSpan);
     chatMessagesArea.appendChild(messageDiv);
 
-    // Auto-scroll
     chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
 }
 
-// ========================================================
-// 4. CONEXIÓN CON LA IA (Directo a Groq con Base64)
-// ========================================================
 async function askGroq(userMessage) {
-    // Animación de carga
     const loadingDiv = document.createElement('div');
     loadingDiv.classList.add('message', 'bot-message');
     loadingDiv.id = 'loading-bot';
@@ -424,12 +363,9 @@ async function askGroq(userMessage) {
     chatMessagesArea.appendChild(loadingDiv);
     chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
 
-    // Recortamos el contexto para evitar saturar la API
     const contextoSeguro = documentoPdfContexto.slice(0, 12000);
-
-    // ESTRUCTURA QUE FALTABA (Payload de la petición)
     const payload = {
-        model: "llama-3.3-70b-versatile", 
+        model: "llama-3.3-70b-versatile",
         messages: [
             {
                 role: "system",
@@ -451,7 +387,7 @@ ${contextoSeguro}`
             },
             {
                 role: "user",
-                content: userMessage 
+                content: userMessage
             }
         ]
     };
@@ -474,12 +410,10 @@ ${contextoSeguro}`
 
         const data = await response.json();
 
-        // Quitar indicador de carga
         if (document.getElementById('loading-bot')) {
             document.getElementById('loading-bot').remove();
         }
 
-        // Extraer respuesta estructurada de Groq
         if (data.choices && data.choices[0].message.content) {
             const botResponse = data.choices[0].message.content;
             appendMessage(botResponse, 'bot');
@@ -497,10 +431,6 @@ ${contextoSeguro}`
     }
 }
 
-
-// ========================================================
-// 5. CAPTURA DEL EVENTO SUBMIT
-// ========================================================
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -510,24 +440,18 @@ chatForm.addEventListener('submit', (e) => {
     appendMessage(messageText, 'user');
     chatInput.value = '';
 
-    // Ejecutamos la petición al motor de Groq
     askGroq(messageText);
 });
 
-// ========================================================
-// 6. CONTROL DE LA VENTANA EMERGENTE (POP-UP)
-// ========================================================
 const btnAbrirChat = document.getElementById('btn-abrir-chat');
 const btnCerrarChat = document.getElementById('btn-cerrar-chat');
 const popupChatbot = document.getElementById('popup-chatbot');
 
-// Evento para abrir el chat
 btnAbrirChat.addEventListener('click', () => {
     popupChatbot.classList.remove('chatbot-oculto');
     popupChatbot.classList.add('chatbot-visible');
 });
 
-// Evento para cerrar el chat
 btnCerrarChat.addEventListener('click', () => {
     popupChatbot.classList.remove('chatbot-visible');
     popupChatbot.classList.add('chatbot-oculto');
