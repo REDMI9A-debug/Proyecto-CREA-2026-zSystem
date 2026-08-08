@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Cultural Interactivo</title>
-    <!-- Importamos los estilos de la librería Leaflet -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="map.css">
@@ -32,10 +31,8 @@
     </a>
 
     <section class="map-container">
-        <!-- AQUÍ ESTÁ LA MAGIA: Un div vacío donde Leaflet inyectará el mapa real -->
         <div id="map" class="pro-map-view"></div>
 
-        <!-- SIDEBAR LOCATIONS MENU (Se mantiene casi igual) -->
         <div class="locations-sidebar">
             <h3>Explorar Ubicaciones</h3>
             <ul class="locations-list">
@@ -115,13 +112,10 @@
         </div>
     </section>
 
-    <!-- NUEVO MODAL DIVIDIDO (FLEXBOX) -->
     <div id="info-modal" class="modal-overlay">
         <div class="modal-content">
-            <!-- Botón de cerrar con el ID exacto que llama el JS -->
             <span class="close-modal" id="close-btn">&times;</span>
             
-            <!-- SECCIÓN SUPERIOR: TEXTO A LA IZQUIERDA, FOTO A LA DERECHA -->
             <div class="modal-top-section">
                 <div class="modal-left-column">
                     <h2 id="modal-title">Título del Lugar</h2>
@@ -130,13 +124,11 @@
                 
                 <div class="modal-right-column">
                     <div class="modal-image-wrapper">
-                        <!-- El nuevo ID modal-img donde el JS inyecta la foto -->
                         <img id="modal-img" src="xd" alt="Ubicación">
                     </div>
                 </div>
             </div>
 
-            <!-- SECCIÓN INFERIOR: AUDIO Y QR -->
             <div class="modal-multimedia">
                 <div class="audio-section">
                     <p>🎧 Escucha la historia:</p>
@@ -146,12 +138,10 @@
         </div>
     </div>
 
-        <!-- BOTÓN DE AYUDA FIJO A LA PANTALLA -->
     <div class="help-btn-fixed" data-info="Selecciona cualquier punto en la lista o en el mapa para descubrir la historia, fotos y audios de los lugares más emblemáticos de Babahoyo.">
         <i class="fa-solid fa-question"></i>
     </div>
 
-    <!-- Importamos la lógica de Leaflet y luego nuestro archivo -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="map.js"></script>
 </body>

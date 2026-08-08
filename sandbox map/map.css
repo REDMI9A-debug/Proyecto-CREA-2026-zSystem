@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. VARIABLES GLOBALES Y CONFIGURACIÓN BASE
-   ========================================================================== */
 :root {
     --bg-dark: #0b0b0d;
     --bg-panel: #111114;
@@ -23,10 +20,6 @@ body {
     margin: 0;
 }
 
-
-/* ==========================================================================
-   2. DISEÑO PRINCIPAL MAPA + BARRA LATERAL
-   ========================================================================== */
 .map-container {
     display: flex;
     justify-content: center;
@@ -35,10 +28,9 @@ body {
     padding: 20px;
     max-width: 1300px;
     margin: 0 auto;
-    margin-top: 120px; /* Ajuste para que no quede debajo de la barra de navegación */
+    margin-top: 120px; 
 }
 
-/* CONTENEDOR DEL MAPA */
 .pro-map-view {
     position: relative;
     flex: 1.5;
@@ -51,16 +43,13 @@ body {
     z-index: 1;
 }
 
-/* ==========================================================================
-   3. BARRA LATERAL (MENU DE UBICACIONES)
-   ========================================================================== */
 .locations-sidebar {
     border: 1px solid rgba(57, 255, 20, 0.3);
     box-shadow: var(--neon-glow);
     border-radius: 12px;
     padding: 0;
     width: 320px;
-    height: 550px; /* Alineada a la altura del mapa */
+    height: 550px; 
     background-color: var(--bg-panel);
     display: flex;
     flex-direction: column;
@@ -84,7 +73,6 @@ body {
     scrollbar-color: var(--neon-green) transparent;
 }
 
-/* Estilo para las barras de desplazamiento (Chrome, Safari y Edge) */
 .locations-list::-webkit-scrollbar {
     width: 4px;
 }
@@ -114,9 +102,6 @@ body {
     border-bottom: none;
 }
 
-/* ==========================================================================
-   4. MARCADORES NEÓN DINÁMICOS INJECTADOS POR JS 
-   ========================================================================== */
 .neon-marker {
     background: none;
     border: none;
@@ -125,7 +110,6 @@ body {
     align-items: center;
 }
 
-/* La aguja clásica (Pin) */
 .classic-pin {
     width: 24px;
     height: 24px;
@@ -137,7 +121,6 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* El punto interno de la aguja */
 .classic-pin::after {
     content: '';
     width: 8px;
@@ -149,16 +132,12 @@ body {
     left: 8px;
 }
 
-/* El brillo sutil al pasar el mouse */
 .neon-marker:hover .classic-pin {
     background-color: #026e07;
     transform: rotate(-45deg) scale(1);
     box-shadow: 0 0 12px var(--neon-green);
 }
 
-/* ==========================================================================
-   5. MODAL POP-UP DE INFORMACIÓN 
-   ========================================================================== */
 .modal-overlay {
     display: none; 
     position: fixed;
@@ -178,7 +157,7 @@ body {
     border: 1px solid rgba(57, 255, 20, 0.2);
     border-radius: 12px;
     width: 90%;
-    max-width: 650px; /* Lo ensanchamos un poco para que texto y foto respiren */
+    max-width: 650px;
     padding: 25px;
     position: relative;
     box-shadow: 0 15px 30px rgba(0,0,0,0.8), var(--neon-glow);
@@ -211,7 +190,6 @@ body {
     transform: scale(1.1);
 }
 
-/* --- SECCIÓN SUPERIOR DIVIDIDA (FLEXBOX) --- */
 .modal-top-section {
     display: flex;
     gap: 20px;
@@ -219,11 +197,11 @@ body {
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(57, 255, 20, 0.2);
     padding-bottom: 20px;
-    margin-top: 15px; /* Evita que el texto se estrelle contra el botón de cerrar */
+    margin-top: 15px; 
 }
 
 .modal-left-column {
-    flex: 1; /* El texto toma el espacio sobrante */
+    flex: 1; 
 }
 
 #modal-title {
@@ -244,7 +222,7 @@ body {
 }
 
 .modal-right-column {
-    flex: 0 0 200px; /* foto en 200px para que no reviente */
+    flex: 0 0 200px;
 }
 
 .modal-image-wrapper {
@@ -260,10 +238,9 @@ body {
 .modal-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* mantiene proporción y recorta */
+    object-fit: cover;
 }
 
-/* --- SECCIÓN INFERIOR MULTIMEDIA --- */
 .modal-multimedia {
     display: flex;
     justify-content: space-between;
@@ -295,10 +272,9 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 600px) {
     .modal-top-section {
-        flex-direction: column-reverse; /* Si es celular, manda la foto arriba */
+        flex-direction: column-reverse;
         align-items: center;
     }
     .modal-right-column {
@@ -312,9 +288,6 @@ body {
     }
 }
 
-/* ==========================================================================
-   6. CONTENEDOR DEL MAPA
-   ========================================================================== */
 .pro-map-view {
     position: relative;
     flex: 1.5;
@@ -327,26 +300,21 @@ body {
     z-index: 1;
 }
 
-/* Ajuste para que las imágenes del satélite ocupen su espacio correctamente */
 .leaflet-tile {
     outline: none;
     border: none;
 }
 
-/* Iconos con Fas-fa: */
 .map-icon {
     color: #1aaa0098;
     margin-right: 8px; 
     text-shadow: 0 0 5px #20b10685; 
 }
 
-/* al pasar el mouse (hover) brille */
 .list-item:hover .map-icon {
     color: #ffffff9a;
     text-shadow: 0 0 8px #1aaa0098, 0 0 15px #20b10685;
 }
-
-/* 7. Copio el css que tengo en la pagina original de VDB */
 
 .navbar {
   position: fixed;
@@ -387,13 +355,10 @@ body {
   color: #ffffff;
 }
 
-/* ==========================================================================
-   BOTÓN DE AYUDA FIJO (NO ROMPE CONTENEDORES)
-   ========================================================================== */
 .help-btn-fixed {
     position: fixed;
-    bottom: 40px; /* Separación desde abajo de la pantalla */
-    right: 40px; /* Separación desde la derecha */
+    bottom: 40px; 
+    right: 40px; 
     background: #111114;
     color: var(--neon-green);
     border: 1px solid var(--neon-green);
@@ -406,7 +371,7 @@ body {
     align-items: center;
     cursor: help;
     box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-    z-index: 9999; /* Nivel Dios: por encima de todo el mapa y menú */
+    z-index: 9999;
     transition: all 0.3s ease;
 }
 
@@ -417,12 +382,11 @@ body {
     transform: scale(1.1);
 }
 
-/* CAJA DE TEXTO (TOOLTIP) DEL BOTÓN FIJO */
 .help-btn-fixed::after {
-    content: attr(data-info); /* Lee el texto directamente de tu HTML */
+    content: attr(data-info); 
     position: absolute;
-    right: 65px; /* Empuja el texto hacia la izquierda del botón */
-    bottom: 50%; /* Lo centra verticalmente con el botón */
+    right: 65px; 
+    bottom: 50%; 
     transform: translateY(50%) scale(0.9);
     width: 260px;
     background: #0b0b0d;
@@ -440,7 +404,6 @@ body {
     pointer-events: none;
 }
 
-/* EFECTO HOVER PARA MOSTRAR EL TEXTO */
 .help-btn-fixed:hover::after {
     opacity: 1;
     visibility: visible;
@@ -449,63 +412,59 @@ body {
 
 @media (max-width: 850px) {
     
-    /* 1. NAVBAR MÁS COMPACTO Y ORDENADO EN MÓVIL */
     .navbar {
-        height: auto !important; /*[cite: 2] */
+        height: auto !important;
         padding: 10px 15px !important;
-        flex-direction: row !important; /* Mantenemos logo e info lado a lado para ahorrar espacio */
+        flex-direction: row !important; 
         justify-content: space-between;
     }
 
     .header-left {
-        gap: 8px !important; /*[cite: 2] */
+        gap: 8px !important; 
     }
 
     .escudo {
-        height: 40px !important; /* Reducimos el logo para que no sea un bloque enorme */
+        height: 40px !important; 
     }
 
     .brand-name {
-        font-size: 0.8rem !important; /*[cite: 2] */
+        font-size: 0.8rem !important;
     }
 
     .tagline {
-        display: none !important; /* Ocultamos la frase larga solo en celulares para ganar espacio */
+        display: none !important;
     }
 
-    /* 2. EMPUJAMOS EL MAPA HACIA ABAJO PARA QUE NO QUEDE TAPADO */
     .map-container {
         flex-direction: column !important;
         align-items: center;
-        gap: 15px !important; /*[cite: 2] */
+        gap: 15px !important;
         padding: 10px !important;
-        margin-top: 85px !important; /* Espacio suficiente para que respire debajo del navbar */
+        margin-top: 85px !important;
     }
 
-    /* 3. EL MAPA Y LA LISTA CON ALTURAS AJUSTADAS */
     .pro-map-view {
-        min-width: 100% !important; /*[cite: 2] */
+        min-width: 100% !important; 
         width: 100% !important;
-        height: 40vh !important; /* Ajustamos a 40vh para que se vea completo sin hacer scroll */
-        flex: none !important; /*[cite: 2] */
+        height: 40vh !important; 
+        flex: none !important; 
     }
 
     .locations-sidebar {
-        width: 100% !important; /*[cite: 2] */
-        height: 38vh !important; /*[cite: 2] */
+        width: 100% !important; 
+        height: 38vh !important; 
         flex: none !important;
     }
 }
 
-/* Estilos para el botón de regreso */
 .btn-regresar {
-    position: fixed; /* O usa 'fixed' si quieres que siga ahí al hacer scroll */
+    position: fixed; 
     top: 95px;
     left: 20px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--card-bg); /* Usa el fondo de tus tarjetas */
+    background-color: var(--card-bg); 
     color: var(--text);
     padding: 10px 16px;
     border-radius: 8px;
@@ -514,13 +473,13 @@ body {
     font-size: 14px;
     border: 1px solid #333;
     transition: all 0.3s ease;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000; 
 }
 
 .btn-regresar:hover {
-    background-color: var(--accent); /* Cambia al verde insano en hover */
+    background-color: var(--accent); 
     color: #fff;
     border-color: var(--accent);
-    transform: translateX(-5px); /* Pequeño efecto de movimiento hacia la izquierda */
-    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Sombra con el color de acento */
+    transform: translateX(-5px); 
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); 
 }
