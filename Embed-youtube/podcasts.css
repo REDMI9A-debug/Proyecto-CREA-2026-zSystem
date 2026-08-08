@@ -1,157 +1,159 @@
 :root {
-    --dark-bg: #121212;
-    --card-bg: #1e1e1e;
-    --accent: #28a745; /* Tu verde insano */
-    --text: #ffffff;
+  --dark-bg: #121212;
+  --card-bg: #1e1e1e;
+  --accent: #28a745;
+  --text: #ffffff;
 }
 
-body { 
-    background-color: var(--dark-bg); 
-    font-family: 'Segoe UI', sans-serif; 
-    color: var(--text); 
-    margin: 0;
+body {
+  background-color: var(--dark-bg);
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+  margin: 0;
 }
 
-/* 1. Contenedor Principal (Lógica Flexbox Bidimensional) */
-.layout-principal { 
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 24px;
-    max-width: 1200px; 
-    margin: auto; 
-    padding: 20px; 
+.layout-principal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
-/* 2. Columna Izquierda (Lista vertical) */
 .columna-videos {
-    width: 280px; /* Ancho fijo para las miniaturas */
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    max-height: 85vh; /* Altura dinámica para generar scroll interno */
-    overflow-y: auto;
-    padding-right: 15px; /* Espacio para el scrollbar */
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding-right: 15px;
 }
 
-/* Scrollbar personalizado con tu color de acento */
-.columna-videos::-webkit-scrollbar { width: 6px; }
-.columna-videos::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 8px; }
+.columna-videos::-webkit-scrollbar {
+  width: 6px;
+}
+.columna-videos::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 8px;
+}
 
 .columna-videos h2 {
-    font-size: 18px;
-    margin-top: 0;
-    text-align: center;
+  font-size: 18px;
+  margin-top: 0;
+  text-align: center;
 }
 
 .video-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* 3. Estilos de Tarjeta (Tus estilos originales conservados) */
 .video-card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    border: 1px solid #333;
-    overflow: hidden;
+  background: var(--card-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #333;
+  overflow: hidden;
 }
-.video-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.video-card img { width: 100%; display: block; }
-.video-card p { padding: 10px; font-size: 14px; text-align: center; margin: 0; }
+.video-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+.video-card img {
+  width: 100%;
+  display: block;
+}
+.video-card p {
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+}
 
-/* 4. Columna Derecha (Reproductor) */
 .reproductor-destacado {
-    flex-grow: 1; /* Absorbe el 100% del espacio restante horizontal */
-    width: 100%;
+  flex-grow: 1;
+  width: 100%;
 }
 
-.video-player { 
-    position: relative; 
-    padding-bottom: 56.25%; /* Mantiene la relación de aspecto 16:9 matemáticamente */
-    height: 0; 
-    border: 3px solid var(--accent); 
-    border-radius: 10px; 
-    overflow: hidden;
+.video-player {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border: 3px solid var(--accent);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.video-player iframe { 
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%; 
-    height: 100%; 
+.video-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Estilos para el botón de regreso */
 .btn-regresar {
-    position: absolute; /* O usa 'fixed' si quieres que siga ahí al hacer scroll */
-    top: 20px;
-    left: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--card-bg); /* Usa el fondo de tus tarjetas */
-    color: var(--text);
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    border: 1px solid #333;
-    transition: all 0.3s ease;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 .btn-regresar:hover {
-    background-color: var(--accent); /* Cambia al verde insano en hover */
-    color: #fff;
-    border-color: var(--accent);
-    transform: translateX(-5px); /* Pequeño efecto de movimiento hacia la izquierda */
-    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Sombra con el color de acento */
+  background-color: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateX(-5px);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
 }
-
 
 * {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
-/* RESPONSIVE: Diseño específico para móviles (pantallas de 768px o menos) */
 @media (max-width: 768px) {
-    
-    /* 1. Cambiamos la dirección bidimensional a columna */
-    .layout-principal {
-        flex-direction: column;
-        padding: 10px; /* Reducimos el padding general para aprovechar la pantalla */
-    }
+  .layout-principal {
+    flex-direction: column;
+    padding: 10px;
+  }
 
-    /* 2. Forzamos al reproductor a renderizarse en la parte superior */
-    .reproductor-destacado {
-        order: -1; 
-        width: 100%;
-    }
+  .reproductor-destacado {
+    order: -1;
+    width: 100%;
+  }
 
-    /* 3. Ajustamos el contenedor de la lista de videos */
-    .columna-videos {
-        width: 100%; /* Rompemos el ancho fijo de 280px para que ocupe todo */
-        padding-right: 0; 
-        max-height: none; /* Eliminamos el scroll interno, es mejor que toda la página scrollee en móviles */
-        overflow-y: visible;
-    }
+  .columna-videos {
+    width: 100%;
+    padding-right: 0;
+    max-height: none;
+    overflow-y: visible;
+  }
 
-    /* 4. Transformamos la lista en una cuadrícula de 2 columnas */
-    .video-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Crea 2 fracciones exactamente iguales */
-        gap: 12px; /* Espacio entre los videos */
-    }
+  .video-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-    /* Opcional: Reducimos ligeramente el texto en móviles para que la estética no se rompa en 2 columnas */
-    .video-card p {
-        font-size: 12px;
-        padding: 8px;
-    }
+  .video-card p {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
