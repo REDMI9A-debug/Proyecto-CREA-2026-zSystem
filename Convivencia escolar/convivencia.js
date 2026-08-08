@@ -1,8 +1,6 @@
-// 1. CONFIGURACIÓN (Asegúrate de que esta Key esté activa en Google Cloud Console)
 const API_KEY = 'AIzaSyBkEO5vMaOlYXKMIQyWBvX0RSoV9zSi2lU'; 
 const PLAYLIST_ID = 'PLYo1UwcWRPcs'; 
 
-// 2. LA FUNCIÓN QUE HACE EL TRABAJO
 async function obtenerVideos() {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
 
@@ -63,7 +61,6 @@ let htmlContenido = '';
     }
 }
 
-// 3. FUNCIÓN PARA REPRODUCIR (Cuando haces clic)1
 function cambiarVideo(id, titulo) {
     const reproductor = document.getElementById('mainPlayer');
     const tituloPantalla = document.getElementById('videoTitle');
@@ -72,5 +69,4 @@ function cambiarVideo(id, titulo) {
     tituloPantalla.innerText = titulo;
 }
 
-// 4. ARRANCAR TODO
 document.addEventListener('DOMContentLoaded', obtenerVideos);
