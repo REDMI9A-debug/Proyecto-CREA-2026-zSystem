@@ -41,21 +41,18 @@
 <body
   class="bg-white text-slate-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100 font-sans antialiased overflow-y-scroll">
 
-  <!-- CONTENEDOR MAESTRO -->
   <div class="flex justify-center min-h-screen bg-white dark:bg-gray-950">
     <div class="flex w-full max-w-6xl justify-center">
 
-      <!-- COLUMNA IZQUIERDA (Reducida a 170px) -->
       <header
         class="hidden sm:flex flex-col w-[170px] flex-shrink-0 sticky top-0 h-screen py-4 px-3 border-r border-slate-100 dark:border-gray-800">
 
-        <!-- Logo -->
         <div class="p-2 mb-2">
           <span class="text-3xl font-black text-sky-500 dark:text-emerald-400">B</span>
         </div>
 
         <nav class="flex flex-col gap-2 w-full flex-grow">
-          <!-- BOTÓN INICIO -->
+         
           <button id="btn-nav-inicio"
             class="p-2.5 xl:px-3 flex items-center justify-start gap-3 bg-sky-50 dark:bg-emerald-950/40 text-sky-500 dark:text-emerald-400 font-bold rounded-full w-full transition">
             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +62,6 @@
             <span class="text-xs tracking-wide">Inicio</span>
           </button>
 
-          <!-- BOTÓN PERFIL -->
           <button id="btn-nav-perfil"
             class="p-2.5 xl:px-3 flex items-center justify-start gap-3 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-gray-300 font-medium rounded-full w-full transition">
             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +71,6 @@
             <span class="text-xs tracking-wide">Perfil</span>
           </button>
 
-          <!-- BOTÓN NOTIFICACIONES (PC) -->
           <button id="btn-nav-notificaciones"
             class="p-2.5 xl:px-3 flex items-center justify-start gap-3 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-gray-300 font-medium rounded-full w-full transition relative">
             <div class="relative">
@@ -89,7 +84,6 @@
             <span class="text-xs tracking-wide">Notificaciones</span>
           </button>
 
-          <!-- Selector de Ubicación -->
           <div class="mt-4 w-full">
             <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 px-1">Tu
               ubicación</label>
@@ -106,7 +100,6 @@
             </button>
           </div>
 
-          <!-- Botón Tema -->
           <button id="themeToggle"
             class="mt-3 w-full border border-slate-200 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-emerald-400 font-bold py-1.5 px-3 rounded-full transition flex justify-center items-center gap-2 text-xs">
             <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +113,6 @@
             <span>Tema</span>
           </button>
 
-          <!-- Botón Salir -->
           <button id="btn-logout"
             class="mt-3 w-full border border-red-500/30 hover:bg-red-500/10 text-red-500 dark:text-red-400 font-bold py-1.5 px-3 rounded-full transition flex justify-center items-center gap-2 text-xs">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,25 +124,21 @@
 
       </header>
 
-      <!-- COLUMNA CENTRAL DINÁMICA (ampliada a max-w-3xl) -->
       <div class="flex-1 min-w-0 max-w-3xl min-h-screen pb-20 sm:pb-0 border-r border-slate-100 dark:border-gray-800">
 
-        <!-- 1. PANTALLA: FEED -->
         <div id="wrapper-feed" class="block">
 
-          <!-- Header Sticky -->
           <div
             class="sticky top-0 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md z-10 border-b border-slate-100 dark:border-gray-800">
             <div class="flex items-center justify-between p-4">
               <h1 class="text-xl font-bold">Babahoyo Habla</h1>
               <button id="btn-moderar"
                 class="hidden ml-4 px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-full transition">
-                🛡️ Moderar
+                Moderar
               </button>
             </div>
           </div>
 
-          <!-- Filtros Geográficos -->
           <div
             class="flex items-center gap-2 p-3 border-b border-slate-100 dark:border-gray-800 overflow-x-auto bg-white dark:bg-gray-950">
             <button data-sector="Todo Babahoyo"
@@ -179,7 +167,6 @@
               class="bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-gray-700 transition flex-shrink-0">Baba</button>
           </div>
 
-          <!-- Input para Escribir Publicación -->
           <div class="p-4 border-b border-slate-100 dark:border-gray-800 flex gap-4">
             <div id="publicar-avatar"
               class="w-10 h-10 rounded-full bg-slate-300 dark:bg-gray-800 overflow-hidden flex-shrink-0"></div>
@@ -188,7 +175,6 @@
                 class="w-full bg-transparent text-xl outline-none resize-none placeholder-slate-500 mt-2" rows="2"
                 placeholder="¿Qué está pasando en el cantón?"></textarea>
 
-              <!-- Selector de sector -->
               <div class="mb-2">
                 <label class="block text-xs font-bold text-slate-500 dark:text-gray-400 mb-1">
                   ¿Dónde ocurre esto?
@@ -247,7 +233,6 @@
             </div>
           </div>
 
-          <!-- Aviso Institucional -->
           <div
             class="m-4 p-4 bg-amber-50/60 border border-amber-200 rounded-2xl dark:bg-emerald-950/20 dark:border-emerald-500/30">
             <div class="flex gap-3">
@@ -272,7 +257,6 @@
 
           <div class="border-b border-slate-100 dark:border-gray-800 w-full"></div>
 
-          <!-- TIMELINE -->
           <div id="timeline-posts" class="divide-y divide-slate-100 dark:divide-gray-800"></div>
           <div id="load-more-container" class="flex justify-center py-6">
             <button id="load-more-btn"
@@ -284,9 +268,8 @@
             </button>
           </div>
 
-        </div> <!-- FIN wrapper-feed -->
+        </div>
 
-        <!-- 2. PANTALLA: PERFIL -->
         <div id="wrapper-perfil" class="hidden">
           <header
             class="sticky top-0 z-10 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-slate-200 dark:border-gray-800 p-4 flex items-center gap-6">
@@ -325,7 +308,6 @@
           </div>
         </div>
 
-        <!-- 3. PANTALLA: NOTIFICACIONES -->
         <div id="wrapper-notificaciones" class="hidden">
           <header
             class="sticky top-0 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md z-10 border-b border-slate-100 dark:border-gray-800 p-4">
@@ -334,18 +316,15 @@
           <div id="lista-notificaciones" class="divide-y divide-slate-100 dark:divide-gray-800 min-h-screen"></div>
         </div>
 
-      </div> <!-- FIN columna central dinámica -->
+      </div> 
 
-      <!-- COLUMNA DERECHA ELIMINADA -->
+    </div>
+  </div>
 
-    </div> <!-- FIN flex contenedor principal -->
-  </div> <!-- FIN contenedor maestro -->
-
- <!-- MODAL EDITAR PERFIL -->
   <div id="modal-editar"
     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
     <div class="bg-white dark:bg-gray-950 w-full max-w-lg rounded-2xl p-6 shadow-2xl m-4 animate-scale-in">
-      <!-- El resto de tu contenido del modal queda intacto -->
+     
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-xl font-bold">Editar perfil</h2>
         <button id="btn-cerrar-modal"
@@ -399,7 +378,6 @@
     </div>
   </div>
 
-  <!-- BANDEJA DE NAVEGACIÓN INFERIOR (MÓVIL) -->
   <nav
     class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-t border-slate-200 dark:border-gray-800 flex justify-around items-center py-2 z-50 pb-safe">
 
@@ -452,7 +430,6 @@
 
   </nav>
 
-  <!-- SCRIPTS -->
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 

@@ -1,6 +1,3 @@
-// ============================================
-// 0. CLIENTE DE SUPABASE Y VARIABLES GLOBALES
-// ============================================
 const supabaseClient = supabase.createClient(
   window.SUPABASE_URL,
   window.SUPABASE_ANON_KEY
@@ -16,16 +13,12 @@ let commentsCache = {};
 let loadingComments = new Set();
 let isTogglingModeration = false;
 
-// Variables de Paginación
 const PAGE_SIZE = 10;
 let currentPage = 0;
 let isLoadingMore = false;
 let hasMorePosts = true;
 let currentSectorForPagination = 'Todo Babahoyo';
 
-// ============================================
-// 1. FUNCIÓN PARA SUBIR ARCHIVOS
-// ============================================
 async function uploadFile(file, userId, folder = 'posts', type = 'media') {
   if (!file) return null;
   try {
@@ -36,7 +29,7 @@ async function uploadFile(file, userId, folder = 'posts', type = 'media') {
       .from('media')
       .upload(path, file);
     if (error) {
-      console.error('❌ Error subiendo:', error);
+      console.error('Error subiendo:', error);
       return null;
     }
     const { data } = supabaseClient.storage
@@ -44,7 +37,7 @@ async function uploadFile(file, userId, folder = 'posts', type = 'media') {
       .getPublicUrl(path);
     return data?.publicUrl || null;
   } catch (err) {
-    console.error('❌ Error en uploadFile:', err);
+    console.error('Error in uploadFile:', err);
     return null;
   }
 }
@@ -53,9 +46,6 @@ async function uploadImage(file, userId, type = '') {
   return uploadFile(file, userId, 'profiles', type);
 }
 
-// ============================================
-// 2. CREAR NOTIFICACIÓN
-// ============================================
 async function createNotification(targetUserId, postId, type) {
   try {
     const { data: { session } } = await supabaseClient.auth.getSession();
@@ -71,9 +61,6 @@ async function createNotification(targetUserId, postId, type) {
   }
 }
 
-// ============================================
-// 3. CARGAR PERFIL DEL USUARIO
-// ============================================
 async function loadUserProfile() {
   try {
     const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
@@ -123,9 +110,6 @@ async function loadUserProfile() {
   }
 }
 
-// ============================================
-// 4. VERIFICACIÓN DE SESIÓN
-// ============================================
 async function ensureAuthenticated() {
   try {
     const { data: { session }, error } = await supabaseClient.auth.getSession();
@@ -141,9 +125,6 @@ async function ensureAuthenticated() {
   }
 }
 
-// ============================================
-// 5. CONSULTAS DE POSTS (CON PAGINACIÓN)
-// ============================================
 async function getFeedPosts(sector = null, page = 0, includeInteractions = true) {
   try {
     const from = page * PAGE_SIZE;
@@ -172,7 +153,7 @@ async function getFeedPosts(sector = null, page = 0, includeInteractions = true)
       hasMorePosts = true;
     }
 
-    // Si no necesitamos interacciones, devolvemos los posts tal cual
+
     if (!includeInteractions) {
       return posts.map(post => ({ ...post, userHasLiked: false, commentCount: 0 }));
     }
@@ -263,9 +244,6 @@ async function moderatePost(postId, action) {
   }
 }
 
-// ============================================
-// 6. RENDERIZAR POSTS (MODIFICADO CON ANIMACIONES)
-// ============================================
 function renderPostsToContainer(container, posts, isModeration = false) {
   if (!container) return;
   if (posts.length === 0) {
@@ -285,13 +263,12 @@ function renderPostsToContainer(container, posts, isModeration = false) {
     const timeAgo = new Date(post.created_at).toLocaleDateString('es-ES', {
       day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
     });
+
     const isLiked = post.userHasLiked || false;
     const likeIconColor = isLiked ? 'currentColor' : 'none';
     const likeTextColor = isLiked ? 'text-pink-500' : 'text-slate-400 dark:text-gray-500';
     const commentCount = post.commentCount || 0;
-
-    // Retraso escalonado para que no entren todos de golpe
-    const animationDelay = Math.min(index * 50, 500); 
+    const animationDelay = Math.min(index * 50, 500);
 
     let moderationButtons = '';
     if (isModeration) {
@@ -375,9 +352,6 @@ function renderPosts(posts, isModeration = false) {
 }
 
 
-// ============================================
-// 6b. MODAL PARA PUBLICACIÓN
-// ============================================
 async function abrirPostModal(postId) {
   const oldModal = document.getElementById('post-modal');
   if (oldModal) oldModal.remove();
@@ -419,10 +393,8 @@ async function abrirPostModal(postId) {
     });
     const isVideo = /\.(mp4|webm|ogg|mov|avi|wmv|flv)$/i.test(post.image_url || '');
 
-// Dentro de abrirPostModal(postId) en la sección 6b
     const modal = document.createElement('div');
     modal.id = 'post-modal';
-    // AQUÍ: Agregada la clase animate-fade-in
     modal.className = 'fixed inset-0 z-[70] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-fade-in';
 
     modal.innerHTML = `
@@ -493,7 +465,6 @@ async function abrirPostModal(postId) {
     document.body.appendChild(modal);
     modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
 
-    // Like modal
     const likeBtn = document.getElementById('modal-like-btn');
     if (likeBtn) {
       likeBtn.addEventListener('click', async () => {
@@ -518,7 +489,6 @@ async function abrirPostModal(postId) {
       });
     }
 
-    // Comentario modal
     const submitBtn = document.getElementById('modal-submit-comment');
     const input = document.getElementById('modal-comment-input');
     if (submitBtn && input) {
@@ -577,9 +547,6 @@ async function abrirPostModal(postId) {
   }
 }
 
-// ============================================
-// 7. NAVEGACIÓN Y EVENTOS MÓVILES
-// ============================================
 const themeToggleBtn = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
 
@@ -604,22 +571,20 @@ function navegarA(vistaDestino, botonActivo) {
     if (wrappers[key]) {
       wrappers[key].classList.add('hidden');
       wrappers[key].classList.remove('block');
-      // Limpiamos la animación previa para que se reproduzca de nuevo si regresamos
-      wrappers[key].classList.remove('animate-fade-in'); 
+      wrappers[key].classList.remove('animate-fade-in');
     }
   });
-  
+
   if (wrappers[vistaDestino]) {
     wrappers[vistaDestino].classList.remove('hidden');
     wrappers[vistaDestino].classList.add('block');
-    // Le decimos que anime su opacidad suavemente
-    wrappers[vistaDestino].classList.add('animate-fade-in'); 
+    wrappers[vistaDestino].classList.add('animate-fade-in');
   }
-  
+
   botonesNav.forEach(btn => {
     btn.className = 'p-3 xl:px-4 flex items-center justify-start gap-4 hover:bg-slate-100 dark:hover:bg-gray-900 text-slate-700 dark:text-gray-300 font-medium rounded-full w-full transition relative';
   });
-  
+
   if (botonActivo) {
     botonActivo.className = 'p-3 xl:px-4 flex items-center justify-start gap-4 bg-sky-50 dark:bg-emerald-950/40 text-sky-500 dark:text-emerald-400 font-bold rounded-full w-full transition relative';
   }
@@ -654,9 +619,6 @@ document.getElementById('btn-logout-mobile')?.addEventListener('click', async ()
   }
 });
 
-// ============================================
-// 8. MODAL Y FILTROS GEOGRÁFICOS
-// ============================================
 const modalEditar = document.getElementById('modal-editar');
 const btnEditarPerfil = document.getElementById('btn-editar-perfil');
 const btnCerrarModal = document.getElementById('btn-cerrar-modal');
@@ -694,9 +656,6 @@ botonesFiltro.forEach(boton => {
   });
 });
 
-// ============================================
-// 9. VISTA PREVIA DE IMAGEN / VIDEO
-// ============================================
 const inputFoto = document.getElementById('input-foto');
 const inputVideo = document.getElementById('input-video');
 const containerPreview = document.getElementById('container-preview');
@@ -792,11 +751,11 @@ function mostrarPreviewVideo(file) {
   containerPreview.style.backgroundColor = '#000';
 }
 
-const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
 function validarTamano(file) {
   if (file.size > MAX_FILE_SIZE) {
-    alert(`❌ El archivo "${file.name}" pesa ${(file.size / (1024*1024)).toFixed(1)} MB. El límite es 20 MB.`);
+    alert(`El archivo "${file.name}" pesa ${(file.size / (1024 * 1024)).toFixed(1)} MB. El límite es 20 MB.`);
     return false;
   }
   return true;
@@ -806,9 +765,8 @@ if (inputFoto) {
   inputFoto.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Validar tamaño
       if (!validarTamano(file)) {
-        inputFoto.value = ''; // limpia el input para que no quede seleccionado
+        inputFoto.value = '';
         return;
       }
       if (inputVideo) inputVideo.value = '';
@@ -822,7 +780,6 @@ if (inputVideo) {
   inputVideo.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Validar tamaño
       if (!validarTamano(file)) {
         inputVideo.value = '';
         return;
@@ -838,10 +795,6 @@ if (btnRemovePreview) {
   btnRemovePreview.addEventListener('click', limpiarPreview);
 }
 
-
-// ============================================
-// 10. FUNCIONES PARA PERFIL DE USUARIO
-// ============================================
 async function verPerfilUsuario(userId) {
   if (!userId) return;
   try {
@@ -902,9 +855,6 @@ async function cargarPostsUsuario(userId) {
   }
 }
 
-// ============================================
-// 11. FUNCIONES PARA COMENTARIOS (ELIMINAR, REPORTAR)
-// ============================================
 async function deleteComment(commentId) {
   try {
     const { data: { session } } = await supabaseClient.auth.getSession();
@@ -930,7 +880,7 @@ async function deleteComment(commentId) {
       .delete()
       .eq('id', commentId);
     if (error) {
-      alert('❌ Error al eliminar: ' + error.message);
+      alert('Error al eliminar: ' + error.message);
       return false;
     }
     return true;
@@ -957,7 +907,7 @@ async function reportComment(commentId) {
       });
     if (error) {
       console.error('Error al reportar:', error);
-      alert('❌ Error al reportar');
+      alert('Error al reportar');
     } else {
       alert('✅ Comentario reportado. Gracias por ayudar a mantener la comunidad segura.');
     }
@@ -977,7 +927,6 @@ if (timelinePosts) {
     const currentArticle = target.closest('article');
     if (!currentArticle) return;
 
-    // Moderación
     const modBtn = target.closest('button[data-action="approve"], button[data-action="reject"]');
     if (modBtn) {
       event.stopPropagation();
@@ -1009,7 +958,6 @@ if (timelinePosts) {
       if (!isAuth) return;
     }
 
-    // Like
     const likeBtn = target.closest('button[data-action="like"]');
     if (likeBtn) {
       event.stopPropagation();
@@ -1033,7 +981,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Mostrar comentarios
     const commentBtn = target.closest('button[data-action="comment"]');
     if (commentBtn) {
       event.stopPropagation();
@@ -1085,7 +1032,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Responder comentario
     const replyBtn = target.closest('.comment-reply-btn');
     if (replyBtn) {
       event.stopPropagation();
@@ -1102,7 +1048,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Eliminar comentario
     const deleteBtn = target.closest('.comment-delete-btn');
     if (deleteBtn) {
       event.stopPropagation();
@@ -1121,7 +1066,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Reportar comentario
     const reportBtn = target.closest('.comment-report-btn');
     if (reportBtn) {
       event.stopPropagation();
@@ -1132,7 +1076,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Toggle menú de comentarios
     const menuBtn = target.closest('.comment-menu-btn');
     if (menuBtn) {
       event.stopPropagation();
@@ -1146,7 +1089,6 @@ if (timelinePosts) {
       return;
     }
 
-    // Enviar comentario
     const submitBtn = target.closest('.submit-comment-btn');
     if (submitBtn) {
       event.stopPropagation();
@@ -1199,9 +1141,6 @@ document.addEventListener('click', () => {
   document.querySelectorAll('.comment-menu-dropdown').forEach(d => d.classList.add('hidden'));
 });
 
-// ============================================
-// 13. CLICK EN UNA NOTIFICACIÓN
-// ============================================
 const listaNotificacionesDOM = document.getElementById('lista-notificaciones');
 if (listaNotificacionesDOM) {
   listaNotificacionesDOM.addEventListener('click', async (e) => {
@@ -1224,9 +1163,6 @@ function hacerScrollYResaltar(elemento) {
   setTimeout(() => elemento.classList.remove('bg-sky-50', 'dark:bg-sky-900/30'), 2000);
 }
 
-// ============================================
-// 14. LOGICA DE LIKES Y COMENTARIOS (GLOBAL)
-// ============================================
 async function toggleLike(postId) {
   const { data: { session } } = await supabaseClient.auth.getSession();
   if (!session) throw new Error('No hay sesión');
@@ -1332,9 +1268,6 @@ async function createComment(postId, content) {
   return data;
 }
 
-// ============================================
-// 15. PUBLICAR POST
-// ============================================
 const btnPublicar = document.getElementById('btn-publicar');
 if (btnPublicar) {
   btnPublicar.addEventListener('click', async () => {
@@ -1371,9 +1304,6 @@ if (btnPublicar) {
   });
 }
 
-// ============================================
-// 16. EDICIÓN DE PERFIL
-// ============================================
 const btnGuardarPerfil = document.getElementById('btn-guardar-perfil');
 let tempAvatarURL = null;
 let tempBannerURL = null;
@@ -1409,13 +1339,13 @@ if (btnGuardarPerfil) {
     const nuevaBio = document.getElementById('input-edit-bio').value.trim();
 
     if (!nuevoNombre || !nuevoUser) {
-      alert('❌ Nombre y usuario son obligatorios.');
+      alert('Nombre y usuario son obligatorios.');
       return;
     }
     if (!nuevoUser.startsWith('@')) nuevoUser = '@' + nuevoUser;
 
     const textoOriginal = btnGuardarPerfil.textContent;
-    btnGuardarPerfil.textContent = '⏳ Guardando...';
+    btnGuardarPerfil.textContent = 'Guardando...';
     btnGuardarPerfil.disabled = true;
     btnGuardarPerfil.classList.add('opacity-50', 'cursor-not-allowed');
 
@@ -1461,7 +1391,7 @@ if (btnGuardarPerfil) {
       tempAvatarURL = null;
       tempBannerURL = null;
     } catch (err) {
-      alert('❌ Error al guardar los cambios: ' + err.message);
+      alert('Error al guardar los cambios: ' + err.message);
     } finally {
       btnGuardarPerfil.textContent = textoOriginal;
       btnGuardarPerfil.disabled = false;
@@ -1470,9 +1400,6 @@ if (btnGuardarPerfil) {
   });
 }
 
-// ============================================
-// 17. LOGOUT Y MODERACIÓN
-// ============================================
 const btnLogout = document.getElementById('btn-logout');
 if (btnLogout) {
   btnLogout.addEventListener('click', async () => {
@@ -1522,9 +1449,6 @@ if (btnModerar) {
   });
 }
 
-// ============================================
-// 18. CONTROL VISUAL DE BADGES
-// ============================================
 function ocultarBadgesVisualmente() {
   const badgePC = document.getElementById('badge-notificaciones-pc');
   const badgeMobile = document.getElementById('badge-notificaciones-mobile');
@@ -1566,9 +1490,6 @@ async function actualizarBadgeNotificaciones() {
   }
 }
 
-// ============================================
-// 19. CARGAR Y RENDERIZAR NOTIFICACIONES
-// ============================================
 async function cargarYMostrarNotificaciones() {
   const contenedor = document.getElementById('lista-notificaciones');
   if (!contenedor) return;
@@ -1671,7 +1592,7 @@ async function cargarYMostrarNotificaciones() {
       .eq('is_read', false);
 
     if (updateError) {
-      console.error("❌ ERROR SUPABASE: No se pudieron marcar como leídas.", updateError);
+      console.error("ERROR SUPABASE: No se pudieron marcar como leídas.", updateError);
     }
 
     setTimeout(() => {
@@ -1687,9 +1608,6 @@ async function cargarYMostrarNotificaciones() {
   }
 }
 
-// ============================================
-// 20. SUSCRIPCIÓN EN TIEMPO REAL
-// ============================================
 let notificationChannel = null;
 
 async function suscribirNotificaciones() {
@@ -1725,9 +1643,6 @@ async function suscribirNotificaciones() {
     });
 }
 
-// ============================================
-// 21. FUNCIONALIDAD DE CARGAR MÁS POSTS
-// ============================================
 async function loadMorePosts() {
   if (isLoadingMore || !hasMorePosts) return;
 
@@ -1746,9 +1661,9 @@ async function loadMorePosts() {
       const timeline = document.getElementById('timeline-posts');
       const tempContainer = document.createElement('div');
       tempContainer.innerHTML = '';
-      
+
       renderPostsToContainer(tempContainer, posts, false);
-      
+
       while (tempContainer.firstChild) {
         timeline.appendChild(tempContainer.firstChild);
       }
@@ -1769,12 +1684,8 @@ async function loadMorePosts() {
   }
 }
 
-// Vincular el evento del botón
 document.getElementById('load-more-btn')?.addEventListener('click', loadMorePosts);
 
-// ============================================
-// 22. CARGA DEL FEED PRINCIPAL Y RESET
-// ============================================
 async function loadFeed(sector = 'Todo Babahoyo') {
   currentSectorForPagination = sector;
   currentPage = 0;
@@ -1786,10 +1697,9 @@ async function loadFeed(sector = 'Todo Babahoyo') {
   }
 
   const timeline = document.getElementById('timeline-posts');
-  // Mostrar esqueletos de carga
   timeline.innerHTML = `
     <div class="space-y-4 p-4">
-      ${[1,2,3].map(() => `
+      ${[1, 2, 3].map(() => `
         <div class="animate-pulse flex gap-3 p-4 border-b border-slate-100 dark:border-gray-800">
           <div class="w-10 h-10 bg-slate-200 dark:bg-gray-700 rounded-full"></div>
           <div class="flex-1 space-y-2">
@@ -1801,18 +1711,14 @@ async function loadFeed(sector = 'Todo Babahoyo') {
       `).join('')}
     </div>`;
 
-  // Primera fase: obtener los posts básicos (más rápido)
   const posts = await getFeedPosts(sector, 0, false);
   renderPosts(posts, false);
 
-  // Segunda fase: enriquecer con likes y comentarios
   if (posts.length > 0) {
     const enrichedPosts = await getFeedPosts(sector, 0, true);
-    // Fusionar: solo actualizamos los campos de interacción, sin reemplazar todo
     enrichedPosts.forEach(enrichedPost => {
       const article = document.querySelector(`article[data-post-id="${enrichedPost.id}"]`);
       if (article) {
-        // Actualizar like
         const likeBtn = article.querySelector('button[data-action="like"]');
         if (likeBtn) {
           likeBtn.dataset.liked = enrichedPost.userHasLiked;
@@ -1820,23 +1726,18 @@ async function loadFeed(sector = 'Todo Babahoyo') {
           likeBtn.classList.toggle('text-pink-500', enrichedPost.userHasLiked);
           likeBtn.querySelector('.like-count').textContent = enrichedPost.likes || 0;
         }
-        // Actualizar comentarios
         const commentCountSpan = article.querySelector('.comment-count');
         if (commentCountSpan) commentCountSpan.textContent = enrichedPost.commentCount;
       }
     });
   }
 
-  // Controlar visibilidad del botón "Cargar más"
   const loadMoreBtn = document.getElementById('load-more-btn');
   if (loadMoreBtn) {
     loadMoreBtn.style.display = hasMorePosts ? 'block' : 'none';
   }
 }
 
-// ============================================
-// 23. INICIALIZACIÓN
-// ============================================
 (async function init() {
   await loadUserProfile();
   await loadFeed('Todo Babahoyo');
@@ -1844,21 +1745,17 @@ async function loadFeed(sector = 'Todo Babahoyo') {
   await suscribirNotificaciones();
 })();
 
-// ANIMACIONES DE NOTIFICACIONES
-// Función para disparar animaciones de notificación (Toasts)
 function showToast(message, type = 'success', duration = 3000) {
   const toast = document.createElement('div');
   toast.className = `toast-notification ${type === 'error' ? 'bg-red-600' : 'bg-slate-800'}`;
-  
-  // Icono dinámico según el evento
-  const icon = type === 'error' 
+
+  const icon = type === 'error'
     ? `<svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
     : `<svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
 
   toast.innerHTML = `${icon} <span class="text-sm font-medium">${message}</span>`;
   document.body.appendChild(toast);
 
-  // Remueve la notificación con animación de salida
   setTimeout(() => {
     toast.classList.remove('animate-fade-in');
     toast.classList.add('animate-fade-out');
@@ -1866,7 +1763,6 @@ function showToast(message, type = 'success', duration = 3000) {
   }, duration);
 }
 
-// LOGIN DE INICIO
 async function handleLogin(email, password) {
   const submitBtn = document.querySelector('#login-btn');
   submitBtn.disabled = true;
@@ -1883,16 +1779,14 @@ async function handleLogin(email, password) {
 
   showToast("¡Bienvenido de nuevo!");
 
-  // Animación de salida del contenedor de login
   const loginWrapper = document.querySelector('#wrapper-login');
   if (loginWrapper) {
     loginWrapper.classList.add('animate-fade-out');
-    
+
     setTimeout(() => {
       loginWrapper.classList.add('hidden');
       loginWrapper.classList.remove('animate-fade-out');
-      
-      // Entrada del feed
+
       const feedWrapper = document.querySelector('#wrapper-feed');
       feedWrapper.classList.remove('hidden');
       feedWrapper.classList.add('animate-fade-in');
@@ -1900,11 +1794,9 @@ async function handleLogin(email, password) {
   }
 }
 
-// CIERRE DE SESION
 async function handleLogout() {
   const currentWrapper = document.querySelector('.wrapper-active') || document.querySelector('#wrapper-feed');
-  
-  // Transición de salida de la pantalla actual
+
   if (currentWrapper) {
     currentWrapper.classList.add('animate-fade-out');
   }
@@ -1918,7 +1810,6 @@ async function handleLogout() {
       currentWrapper.classList.remove('animate-fade-out');
     }
 
-    // Muestra la pantalla de login con animación de entrada
     const loginWrapper = document.querySelector('#wrapper-login');
     if (loginWrapper) {
       loginWrapper.classList.remove('hidden');
@@ -1927,13 +1818,11 @@ async function handleLogout() {
   }, 200);
 }
 
-// ANIMACION DE SUBIDA DE POST
 async function handleCreatePost(content, file) {
   const postBtn = document.querySelector('#create-post-btn');
   postBtn.disabled = true;
   postBtn.innerText = "Publicando...";
 
-  // 1. Lógica de subida a Supabase...
   const { data: newPost, error } = await supabase
     .from('posts')
     .insert([{ content, user_id: currentUser.id }])
@@ -1950,14 +1839,11 @@ async function handleCreatePost(content, file) {
 
   showToast("¡Publicación enviada!");
 
-  // 2. Insertar el elemento en el DOM con animación
   const postsContainer = document.querySelector('#posts-container');
-  const postElement = renderPostCard(newPost); // Tu función para renderizar la tarjeta
-  
-  // Le agregamos la clase de animación antes de insertarlo
+  const postElement = renderPostCard(newPost);
+
   postElement.classList.add('animate-fade-in');
   postsContainer.prepend(postElement);
 
-  // Limpiar formulario / modal
   document.querySelector('#post-form').reset();
 }

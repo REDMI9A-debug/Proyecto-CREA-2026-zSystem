@@ -10,7 +10,6 @@
     tailwind.config = { darkMode: 'class' }
   </script>
   <style>
-    /* transiciones suaves para los pasos */
     .step-transition {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -38,7 +37,6 @@
 
   <div class="w-full max-w-md bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl shadow-2xl p-6 md:p-8">
 
-    <!-- ========== LOGIN ========== -->
     <form id="login-form" class="space-y-4">
       <h2 class="text-2xl font-extrabold text-emerald-400">Iniciar Sesión</h2>
       <input type="email" id="login-email" placeholder="Correo electrónico" required
@@ -53,10 +51,8 @@
       </p>
     </form>
 
-    <!-- ========== REGISTRO (2 pasos) ========== -->
     <div id="register-container" class="hidden">
 
-      <!-- PASO 1: Email y contraseña -->
       <form id="register-step1" class="space-y-4 step-transition step-visible">
         <h2 class="text-2xl font-extrabold text-emerald-400">Crear cuenta</h2>
         <p class="text-sm text-gray-400">Paso 1 de 2 · Ingresa tus credenciales</p>
@@ -72,7 +68,6 @@
         </p>
       </form>
 
-      <!-- PASO 2: Perfil (se muestra tras registro exitoso) -->
       <form id="register-step2" class="space-y-4 step-transition step-hidden">
         <h2 class="text-2xl font-extrabold text-emerald-400">Completa tu perfil</h2>
         <p class="text-sm text-gray-400">Paso 2 de 2 · Cuéntanos sobre ti</p>
@@ -89,7 +84,6 @@
         <textarea id="profile-bio" rows="3" placeholder="Biografía (opcional)"
           class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition resize-none"></textarea>
 
-        <!-- Avatar y Banner (opcionales) -->
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-gray-400 mb-1">Avatar</label>
@@ -115,7 +109,6 @@
 
   </div>
 
-  <!-- Dependencias y lógica -->
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth-logic.js"></script>
